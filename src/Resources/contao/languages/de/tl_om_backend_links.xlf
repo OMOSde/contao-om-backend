@@ -1,0 +1,101 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_om_backend_links.php" source-language="en" target-language="de">
+        <body>
+            <trans-unit id="tl_om_backend_links.title.0">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.title.1">
+                <source>Please enter the title.</source>
+                <target>Bitte geben Sie den Titel ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.be_group.0">
+                <source>Group</source>
+                <target>Gruppe</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.be_group.1">
+                <source>Please enter the group.</source>
+                <target>Bitte geben Sie die Gruppe ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.url.0">
+                <source>Url</source>
+                <target>Url</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.url.1">
+                <source>Please enter the url.</source>
+                <target>Bitte geben Sie die URL ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.language.0">
+                <source>Language</source>
+                <target>Sprache</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.language.1">
+                <source>Please enter the language.</source>
+                <target>Bitte geben Sie die Sprache an.</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.published.0">
+                <source>Publish</source>
+                <target>Veröffentlichen</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.published.1">
+                <source>Publish.</source>
+                <target>Veröffentlichen.</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.title_legend">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.publish_legend">
+                <source>Publish</source>
+                <target>Veröffentlichen</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.deleteConfirm">
+                <source>Deleting category ID %s will also delete all its FAQs! Continue?</source>
+                <target>Wenn Sie die Kategorie %s löschen, werden auch alle darin enthaltenen FAQs gelöscht!
+                    Fortfahren?
+                </target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.new.0">
+                <source>New link</source>
+                <target>Neuer Link</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.new.1">
+                <source>Create a new link</source>
+                <target>Einen neuen Link anlegen</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.show.0">
+                <source>Link details</source>
+                <target>Linkdetails</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.show.1">
+                <source>Show the details of link ID %s</source>
+                <target>Details des Links ID %s anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.edit.0">
+                <source>Edit link</source>
+                <target>Link bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.edit.1">
+                <source>Edit link ID %s</source>
+                <target>Link ID %s bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.copy.0">
+                <source>Duplicate link</source>
+                <target>Link duplizieren</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.copy.1">
+                <source>Duplicate link ID %s</source>
+                <target>Link ID %s duplizieren</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.delete.0">
+                <source>Delete link</source>
+                <target>Link löschen</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links.delete.1">
+                <source>Delete category ID %s</source>
+                <target>Link ID %s löschen</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

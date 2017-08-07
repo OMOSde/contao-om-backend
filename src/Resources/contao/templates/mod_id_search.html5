@@ -1,0 +1,36 @@
+
+<div id="mod_id_search" class="<?= $this->class; ?>">
+    <div id="tl_buttons">
+        <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="header_back" title="" accesskey="b" onclick="Backend.getScrollOffset()"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT']; ?></a>
+    </div>
+    <h2 class="sub_headline"><?php echo $GLOBALS['TL_LANG']['om_backend']['search_headline']; ?></h2>
+
+    <?php if ($this->error): ?>
+        <div class="tl_message">
+            <p class="tl_error"><?= $this->error; ?></p>
+        </div>
+    <?php endif; ?>
+
+    <div class="tl_listing_container ">
+        <form action="" method="post" class="tl_form">
+            <div class="tl_formbody_edit" style="padding-bottom:26px;">
+                <input type="hidden" name="FORM_SUBMIT" value="om_backend_id_search">
+                <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN; ?>">
+                <h3><?= $this->lang['headline']; ?></h3>
+                <input type="text" name="id_alias" class="tl_text_unit" value="<?= $this->id; ?>">
+                <select class="tl_select_unit" name="table" class="tl_select">
+                    <?php foreach ($this->groups as $group): ?>
+                        <optgroup label="<?php echo $group['title']; ?>">
+                            <?php foreach ($group['tables'] as $table): ?>
+                                <option value="<?php echo $table[2].'::'.$table[0]; ?>"<?php if ($this->selected == $table[0]) echo ' selected'; ?>><?php echo $table[1]; ?> (<?php echo $table[0]; ?>)</option>
+                            <?php endforeach; ?>
+                        </optgroup>
+                    <?php endforeach; ?>
+                </select>
+                <input type="submit" class="tl_submit" value="<?= $this->lang['submit']; ?>">
+                <p class="tl_help tl_tip" title=""><?= $this->lang['help']; ?></p>
+            </div>
+        </form>
+    </div>
+
+</div>

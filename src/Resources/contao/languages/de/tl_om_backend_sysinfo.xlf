@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_om_backend_sysinfo.php" source-language="en" target-language="de">
+        <body>
+            <trans-unit id="tl_om_backend_sysinfo.title.0">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.title.1">
+                <source>Please enter the title.</source>
+                <target>Bitte geben Sie den Titel ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.priority.0">
+                <source>Priority</source>
+                <target>Priorität</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.priority.1">
+                <source>Please select a priority.</source>
+                <target>Bitte wählen Sie eine Priorität.</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.info.0">
+                <source>Information</source>
+                <target>Information</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.info.1">
+                <source>Please enter the information.</source>
+                <target>Bitte geben Sie die Information an.</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.title_legend">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.info_legend">
+                <source>Information</source>
+                <target>Information</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.priority_legend">
+                <source>Priority</source>
+                <target>Priorität</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.deleteConfirm">
+                <source>Deleting information ID %s! Continue?</source>
+                <target>Die Information ID %s löschen! Fortfahren?</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.new.0">
+                <source>New information</source>
+                <target>Neue Information</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.new.1">
+                <source>Create a new information</source>
+                <target>Eine neue Information anlegen</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.show.0">
+                <source>Information details</source>
+                <target>Informationdetails</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.show.1">
+                <source>Show the details of information ID %s</source>
+                <target>Details der Information ID %s anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.edit.0">
+                <source>Edit information</source>
+                <target>Information bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.edit.1">
+                <source>Edit information ID %s</source>
+                <target>Information ID %s bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.copy.0">
+                <source>Duplicate information</source>
+                <target>Information duplizieren</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.copy.1">
+                <source>Duplicate information ID %s</source>
+                <target>Information ID %s duplizieren</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.delete.0">
+                <source>Delete information</source>
+                <target>Information löschen</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.delete.1">
+                <source>Delete information ID %s</source>
+                <target>Information ID %s löschen</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.low.0">
+                <source>Low</source>
+                <target>Niedrig</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.middle.0">
+                <source>Middle</source>
+                <target>Mittel</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.high.0">
+                <source>High</source>
+                <target>Hoch</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

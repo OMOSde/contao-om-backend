@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/default.php" source-language="en" target-language="de">
+        <body>
+            <trans-unit id="MSC.om_backend.id_search">
+                <source>ID/Alias search</source>
+                <target>ID/Alias-Suche</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.install_tool">
+                <source>Install tool</source>
+                <target>Installtool</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.new_template">
+                <source>New template</source>
+                <target>Neues Template erstellen</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.sync_files">
+                <source>Sync files</source>
+                <target>Dateien/Verzeichnisse syncronisieren</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.stylesheets">
+                <source>Stylesheets</source>
+                <target>Stylesheets</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.modules">
+                <source>Modules</source>
+                <target>Module</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.layouts">
+                <source>Layouts</source>
+                <target>Seitenlayouts</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.image_size">
+                <source>Image sizes</source>
+                <target>Bildgrößen</target>
+            </trans-unit>
+            <trans-unit id="MSC.id_search.headline">
+                <source>ID/Alias</source>
+                <target>ID/Alias eingeben</target>
+            </trans-unit>
+            <trans-unit id="MSC.id_search.submit">
+                <source>Search</source>
+                <target>Suchen</target>
+            </trans-unit>
+            <trans-unit id="MSC.id_search.help">
+                <source>Please enter an ID / alias and select a table.</source>
+                <target>Bitte geben Sie eine ID/Alias ein und wählen eine Tabelle.</target>
+            </trans-unit>
+            <trans-unit id="ERR.id_search.id_or_alias_not_found">
+                <source>ID/Alias not found.</source>
+                <target>ID/Alias nicht gefunden.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

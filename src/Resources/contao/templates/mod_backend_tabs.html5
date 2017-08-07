@@ -1,0 +1,10 @@
+
+<?php if ($this->manager): ?>
+    <?= $this->manager; ?>
+<?php endif; ?>
+<?php if ($this->html): ?>
+    <?= $this->html; ?>
+<?php endif; ?>
+<?php if ($this->main): ?>
+    <?= $this->main; ?>
+<?php endif; ?>

@@ -1,0 +1,129 @@
+
+/***** toolbar *****/
+
+body.popup #om_backend_toolbar {
+    display: none;
+}
+body:not(.popup).om_backend_toolbar #header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+}
+body:not(.popup).om_backend_toolbar #container {
+    margin-top: 48px;
+    padding: 0;
+}
+body:not(.popup).om_backend_toolbar #container #main {
+    width: calc(100% - 44px) !important;
+}
+body:not(.popup).lw.om_backend_toolbar #container #main {
+    margin-right: 0;
+}
+#om_backend_toolbar {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 44px;
+    margin-top: 48px;
+    padding: 12px 13px;
+    background: #0f1c26;
+    z-index: 90;
+}
+#om_backend_toolbar a.button {
+    display: block;
+    margin: 0 0 8px;
+    cursor: pointer;
+}
+#om_backend_toolbar a.button svg {
+    width: 18px;
+    height: 18px;
+}
+#om_backend_toolbar a.button:hover svg,
+#om_backend_toolbar a.button:hover svg path,
+#om_backend_toolbar a.button:hover svg polygon,
+#om_backend_toolbar a.button:hover svg polyline,
+#om_backend_toolbar a.button:hover svg circle,
+#om_backend_toolbar a.button:hover svg rect,
+#om_backend_toolbar a.button:hover svg line {
+    stroke: white;
+}
+#om_backend_toolbar .separator {
+    margin: 0 0 12px;
+    padding: 0 0 4px;
+    border-bottom: 1px solid #3a454d;
+}
+
+@media (min-width: 992px) {
+    body:not(.popup).om_backend_toolbar #container #main {
+        margin-right: 48px;
+    }
+    #om_backend_toolbar {
+        width: 48px;
+        padding: 18px 12px;
+    }
+    #om_backend_toolbar a.button {
+        margin: 0 0 12px;
+    }
+    #om_backend_toolbar a.button svg {
+        width: 24px;
+        height: 24px;
+    }
+    #om_backend_toolbar .separator {
+        margin: 0 0 18px;
+        padding: 0 0 6px;
+    }
+}
+
+
+/***** navigation *****/
+
+#left #tl_navigation .group-om_backend {
+    background: url(../icons/menu_ombackend.svg) 3px 2px no-repeat;
+    background-size: 13px;
+}
+
+
+/***** id search *****/
+
+#mod_id_search input[type=text] {
+    margin-right: 1px;
+    width: 200px;
+}
+#mod_id_search input[type=submit] {
+    margin-left: 2px;
+    padding: 6px 12px 5px;
+}
+
+
+/***** backend css *****/
+
+.w25, .w33, .w66, .w75 {
+    float: left;
+    height: 80px;
+}
+.w25 {
+    width: calc(25% - 30px);
+}
+.w33 {
+    width: calc(33.3333% - 30px);
+}
+.w66 {
+    width: calc(66.6666% - 30px);
+}
+.w75 {
+    width: calc(75% - 30px);
+}
+.heightAuto {
+    height: auto;
+}
+
+@media (max-width: 767px) {
+    .w25, .w33, .w66, .w75 {
+        float: none;
+        width: calc(100% - 30px);
+    }
+}

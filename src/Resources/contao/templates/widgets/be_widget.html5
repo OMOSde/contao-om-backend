@@ -1,0 +1,4 @@
+
+<?php $strLength = ($this->arrConfiguration['type'] == 'text') ? '<span style="font-size:0.75rem;color:#999;padding-left:3px" class="length"></span>' : ''; ?>
+<h3><?= $this->generateLabel() . $this->xlabel ?><?= $strLength; ?></h3>
+<?= $this->generateWithError(true) ?>

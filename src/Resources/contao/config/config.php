@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * Contao module om_backend
+ *
+ * @copyright OMOS.de 2017 <http://www.omos.de>
+ * @author    René Fehrmann <rene.fehrmann@omos.de>
+ * @package   om_backend
+ * @link      http://www.omos.de
+ * @license   LGPL 3.0+
+ */
+
+
+/**
+ * Add stylesheets and javascript
+ */
+if (TL_MODE == 'BE')
+{
+    $GLOBALS['TL_CSS'][] = 'bundles/omosdecontaoombackend/css/om_backend.css|static';
+    $GLOBALS['TL_CSS'][] = 'bundles/omosdecontaoombackend/css/markdown.css|static';
+
+    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/omosdecontaoombackend/js/om_backend.js';
+}
+
+
+/**
+ * Backend modules
+ */
+$GLOBALS['BE_MOD']['om_backend'] = array
+(
+    'id_search' => array
+    (
+        'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleIdSearch',
+    ),
+    /*'sysinfo' => array
+    (
+        'tables'   => array('tl_om_backend_sysinfo'),
+    ),*/
+);
+
+
+/**
+ * Add selected backend modules
+ */
+$objUser = BackendUser::getInstance();
+$objUser->authenticate();
+
+if ($objUser->om_backend_features !== null && in_array('addMarkdownView', $objUser->om_backend_features))
+{
+    $GLOBALS['BE_MOD']['om_backend']['markdown_view']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleMarkdownViewer';
+}
+if ($objUser->om_backend_features !== null && in_array('addBackendLinks', $objUser->om_backend_features))
+{
+    $GLOBALS['BE_MOD']['om_backend'] = array
+    (
+        'backend_links' => array
+        (
+            'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
+            'tabs'     => array
+            (
+                'backend_links_main',
+                'backend_links_top'
+            )
+        ),
+        'backend_links_main' => array
+        (
+            'tables' => array('tl_om_backend_links_main')
+        ),
+        'backend_links_top' => array
+        (
+            'tables' => array('tl_om_backend_links_top')
+        )
+    );
+}
+
+
+/**
+ * Backend form fields
+ */
+$GLOBALS['BE_FFL']['usageWizard'] = 'OMOSde\ContaoOmBackendBundle\UsageWizard';
+
+
+/**
+ * Hooks
+ */
+$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\Toolbar', 'addToolbarToBackendTemplate');
+$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\ModuleBackendTabs', 'removeItemsFromNavigation');
+$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\Hooks', 'addBodyClasses');
+$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinksTop');
+
+
+/**
+ * Models
+ */
+$GLOBALS['TL_MODELS']['tl_om_backend_links_main'] = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksMainModel';
+$GLOBALS['TL_MODELS']['tl_om_backend_links_top']  = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksTopModel';

@@ -1,0 +1,12 @@
+
+<div class="mdv">
+    <?php if ($this->manager): ?>
+        <?= $this->manager; ?>
+    <?php endif; ?>
+
+    <div class="content">
+        <?php if ($this->html): ?>
+            <?= $this->html; ?>
+        <?php endif; ?>
+    </div>
+</div>
