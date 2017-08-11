@@ -127,7 +127,7 @@ class ModuleBackendTabs extends \BackendModule
             // remove tabs from dom
             $doc = new \DOMDocument();
             libxml_use_internal_errors(true);
-            $doc->loadHTML($strContent);
+            $doc->loadHTML($strContent, LIBXML_HTML_NODEFDTD);
             libxml_use_internal_errors(false);
 
             $xpath = new \DOMXpath($doc);
