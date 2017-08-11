@@ -42,35 +42,38 @@ $GLOBALS['BE_MOD']['om_backend'] = array
 /**
  * Add selected backend modules
  */
-$objUser = BackendUser::getInstance();
-$objUser->authenticate();
+if (TL_MODE == 'BE')
+{
+    $objUser = BackendUser::getInstance();
+    $objUser->authenticate();
 
-if ($objUser->om_backend_features !== null && in_array('addMarkdownView', $objUser->om_backend_features))
-{
-    $GLOBALS['BE_MOD']['om_backend']['markdown_view']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleMarkdownViewer';
-}
-if ($objUser->om_backend_features !== null && in_array('addBackendLinks', $objUser->om_backend_features))
-{
-    $GLOBALS['BE_MOD']['om_backend'] = array
-    (
-        'backend_links' => array
+    if ($objUser->om_backend_features !== null && in_array('addMarkdownView', $objUser->om_backend_features))
+    {
+        $GLOBALS['BE_MOD']['om_backend']['markdown_view']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleMarkdownViewer';
+    }
+    if ($objUser->om_backend_features !== null && in_array('addBackendLinks', $objUser->om_backend_features))
+    {
+        $GLOBALS['BE_MOD']['om_backend'] = array
         (
-            'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
-            'tabs'     => array
+            'backend_links' => array
             (
-                'backend_links_main',
-                'backend_links_top'
+                'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
+                'tabs'     => array
+                (
+                    'backend_links_main',
+                    'backend_links_top'
+                )
+            ),
+            'backend_links_main' => array
+            (
+                'tables' => array('tl_om_backend_links_main')
+            ),
+            'backend_links_top' => array
+            (
+                'tables' => array('tl_om_backend_links_top')
             )
-        ),
-        'backend_links_main' => array
-        (
-            'tables' => array('tl_om_backend_links_main')
-        ),
-        'backend_links_top' => array
-        (
-            'tables' => array('tl_om_backend_links_top')
-        )
-    );
+        );
+    }
 }
 
 
