@@ -2,10 +2,9 @@
 
 This bundle is still in development. NOT READY FOR USE!!!
 
-##
+## Introduction
 
-Contao-OM-Backend is a module for the Open Source PHP Content Management System Contao.
-
+Contao-OM-Backend is a module for the Open Source PHP Content Management System Contao. It was designed for admins and daily work.
 
 ## System requirements
 
@@ -21,8 +20,10 @@ You can install the module through composer.
 - __Sprache bei Startpunkten:__ zeigt zusätzlich die ausgewählte Sprache bei den Startpunkten an (Benutzer-Einstellungen)
 - __ID-/Alias-Suche:__ ein eigenständiges Backend-Modul was nach IDs und Aliases in allen tl_*-Tabellen suchen kann
 - __IDs bei Shift:__ zeigt bei gedrückter Shift-Taste in einigen Listenansichten zusätzlich die IDs der Datensätze an (Benutzer-Einstellungen)
+- __Textfeld-Länge:__ zeigt bei allen DCA-Feldern vom Typ 'text', die derzeitige Länge und falls vorhanden auch die maximale Länge an
 - __MarkdownViewer:__ Backend-Modul zur Anzeige aller Markdown-Dateien im Wurzelverzeichnis der Installation als HTML (Benutzer-Einstellungen)
 - __Backend-CSS:__ bringt neue Klassen für die Evaluationseigenschaft 'tl_class' mit, etwa w25,w33,w66,w75,heightAuto
+- __Backend-Tabs:__ Reiter-Ansicht für eigenen Backend-Module
 
 For more informations read FEATURES.md.
 
@@ -31,7 +32,6 @@ For more informations read FEATURES.md.
 - __Kontaktlink:__ zeigt einen konfigurierbaren Link in der Backend-Top-Navigation an (unter System » Einstellungen)
 - __Backend-Links:__ Backend-Modul zur Erstellung für Kurzlinks im Backend (Benutzer-Einstellung)
 - __Suche nach Datei-Verwendungen:__ kann bei der Suche nach Verwendung von Dateien helfen (Dateiverwaltung » Datei bearbeiten; Hinweise in FEATURES.md beachten)
-- __Backend-Tabs:__ Reiter-Ansicht für eigenen Backend-Module
 
 ## Missing informations
 
