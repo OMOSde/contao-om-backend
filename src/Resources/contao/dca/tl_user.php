@@ -1,13 +1,12 @@
 <?php
 
 /**
- * Contao module om_backend
+ * Contao bundle contao-om-backend
  *
- * @copyright OMOS.de 2015 <http://www.omos.de>
+ * @copyright OMOS.de 2017 <http://www.omos.de>
  * @author    René Fehrmann <rene.fehrmann@omos.de>
- * @package   om_backend
- * @link      http://www.omos.de
- * @license   LGPL
+ * @link      https://github.com/OMOSde/contao-om-backend
+ * @license   LGPL 3.0+
  */
 
 
