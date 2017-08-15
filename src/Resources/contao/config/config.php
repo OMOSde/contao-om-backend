@@ -74,6 +74,31 @@ if (TL_MODE == 'BE')
             )
         );
     }
+
+    // get tables from all backend modules
+    foreach ($GLOBALS['BE_MOD'] as $arrModules)
+    {
+        foreach ($arrModules as $keyModule=>$module)
+        {
+            $arrTables[$keyModule] = $module['tables'];
+        }
+    }
+
+    // add tables
+    foreach ($GLOBALS['BE_MOD'] as $keyGroup=>$arrModules)
+    {
+        foreach ($arrModules as $keyModule=>$module)
+        {
+            if (isset($module['tabs']) && count($module['tabs']))
+            {
+                $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = array();
+                foreach ($module['tabs'] as $tab)
+                {
+                    $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = array_merge($GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'], $arrTables[$tab]);
+                }
+            }
+        }
+    }
 }
 
 
@@ -87,7 +112,7 @@ $GLOBALS['BE_FFL']['usageWizard'] = 'OMOSde\ContaoOmBackendBundle\UsageWizard';
  * Hooks
  */
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\Toolbar', 'addToolbarToBackendTemplate');
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\ModuleBackendTabs', 'removeItemsFromNavigation');
+$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\ModuleBackendTabs', 'changeNavigation');
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\Hooks', 'addBodyClasses');
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinksTop');
 

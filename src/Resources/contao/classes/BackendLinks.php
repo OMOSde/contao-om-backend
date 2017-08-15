@@ -55,7 +55,7 @@ class BackendLinks extends \Backend
             $strLinks = '';
             foreach ($objLinks as $link)
             {
-                $strStyle = ($link->icon) ? sprintf('background: url("%s") left 17px no-repeat;', \FilesModel::findByUuid($link->icon)->path) : sprintf('display:inline-block;margin-left:18px;padding: 17px 10px 17px 10px;');
+                $strStyle = ($link->icon) ? sprintf('background:url(%s) left 17px no-repeat;', \FilesModel::findByUuid($link->icon)->path) : sprintf('display:inline-block;margin-left:18px;padding: 17px 10px 17px 10px;');
                 $strLink  = ($link->url) ? sprintf('<li><a href="%s" style="%s">%s</a></li>', $link->url, $strStyle, $link->title) : sprintf('<li><span style="%s">%s</span></li>', $strStyle, $link->title);
 
                 $strLinks .= $strLink;

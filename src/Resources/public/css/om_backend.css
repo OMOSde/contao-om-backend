@@ -99,6 +99,26 @@ body:not(.popup).lw.om_backend_toolbar #container #main {
 }
 
 
+/***** backend tabs *****/
+
+#manager li {
+    display: inline-block;
+    padding: 8px 0;
+    background-color: #f9f9fb;
+    border: 1px solid #ddd;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    top: 1px;
+}
+#manager li.current {
+    background-color: #f3f3f5;
+    border-bottom-color: #f3f3f5;
+}
+#manager li:hover {
+    background-color: #f3f3f5;
+}
+
+
 /***** backend css *****/
 
 .w25, .w33, .w66, .w75 {

@@ -58,11 +58,26 @@ class ModuleBackendTabs extends \BackendModule
             $strManager = '<div id="manager"><ul>';
             foreach ($arrModule['tabs'] as $intKey=>$strTab)
             {
-                // link
-                $strHref = sprintf('%scontao?do=%s&tab=%s',
+                // get group
+                foreach ($GLOBALS['BE_MOD'] as $keyGroup=>$arrModules)
+                {
+                    foreach ($arrModules as $keyModule=>$module)
+                    {
+                        if ($strTab == $keyModule)
+                        {
+                            $strGroup = $keyGroup;
+                            break 2;
+                        }
+                    }
+                }
+
+                // generate link
+                $strTable = sprintf('%s', $GLOBALS['BE_MOD'][$strGroup][$strTab]['tables'][0]);
+                $strHref = sprintf('%scontao?do=%s&tab=%s&table=%s',
                     (strpos(\Environment::get('request'), 'app_dev.php') !== false) ? 'app_dev.php/' : '',
                     $strModule,
-                    $strTab
+                    $strTab,
+                    $strTable
                 );
 
                 // add class
@@ -74,7 +89,6 @@ class ModuleBackendTabs extends \BackendModule
                 {
                     $strClass = (\Input::get('tab') == $strTab) ? ' class="current"' : '';
                 }
-
 
                 // list item
                 $strManager .= sprintf('<li%s style="margin-right:4px;"><a href="%s" title="%s">%s</a></li>',
@@ -101,17 +115,18 @@ class ModuleBackendTabs extends \BackendModule
      *
      * @return mixed
      */
-    public function removeItemsFromNavigation($strContent, $strTemplate)
+    public function changeNavigation($strContent, $strTemplate)
     {
         if ($strTemplate == 'be_main')
         {
             // variables
-            $arrTabs = [];
+            $arrTabs    = [];
+            $arrModules = [];
 
             // determine tabs to remove
-            foreach ($GLOBALS['BE_MOD'] as &$arrGroup)
+            foreach ($GLOBALS['BE_MOD'] as $keyGroup=>&$arrGroup)
             {
-                foreach ($arrGroup as $module)
+                foreach ($arrGroup as $keyModule=>$module)
                 {
                     if (isset($module['tabs']) && count($module['tabs']) > 0)
                     {
@@ -119,6 +134,12 @@ class ModuleBackendTabs extends \BackendModule
                         {
                             $arrTabs[] = $tab;
                         }
+
+                        $arrModules[] = array
+                        (
+                            'group'  => $keyGroup,
+                            'module' => $keyModule
+                        );
                     }
                 }
             }
@@ -138,6 +159,17 @@ class ModuleBackendTabs extends \BackendModule
                 {
                     $elemListItem = $elemLink->parentNode;
                     $elemListItem->parentNode->removeChild($elemListItem);
+                }
+            }
+
+            // add table to backend link
+            $xpath = new \DOMXpath($doc);
+            foreach ($arrModules as $module)
+            {
+                $link = $xpath->query('//a[contains(@class,"'.$module['module'].'")]');
+                foreach ($link as $link)
+                {
+                    $link->setAttribute('href', $link->getAttribute('href').'&table='.$GLOBALS['BE_MOD'][$module['group']][$module['module']]['tables'][0]);
                 }
             }
 
