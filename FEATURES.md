@@ -3,25 +3,23 @@
 
 ## 0. Vorwort
 
-Dies ist eine überarbeitete und ergänzte Version des Moduls 'om_backend' für Contao 4.4.
+Dies ist ein Symfony-Bundle für das Open-Source-Managementsystem Contao. Es ging aus dem Contao-Modul 'om_backend' hervor. Die meisten Features wurden übernommen bzw. neu entwickelt und an das neue Grundgerüst von Contao angepasst. Das Bundle unterstützt derzeit die Contao Version 4.4+.
 
-## 1. Für Alle
+Entwickelt wurde das Bundle vor allem für Administratoren, die mit Contao eigene Projekte umsetzen. Es bringt vor allem Anpassungen für das Backend mit, welche zumindest uns die tägliche Arbeit mit Contao erleichtern.
 
-Für das einfachere Arbeiten im Backend bringt das Modul einige neue Features mit. Einige davon müssen in den 
-Benutzereinstellungen vorher aktiviert werden.
+## 1. Features
 
-### 1.1 Eine Backend-Toolbar
+### 1.1 Toolbar
 
 Eine praktische Toolbar für wichtige Funktionen im Backend. Die Toolbar positioniert sich rechter Hand im Backend an 
 einer fixen Stelle. Nachfolgend eine kleine Auflistung der Buttons und ihrer Funktion:
 
-- ID-/Alias-Suche (wird weiter unten genauer beschrieben)
-- Install-Tool (dieser Button verlinkte in der Version für Contao 3.5 auf die Datenbank-Aktualisierung, nun wird 
-direkt ins Install-Tool verlinkt)
+- ID-/Alias-Suche (Feature wird weiter unten genauer beschrieben)
+- Install-Tool (dieser Button verlinkt direkt ins Install-Tool)
 - ein neues Template erstellen (Kurzlink)
 - Syncronisation der Dateiverwaltung (Kurzlink)
 
-Für jedes gefunden Theme werden folgende 4 Buttons bereitgestellt:
+Für jedes vorhandene Theme werden folgende 4 Buttons bereitgestellt:
 
 - Stylesheets
 - Module
@@ -30,56 +28,69 @@ Für jedes gefunden Theme werden folgende 4 Buttons bereitgestellt:
 
 Außerdem werden noch die derzeit verfügbaren Speichern-Button hinzugefügt.
 
+Alle Buttons verfügen über ein Tooltip bei Mouse-Hover.
+
 ### 1.2 Sprache bei den Startpunkten hinzufügen
 
 Wie der Titel besagt, werden bei allen Startpunkten die jeweilige Sprache hinzugefügt. Dies ist praktisch bei 
 mehrsprachigen Projekten. Dies gilt auch für den neuen DCA-Picker.
 
+![Sprache bei Startpunkten anzeigen](handbook/images/feature_language_at_rootpages.png)
+
 ### 1.3 ID-/Alias-Suche
 
 Die ID-/Alias-Suche dient der direkten Auffindung von Datensätzen von denen die ID bzw. der Alias (falls in der 
 Tabelle vorhanden) bekannt ist. Sollte der Datensatz gefunden werden, wird direkt zur Bearbeitung des Datensatzes 
-gesprungen. Dies gilt auch für Tabelle, welche durch andere Backend-Module bereitgestellt werden.
+gesprungen. Dies gilt auch für Tabellen, welche durch andere Backend-Module bereitgestellt werden.
  
-Diese Suchfunktion ist auch Bestandteil der Toolbar.
+Diese Suchfunktion ist auch als Button in der Toolbar verfügbar.
  
 ### 1.4 ID´s mit 'Shift' anzeigen
 
+Während der Entwicklung ist es oft notwendig, die genaue ID eines Datensatzes zu kennen. Hierbei hilft das Anzeigen der ID´s in dem die Shift-Taste gehalten wird. Dies funktioniert in den meisten Listenansichten.
 
+![ID´s bei Shift](handbook/images/feature_ids_on_shift.png)
 
-### 1.5 Backend-Links
+### 1.4 Textlänge für Textfelder
 
-### 1.6 System-Informationen
+Es werden bei allen Textfelder (DCA Inputtype == 'text') die Anzahl der Textlänge angezeigt. Falls vorhanden, wird auch die Maximallänge mit angezeigt.
 
-Dieses Feature ist im Quellcode tatsächlich noch enthalten und derzeit nur mittels 'config.php' ausgeblendet. Der Markdown-Viewer hat bei mir dieses Feature ersetzt. Falls Bedarf daran besteht dieses Feature wieder zu aktivieren, bitte ich um Kontaktuafnahme. Ansonsten wird es wahrscheinlich später aus dem Quelltext entfernt.
+![Textlänge](handbook/images/feature_textlength.png)
 
-### 1.7 Markdown-Viewer
+### 1.6 Markdown-Viewer
 
 Es werden alle Markdown-Dateien im Root-Verzeichnis der Contao-Installation (nicht in /web) im Backend zum Lesen aufbereitet. Dabei 
-findet eine Umwandlung in das HTML-Format statt. Rudimentäres Standard-CSS für diese Ansicht liefert das bereits mit.
+findet eine Umwandlung in das HTML-Format statt. Rudimentäres Standard-CSS für diese Ansicht liefert das Bundle bereits mit.
 
-__Hinweis__: Im Grunde handelt es sich um eine ähnliche Funktion wie bei den 'System-Informationen'. Ich setze mittlerweile zur Darstellung von kundenspezifischen Informationen im Backend nur noch den Markdown-Viewer ein.
+![Markdown](handbook/images/feature_markdown_files.png)
 
-### 1.8 Suche nach Datei-Verwendungen
+__Hinweis__: Im Grunde handelt es sich um eine ähnliche Funktion wie ursprünglich bei 'System-Informationen'. Ich setze mittlerweile zur Darstellung von kundenspezifischen Informationen im Backend nur noch den Markdown-Viewer ein.
 
+### 1.7 Backend CSS
 
-### 1.9 Kontaktlink
+Dieses Feature ergänzt, für die Eigenschaft 'tl_class' in den Evaluation-Einstellungen des DCA, die Klassen 'w25', 
+'w33', 'w66', 'w75' und 'heightAuto'. Die w-Klassen ermöglichen neue Kombinationsmöglichkeiten für die Anordnung der
+ DCA-Felder im Backend. So sind nun beispielsweise 3 oder gar 4 Felder in einer Reihe möglich, was im neuen 
+ Fullwidth-Layout des Backends durchaus Vorteile haben kann.
 
-Dies kann unter System » Einstellungen konfiguriert werden und erstellt in der Backend-Top-Navigation einen zusätzlichen Link. Für diesen kann eine Titel, die URL und ein Icon angegeben werden.
+![Backend-CSS](handbook/images/feature_backend-css_w33.png)
 
-__Einsatz__: Ich setze dies in meinen Projekten ein, um dem Kunden im Backend direkte Kontaktinformation zu mir, bereitzustellen.
+Die Klasse 'heightAuto' ist für Felder gedacht, die sich bisher nicht nebeneinander anordnen lassen. Dies betrifft 
+zum Beispiel die Inputtypes 'textarea', 'fileTree', 'pageTree' und weitere. Diese lassen sich nun beispielsweise mit 
+'tl_class'=>'w50 heightAuto' ebenfalls floaten.
 
-## 2. Für Entwickler
+![Backend-CSS](handbook/images/feature_backend-css_height.png)
 
-Die nachfolgend beschriebenen Features richten sich in erster Linie an Entwickler. Sie sind standardmäßig aktiv und 
-bedürfen keiner weiteren Konfiguration oder Rechtemanagement.
+Die neuen Klassen verhalten sich bei geringer Viewport-Breite genauso wie die bisherige Klasse 'w50'.
 
-### 2.1 Backend Tabs
+Die neuen Links werden stets am Anfang der Hauptnavigation eingefügt.
+
+### 1.8 Backend Tabs
 
 Mit diesem Feature lassen sich innerhalb eines Backend-Moduls weitere beliebige Backend-Module in Tabs darstellen. 
-Das lässt sich am besten mittels Screenshots zeigen.
+Das Backendmodul 'Backend-Links' nutzt dieses Feature. Das lässt sich am besten mittels Screenshots zeigen.
 
-TODO: Screenshot einfügen
+![Backend-CSS](handbook/images/feature_backendlinks.png)
 
 Die Konfiguration erfolgt dabei in der Datei config/config.php des Backend-Moduls. Nachfolgend der verwendete Code 
 für den obigen Beispiel-Screenshot:
@@ -88,17 +99,13 @@ für den obigen Beispiel-Screenshot:
 /**
  * Additional backend modules
  */
-$GLOBALS['BE_MOD']['demo'] = array
+$GLOBALS['BE_MOD']['om_backend']['backend_links'] = array
 (
-    'demo' => array
+    'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
+    'tabs'     => array
     (
-        'callback' => 'OMOSde\OmBackendBundle\ModuleBackendTabs',
-        'tabs'     => array
-        (
-            'member',
-            'mgroup',
-            'id_search'
-        )
+        'backend_links_main',
+        'backend_links_top'
     )
 );
 ```
@@ -106,20 +113,18 @@ $GLOBALS['BE_MOD']['demo'] = array
 Hinweis: Die in Tabs verwendeten Module werden aus der Hauptnavigation des Backends entfernt.
 
 
-### 2.2 Backend CSS
+### 1.9 Backend-Links
 
-Dieses Feature ergänzt, für die Eigenschaft 'tl_class' in den Evaluation-Einstellungen des DCA, die Klassen 'w25', 
-'w33', 'w66', 'w75' und 'heightAuto'. Die w-Klassen ermöglichen neue Kombinationsmöglichkeiten für die Anordnung der
- DCA-Felder im Backend. So sind nun beispielsweise 3 oder gar 4 Felder in einer Reihe möglich, was im neuen 
- Fullwidth-Layout des Backends durchaus Vorteile haben kann.
+Eine Funktion die wir häufig für Kunden nutzen. Einerseits stellen wir dem Kunden in der Top-Navigation unsere Kontaktdaten zur Verfügung:
  
-Die Klasse 'heightAuto' ist für Felder gedacht, die sich bisher nicht nebeneinander anordnen lassen. Dies betrifft 
-zum Beispiel die Inputtypes 'textarea', 'fileTree', 'pageTree' und weitere. Diese lassen sich nun beispielsweise mit 
-'tl_class'=>'w50 heightAuto' ebenfalls floaten.
+![Backend-Links - Top](handbook/images/feature_backendlinks_top.png)
 
-Die neuen Klassen verhalten sich bei geringer Viewport-Breite genauso wie die bisherige Klasse 'w50'.
+Andererseits kürzen wir Wege im Backend ab. In der Vielzahl der Fälle führen die Links etwa direkt in einzelne Nachrichtenarchiv oder führen zu externen Seiten.
 
-## 3. Nachwort
+![Backend-Links - Main](handbook/images/feature_backendlinks_main.png)
+
+
+## 2. Nachwort
 
 Das vorliegende Modul ist bei mir quasi in allen Contao-Projekte als Standard mit dabei. Es entstand aus Ideen und 
 Anforderungen, die immer mal wieder aus den Projekten selbst hervorgingen.

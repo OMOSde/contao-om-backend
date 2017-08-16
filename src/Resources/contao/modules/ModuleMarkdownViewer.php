@@ -58,7 +58,7 @@ class ModuleMarkdownViewer extends \BackendModule
             return;
         }
 
-        // handle found files
+        // generate tabs from found .md files
         $strManager = '<div id="manager"><ul>';
         foreach ($arrMarkdownFiles as $intKey=>$strMarkdownFile)
         {

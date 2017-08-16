@@ -52,25 +52,22 @@ if (TL_MODE == 'BE')
     }
     if ($objUser->om_backend_features !== null && in_array('addBackendLinks', $objUser->om_backend_features))
     {
-        $GLOBALS['BE_MOD']['om_backend'] = array
+        $GLOBALS['BE_MOD']['om_backend']['backend_links'] = array
         (
-            'backend_links' => array
+            'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
+            'tabs'     => array
             (
-                'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
-                'tabs'     => array
-                (
-                    'backend_links_main',
-                    'backend_links_top'
-                )
-            ),
-            'backend_links_main' => array
-            (
-                'tables' => array('tl_om_backend_links_main')
-            ),
-            'backend_links_top' => array
-            (
-                'tables' => array('tl_om_backend_links_top')
+                'backend_links_main',
+                'backend_links_top'
             )
+        );
+        $GLOBALS['BE_MOD']['om_backend']['backend_links_main'] = array
+        (
+            'tables' => array('tl_om_backend_links_main')
+        );
+        $GLOBALS['BE_MOD']['om_backend']['backend_links_top'] = array
+        (
+            'tables' => array('tl_om_backend_links_top')
         );
     }
 
