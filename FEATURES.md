@@ -1,12 +1,4 @@
 
-# OM-Backend - Featurelist
-
-## 0. Vorwort
-
-Dies ist ein Symfony-Bundle für das Open-Source-Managementsystem Contao. Es ging aus dem Contao-Modul 'om_backend' hervor. Die meisten Features wurden übernommen bzw. neu entwickelt und an das neue Grundgerüst von Contao angepasst. Das Bundle unterstützt derzeit die Contao Version 4.4+.
-
-Entwickelt wurde das Bundle vor allem für Administratoren, die mit Contao eigene Projekte umsetzen. Es bringt vor allem Anpassungen für das Backend mit, welche zumindest uns die tägliche Arbeit mit Contao erleichtern.
-
 ## 1. Features
 
 ### 1.1 Toolbar
