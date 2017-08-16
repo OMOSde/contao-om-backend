@@ -1,7 +1,5 @@
 # Contao-OM-Backend
 
-This bundle is still in development. NOT READY FOR USE!!!
-
 ## Introduction
 
 Contao-OM-Backend is a module for the Open Source PHP Content Management System Contao. It was designed for admins and daily work.
