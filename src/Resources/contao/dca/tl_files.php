@@ -13,7 +13,7 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_files']['palettes']['default'] .= ';{usage_legend},usage';
+//$GLOBALS['TL_DCA']['tl_files']['palettes']['default'] .= ';{usage_legend},usage';
 
 
 /**
