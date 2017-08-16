@@ -34,6 +34,28 @@ class BackendLinks extends \Backend
 
 
     /**
+     * Manipulate DOM for additional backend links
+     *
+     * @param $strContent
+     * @param $strTemplate
+     *
+     * @return mixed|string
+     */
+    public function addBackendLinks($strContent, $strTemplate)
+    {
+        if ($strTemplate != 'be_main')
+        {
+            return $strContent;
+        }
+
+        $strContent = $this->addBackendLinksTop($strContent);
+        $strContent = $this->addBackendLinksMain($strContent);
+
+        return $strContent;
+    }
+
+
+    /**
      * Add a backend contact link in top navigation
      *
      * @param $strContent
@@ -41,13 +63,8 @@ class BackendLinks extends \Backend
      *
      * @return mixed
      */
-    public function addBackendLinksTop($strContent, $strTemplate)
+    protected function addBackendLinksTop($strContent)
     {
-        if ($strTemplate != 'be_main')
-        {
-            return $strContent;
-        }
-
         $objLinks = OmBackendLinksTopModel::findByPublished(1);
         if (!$objLinks)
         {
@@ -74,24 +91,15 @@ class BackendLinks extends \Backend
      *
      * @return string;
      */
-    public function addBackendLinksMain($strContent, $strTemplate)
+    protected function addBackendLinksMain($strContent)
     {
-        if ($strTemplate != 'be_main')
-        {
-            return $strContent;
-        }
-
-        // declare variables
-        $arrGroups = null;
-        $strReturn = '';
-
         // get all links
         //$objLinks = $this->Database->prepare("SELECT * FROM tl_om_backend_links WHERE language=? AND published=1")->execute($this->User->language);
 
         $objLinks = OmBackendLinksMainModel::findBy(array('language=?', 'published=1'), array($this->User->language));
         if (!$objLinks)
         {
-            return $strReturn;
+            return $strContent;
         }
 
         foreach ($objLinks as $link)
@@ -99,6 +107,7 @@ class BackendLinks extends \Backend
             $arrGroups[$link->be_group][$link->title] = $link->url;
         }
 
+        $strReturn = '';
         foreach ($arrGroups as $groupName=>$group)
         {
             $strReturn .= '<li class="tl_level_1_group"><a href="contao/main.php?do=repository_manager&amp;mtg='.$groupName.'" title="" onclick="return AjaxRequest.toggleNavigation(this,\''.$groupName.'\')"><img src="system/themes/default/images/modMinus.gif" width="16" height="16" alt="">'.$groupName.'</a></li>';
@@ -116,6 +125,8 @@ class BackendLinks extends \Backend
             $strReturn .= '</ul></li>';
         }
 
-        return str_replace('<ul class="tl_level_1">', '<ul class="tl_level_1">'.$strReturn, $strContent);
+        $strContent = str_replace('<ul class="tl_level_1">', '<ul class="tl_level_1">'.$strReturn, $strContent);
+
+        return $strContent;
     }
 }

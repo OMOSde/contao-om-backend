@@ -116,66 +116,66 @@ class ModuleBackendTabs extends \BackendModule
      */
     public function changeNavigation($strContent, $strTemplate)
     {
-        if ($strTemplate == 'be_main')
+        if ($strTemplate != 'be_main')
         {
-            // variables
-            $arrTabs    = [];
-            $arrModules = [];
-
-            // determine tabs to remove
-            foreach ($GLOBALS['BE_MOD'] as $keyGroup=>&$arrGroup)
-            {
-                foreach ($arrGroup as $keyModule=>$module)
-                {
-                    if (isset($module['tabs']) && count($module['tabs']) > 0)
-                    {
-                        foreach ($module['tabs'] as $tab)
-                        {
-                            $arrTabs[] = $tab;
-                        }
-
-                        $arrModules[] = array
-                        (
-                            'group'  => $keyGroup,
-                            'module' => $keyModule
-                        );
-                    }
-                }
-            }
-            $arrTabs = array_unique($arrTabs);
-
-            // remove tabs from dom
-            $doc = new \DOMDocument();
-            libxml_use_internal_errors(true);
-            $doc->loadHTML($strContent, LIBXML_HTML_NODEFDTD);
-            libxml_use_internal_errors(false);
-
-            $xpath = new \DOMXpath($doc);
-            foreach ($arrTabs as $tab)
-            {
-                $elements = $xpath->query('//a[contains(@class,"navigation") and contains(@class, " '.$tab.'")]');
-                foreach ($elements as $elemLink)
-                {
-                    $elemListItem = $elemLink->parentNode;
-                    $elemListItem->parentNode->removeChild($elemListItem);
-                }
-            }
-
-            // add table to backend link
-            $xpath = new \DOMXpath($doc);
-            foreach ($arrModules as $module)
-            {
-                $link = $xpath->query('//a[contains(@class,"'.$module['module'].'")]');
-                foreach ($link as $link)
-                {
-                    $link->setAttribute('href', $link->getAttribute('href').'&table='.$GLOBALS['BE_MOD'][$module['group']][$module['module']]['tables'][0]);
-                }
-            }
-
-            return $doc->saveHTML();
+            return $strContent;
         }
 
-        // no changes
-        return $strContent;
+        // variables
+        $arrTabs    = [];
+        $arrModules = [];
+
+        // determine tabs to remove
+        foreach ($GLOBALS['BE_MOD'] as $keyGroup=>&$arrGroup)
+        {
+            foreach ($arrGroup as $keyModule=>$module)
+            {
+                if (isset($module['tabs']) && count($module['tabs']) > 0)
+                {
+                    foreach ($module['tabs'] as $tab)
+                    {
+                        $arrTabs[] = $tab;
+                    }
+
+                    $arrModules[] = array
+                    (
+                        'group'  => $keyGroup,
+                        'module' => $keyModule
+                    );
+                }
+            }
+        }
+        $arrTabs = array_unique($arrTabs);
+
+        // load dom
+        $doc = new \DOMDocument();
+        libxml_use_internal_errors(true);
+        $doc->loadHTML($strContent, LIBXML_HTML_NODEFDTD);
+        libxml_use_internal_errors(false);
+
+        // remove tabs from dom
+        $xpath = new \DOMXpath($doc);
+        foreach ($arrTabs as $tab)
+        {
+            $elements = $xpath->query('//a[contains(@class,"navigation") and contains(@class, " '.$tab.'")]');
+            foreach ($elements as $elemLink)
+            {
+                $elemListItem = $elemLink->parentNode;
+                $elemListItem->parentNode->removeChild($elemListItem);
+            }
+        }
+
+        // add table to backend link
+        $xpath = new \DOMXpath($doc);
+        foreach ($arrModules as $module)
+        {
+            $link = $xpath->query('//a[contains(@class,"'.$module['module'].'")]');
+            foreach ($link as $link)
+            {
+                $link->setAttribute('href', $link->getAttribute('href').'&table='.$GLOBALS['BE_MOD'][$module['group']][$module['module']]['tables'][0]);
+            }
+        }
+
+        return $doc->saveHTML();
     }
 }

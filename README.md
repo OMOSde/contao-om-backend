@@ -24,13 +24,12 @@ You can install the module through composer.
 - __MarkdownViewer:__ Backend-Modul zur Anzeige aller Markdown-Dateien im Wurzelverzeichnis der Installation als HTML (Benutzer-Einstellungen)
 - __Backend-CSS:__ bringt neue Klassen für die Evaluationseigenschaft 'tl_class' mit, etwa w25,w33,w66,w75,heightAuto
 - __Backend-Tabs:__ Reiter-Ansicht für eigenen Backend-Module
+- __Backend-Links:__ Backend-Modul zur Erstellung für Kurzlinks im Backend (Haupt-Navigation und Top-Navigation)
 
 For more informations read FEATURES.md.
 
 ## Planned features (in german)
 
-- __Kontaktlink:__ zeigt einen konfigurierbaren Link in der Backend-Top-Navigation an (unter System » Einstellungen)
-- __Backend-Links:__ Backend-Modul zur Erstellung für Kurzlinks im Backend (Benutzer-Einstellung)
 - __Suche nach Datei-Verwendungen:__ kann bei der Suche nach Verwendung von Dateien helfen (Dateiverwaltung » Datei bearbeiten; Hinweise in FEATURES.md beachten)
 
 ## Missing informations
