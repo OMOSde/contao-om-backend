@@ -106,40 +106,43 @@ class Toolbar extends \Backend
 
         // add sections stylesheets, modules, layouts, image_sizes from themes
         $objThemes = ThemeModel::findAll(array('order'=>'name'));
-        foreach ($objThemes as $theme)
+        if ($objThemes)
         {
-            // add separator
-            $strToolbar .= '<div class="separator"></div>';
+            foreach ($objThemes as $theme)
+            {
+                // add separator
+                $strToolbar .= '<div class="separator"></div>';
 
-            // add buttons
-            $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_style_sheet&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
-                $strEntryPoint,
-                $objThemes->id,
-                $strToken,
-                sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['stylesheets'], $theme->name),
-                $this->getIcon('themeStylesheet')
-            );
-            $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_module&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
-                $strEntryPoint,
-                $objThemes->id,
-                $strToken,
-                sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['modules'], $theme->name),
-                $this->getIcon('themeModule')
-            );
-            $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_layout&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
-                $strEntryPoint,
-                $objThemes->id,
-                $strToken,
-                sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['layouts'], $theme->name),
-                $this->getIcon('themeLayout')
-            );
-            $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_image_size&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
-                $strEntryPoint,
-                $objThemes->id,
-                $strToken,
-                sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['image_size'], $theme->name),
-                $this->getIcon('themeImageSize')
-            );
+                // add buttons
+                $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_style_sheet&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
+                    $strEntryPoint,
+                    $objThemes->id,
+                    $strToken,
+                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['stylesheets'], $theme->name),
+                    $this->getIcon('themeStylesheet')
+                );
+                $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_module&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
+                    $strEntryPoint,
+                    $objThemes->id,
+                    $strToken,
+                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['modules'], $theme->name),
+                    $this->getIcon('themeModule')
+                );
+                $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_layout&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
+                    $strEntryPoint,
+                    $objThemes->id,
+                    $strToken,
+                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['layouts'], $theme->name),
+                    $this->getIcon('themeLayout')
+                );
+                $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_image_size&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
+                    $strEntryPoint,
+                    $objThemes->id,
+                    $strToken,
+                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['image_size'], $theme->name),
+                    $this->getIcon('themeImageSize')
+                );
+            }
         }
 
         // generate save buttons
