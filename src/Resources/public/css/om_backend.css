@@ -12,7 +12,7 @@ body:not(.popup).om_backend_toolbar #header{
     z-index: 10;
 }
 body:not(.popup).om_backend_toolbar #container {
-    margin-top: 48px;
+    margin-top: 40px;
     padding: 0;
 }
 body:not(.popup).om_backend_toolbar #container #main {
@@ -28,7 +28,7 @@ body:not(.popup).lw.om_backend_toolbar #container #main {
     right: 0;
     bottom: 0;
     width: 44px;
-    margin-top: 48px;
+    margin-top: 40px;
     padding: 12px 13px;
     background: #0f1c26;
     z-index: 90;
