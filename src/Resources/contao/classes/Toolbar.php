@@ -217,8 +217,6 @@ class Toolbar extends \Backend
                         $GLOBALS['TL_LANG']['om_backend']['button_'.$button],
                         $this->getIcon('multiple'.$button)
                     );
-
-                    //$strToolbar .= '<a class="button" onclick="document.getElementById(\''.$button.'\').click(); return false;" title="'.$GLOBALS['TL_LANG']['om_backend']['button_'.$button].'"><img src="system/modules/om_backend/assets/icons/folder_'.$button.'.png" width="14" height="16" alt="'.$GLOBALS['TL_LANG']['om_backend']['button_'.$button].'"></a>';
                 }
             }
         }
