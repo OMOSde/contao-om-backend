@@ -222,6 +222,19 @@ class Toolbar extends \Backend
             }
         }
 
+        // create template button
+        if (\Input::get('do') == 'tpl_editor' && \Input::get('key') == 'new_tpl')
+        {
+            // add separator
+            $strToolbar .= '<div class="separator"></div>';
+
+            // add button
+            $strToolbar .= sprintf('<a class="button" onclick="document.getElementById(\'create\').click(); return false;" title="%s">%s</a>',
+                $GLOBALS['TL_LANG']['om_backend']['button_'],
+                $this->getIcon('save')
+            );
+        }
+
         // close container
         $strToolbar .= '</div>';
 
