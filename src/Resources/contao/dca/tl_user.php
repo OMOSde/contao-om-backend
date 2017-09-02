@@ -13,7 +13,12 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_user']['palettes']['login'] .= ';{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['login']   .= ';{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['admin']   .= ';{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['default'] .= ';{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['group']   .= ';{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['extend']  .= ';{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['custom']  .= ';{om_backend_legend},om_backend_features';
 
 
 /**
