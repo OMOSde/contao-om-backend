@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_user_group.php" source-language="en" target-language="de">
+        <body>
+            <trans-unit id="tl_user_group.redirect.0">
+                <source>Redirect</source>
+                <target>Weiterleitung</target>
+            </trans-unit>
+            <trans-unit id="tl_user_group.redirect.1">
+                <source>Forward user to backend URL. e.g. do=news (A token is automatically added.)</source>
+                <target>Benutzer beim Login zu Backend-URL weiterleiten. z.B. do=news (Ein Token wird automatisch ergänzt.)</target>
+            </trans-unit>
+            <trans-unit id="tl_user_group.redirect_legend">
+                <source>Redirect settings</source>
+                <target>Weiterleitung</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

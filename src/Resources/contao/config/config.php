@@ -111,6 +111,7 @@ $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendB
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\ModuleBackendTabs', 'changeNavigation');
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\Hooks', 'addBodyClasses');
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinks');
+$GLOBALS['TL_HOOKS']['postLogin'][]             = array('OMOSde\ContaoOmBackendBundle\Hooks', 'redirectUser');
 //$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinksMain');
 
 

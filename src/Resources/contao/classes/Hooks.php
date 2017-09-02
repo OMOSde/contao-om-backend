@@ -29,6 +29,7 @@ class Hooks extends \Backend
      */
     public function __construct()
     {
+        parent::__construct();
         $this->import('BackendUser', 'User');
     }
 
@@ -66,6 +67,42 @@ class Hooks extends \Backend
         }
 
         return $strContent;
+    }
+
+
+    /**
+     * Redirect user
+     *
+     * @param \User $objUser
+     */
+    public function redirectUser(\User $objUser)
+    {
+        $strUrl = '';
+
+        // user groups
+        $arrGroups = deserialize($objUser->groups, true);
+        foreach ($arrGroups as $group)
+        {
+            $objGroup = \UserGroupModel::findByPk($group);
+            if (strlen($objGroup->redirect))
+            {
+                $strUrl = $objGroup->redirect;
+                break;
+            }
+        }
+
+        // user settings
+        if (strlen($objUser->redirect))
+        {
+            $strUrl = $objUser->redirect;
+        }
+
+        // redirect
+        if (strlen($strUrl))
+        {
+            $strBaseUrl = \System::getContainer()->get('request_stack')->getCurrentRequest()->getBaseUrl();
+            \Controller::redirect($strBaseUrl.'/contao?'.html_entity_decode($strUrl));
+        }
     }
 
 

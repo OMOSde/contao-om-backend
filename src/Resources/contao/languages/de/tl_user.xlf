@@ -2,6 +2,14 @@
 <xliff version="1.1">
     <file datatype="php" original="src/Resources/contao/languages/en/tl_user.php" source-language="en" target-language="de">
         <body>
+            <trans-unit id="tl_user.redirect.0">
+                <source>Redirect</source>
+                <target>Weiterleitung</target>
+            </trans-unit>
+            <trans-unit id="tl_user.redirect.1">
+                <source>Forward user to backend URL. e.g. do=news (A token is automatically added.)</source>
+                <target>Benutzer beim Login zu Backend-URL weiterleiten. z.B. do=news (Ein Token wird automatisch ergänzt.)</target>
+            </trans-unit>
             <trans-unit id="tl_user.om_backend_features.0">
                 <source>Feature selection</source>
                 <target>Features</target>
@@ -33,6 +41,10 @@
             <trans-unit id="tl_user.om_backend_features.addBackendLinks">
                 <source>Add backend links in main navigation</source>
                 <target>Backend-Links anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_user.redirect_legend">
+                <source>Redirect settings</source>
+                <target>Weiterleitung</target>
             </trans-unit>
             <trans-unit id="tl_user.om_backend_legend">
                 <source>Settings om_backend</source>

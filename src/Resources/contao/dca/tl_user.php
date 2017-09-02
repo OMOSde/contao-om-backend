@@ -13,17 +13,24 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_user']['palettes']['login']   .= ';{om_backend_legend},om_backend_features';
-$GLOBALS['TL_DCA']['tl_user']['palettes']['admin']   .= ';{om_backend_legend},om_backend_features';
-$GLOBALS['TL_DCA']['tl_user']['palettes']['default'] .= ';{om_backend_legend},om_backend_features';
-$GLOBALS['TL_DCA']['tl_user']['palettes']['group']   .= ';{om_backend_legend},om_backend_features';
-$GLOBALS['TL_DCA']['tl_user']['palettes']['extend']  .= ';{om_backend_legend},om_backend_features';
-$GLOBALS['TL_DCA']['tl_user']['palettes']['custom']  .= ';{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['login']   .= ';{redirect_legend},redirect;{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['admin']   .= ';{redirect_legend},redirect;{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['default'] .= ';{redirect_legend},redirect;{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['group']   .= ';{redirect_legend},redirect;{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['extend']  .= ';{redirect_legend},redirect;{om_backend_legend},om_backend_features';
+$GLOBALS['TL_DCA']['tl_user']['palettes']['custom']  .= ';{redirect_legend},redirect;{om_backend_legend},om_backend_features';
 
 
 /**
  * Fields
  */
+$GLOBALS['TL_DCA']['tl_user']['fields']['redirect'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_user']['redirect'],
+    'inputType'               => 'text',
+    'eval'                    => array('rgxp' => 'url', 'tl_class' => 'w50'),
+    'sql'                     => "varchar(128) NOT NULL default ''"
+);
 $GLOBALS['TL_DCA']['tl_user']['fields']['om_backend_features'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_user']['om_backend_features'],

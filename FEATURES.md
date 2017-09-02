@@ -116,6 +116,11 @@ Andererseits kürzen wir Wege im Backend ab. In der Vielzahl der Fälle führen 
 ![Backend-Links - Main](handbook/images/feature_backendlinks_main.png)
 
 
+### 1.10 User-Redirects
+
+Ermöglicht das Weiterleiten von Backendbenutzern beim Login. Die entsprechende URL kann bei den Benutzern- bzw. den Benutzergruppen-Einstellungen angegeben werden. Dabei wird auch der jeweilige Entrypoint berücksichtigt. Zum Beispiel leitet 'do=news&table=tl_news&id=1' direkt in die Nachrichten des Archivs mit der ID 1 weiter. 
+
+
 ## 2. Nachwort
 
 Das vorliegende Modul ist bei mir quasi in allen Contao-Projekte als Standard mit dabei. Es entstand aus Ideen und 

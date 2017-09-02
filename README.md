@@ -23,6 +23,7 @@ You can install the module through composer.
 - __Backend-CSS:__ bringt neue Klassen für die Evaluationseigenschaft 'tl_class' mit, etwa w25,w33,w66,w75,heightAuto
 - __Backend-Tabs:__ Reiter-Ansicht für eigenen Backend-Module
 - __Backend-Links:__ Backend-Modul zur Erstellung für Kurzlinks im Backend (Haupt-Navigation und Top-Navigation)
+- __User-Redirect:__ Backendbenutzer bei Login innerhalb des Backends weiterleiten
 
 For more informations read FEATURES.md.
 
