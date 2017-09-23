@@ -10,11 +10,8 @@ var isKeyDown = false;
 window.addEvent('domready', function() {
     onDomReady();
 });
-window.addEvent('scroll', function(){
-    calculateFixedToolbar();    
-});
 window.addEvent('resize', function(){
-    calculateFixedToolbar();
+    setToolbarPosition();
 });
 window.addEvent('keydown', function(event) {
     keyDown(event);
@@ -46,26 +43,19 @@ function onDomReady()
 
     // init counter on text fields
     generateCounter();
+
+    // set toolbar position
+    setToolbarPosition();
 }
 
 
 /**
- *
+ * Set toolbar position
  */
-function calculateFixedToolbar()
+function setToolbarPosition()
 {
-    // calculate fixed toolbar position
-    var pos = ($$('html').getSize()[0].x - $$('div#container').getSize()[0].x) / 2 + $$('div#container').getSize()[0].x + 10;
-    
-    // fixed ??        
-    if (window.getScroll().y >= $$('div#container').getPosition()[0].y)
-    {
-        $$('div#toolbar').addClass('fixed');
-        $$('div#toolbar').setStyle('left', pos + 'px');
-    } else {
-        $$('div#toolbar').removeClass('fixed');
-        $$('div#toolbar').setStyle('left', 'auto');
-    }    
+    marginRight = ($$('html').getSize()[0].x - $$('#container').getSize()[0].x) / 2;
+    $$('#om_backend_toolbar').setStyle('right', marginRight + 'px');
 }
 
 
