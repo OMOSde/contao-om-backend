@@ -209,7 +209,7 @@ class tl_om_backend_links_top extends Backend
             $icon = 'invisible.gif';
         }
 
-        return '<a href="'.$this->addToUrl($href).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
+        return '<a href="'.$this->addToUrl($href).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label, 'data-state="' . ($row['published'] ? 0 : 1) . '"').'</a> ';
     }
 
 
