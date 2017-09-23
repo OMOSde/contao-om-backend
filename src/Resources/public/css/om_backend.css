@@ -9,7 +9,7 @@ body:not(.popup).om_backend_toolbar #header{
     top: 0;
     right: 0;
     left: 0;
-    z-index: 10;
+    z-index: 100;
 }
 body:not(.popup).om_backend_toolbar #container {
     margin-top: 40px;
@@ -19,7 +19,7 @@ body:not(.popup).om_backend_toolbar #container #main {
     width: calc(100% - 44px) !important;
 }
 body:not(.popup).lw.om_backend_toolbar #container #main {
-    margin-right: 0;
+    margin-right: 48px;
 }
 #om_backend_toolbar {
     box-sizing: border-box;

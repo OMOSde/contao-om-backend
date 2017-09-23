@@ -119,8 +119,7 @@ function keyUp(event)
 
 
 /**
- *
- * @param event
+ * Generate counter
  */
 function generateCounter()
 {
