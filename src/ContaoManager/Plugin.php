@@ -13,7 +13,7 @@
 /**
  * Namespace
  */
-namespace OMOSde\ContaoOmbackendBundle\ContaoManager;
+namespace OMOSde\ContaoOmBackendBundle\ContaoManager;
 
 
 /**
