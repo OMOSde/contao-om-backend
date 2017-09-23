@@ -11,6 +11,12 @@
 
 
 /**
+ * Uses
+ */
+use Psr\Log\LogLevel;
+
+
+/**
  * Table tl_om_backend_links_top
  */
 $GLOBALS['TL_DCA']['tl_om_backend_links_top'] = array
@@ -226,7 +232,7 @@ class tl_om_backend_links_top extends Backend
             // logging & redirect
             \System::getContainer()
                 ->get('monolog.logger.contao')
-                ->log(\LogLevel::ERROR, sprintf('Not enough permissions to publish/unpublish backend link ID "%s"', $intId));
+                ->log(LogLevel::ERROR, sprintf('Not enough permissions to publish/unpublish backend link ID "%s"', $intId));
 
             $this->redirect('contao/main.php?act=error');
         }
@@ -260,6 +266,6 @@ class tl_om_backend_links_top extends Backend
         // logging
         \System::getContainer()
             ->get('monolog.logger.contao')
-            ->log(\LogLevel::INFO, sprintf('A new version of record "tl_om_backend_links_top.id=%s" has been created %s', $intId, $this->getParentEntries('tl_om_backend_links_top', $intId)));
+            ->log(LogLevel::INFO, sprintf('A new version of record "tl_om_backend_links_top.id=%s" has been created %s', $intId, $this->getParentEntries('tl_om_backend_links_top', $intId)));
     }
 }
