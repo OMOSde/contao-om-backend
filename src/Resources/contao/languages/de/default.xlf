@@ -18,6 +18,10 @@
                 <source>Sync files</source>
                 <target>Dateien/Verzeichnisse syncronisieren</target>
             </trans-unit>
+            <trans-unit id="MSC.om_backend.contao_manager">
+                <source>Open Contao-Manager</source>
+                <target>Contao-Manager öffnen</target>
+            </trans-unit>
             <trans-unit id="MSC.om_backend.stylesheets">
                 <source>Stylesheets</source>
                 <target>Stylesheets</target>
