@@ -182,3 +182,13 @@ body:not(.popup).lw.om_backend_toolbar #container #main {
         border: 1px solid #aaa;
     }
 }
+
+
+/***** backend fullwidth *****/
+
+.om_backend_full_width #header .inner {
+    max-width: none;
+}
+.om_backend_full_width #container {
+    max-width: none;
+}

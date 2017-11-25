@@ -46,6 +46,10 @@
                 <source>Show save buttons without submenu (viewport 1200px+)</source>
                 <target>Zeige Speichern-Buttons ohne Untermenü an (Viewport 1200px+)</target>
             </trans-unit>
+            <trans-unit id="tl_user.om_backend_features.addFullWidth">
+                <source>Full width backend</source>
+                <target>Backend auf volle Breite bringen</target>
+            </trans-unit>
             <trans-unit id="tl_user.redirect_legend">
                 <source>Redirect settings</source>
                 <target>Weiterleitung</target>

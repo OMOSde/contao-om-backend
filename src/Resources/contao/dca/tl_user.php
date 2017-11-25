@@ -35,7 +35,7 @@ $GLOBALS['TL_DCA']['tl_user']['fields']['om_backend_features'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_user']['om_backend_features'],
     'inputType'               => 'checkboxWizard',
-    'options'                 => array('addToolbar', 'addLanguage', 'addIdView', 'addCounterView', 'addMarkdownView', 'addBackendLinks', 'addSaveButtons'),
+    'options'                 => array('addToolbar', 'addLanguage', 'addIdView', 'addCounterView', 'addMarkdownView', 'addBackendLinks', 'addSaveButtons', 'addFullWidth'),
     'reference'               => &$GLOBALS['TL_LANG']['tl_user']['om_backend_features'],
     'eval'                    => array('multiple' => true, 'tl_class' => 'clr'),
     'sql'                     => "text NULL"

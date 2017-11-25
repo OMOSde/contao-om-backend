@@ -71,6 +71,10 @@ class Hooks extends \Backend
                     case 'addSaveButtons':
                         $strClasses .= 'om_backend_save_buttons ';
                         break;
+
+                    case 'addFullWidth':
+                        $strClasses .= 'om_backend_full_width ';
+                        break;
                 }
             }
 
