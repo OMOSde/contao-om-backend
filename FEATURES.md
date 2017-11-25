@@ -10,6 +10,7 @@ einer fixen Stelle. Nachfolgend eine kleine Auflistung der Buttons und ihrer Fun
 - Install-Tool (dieser Button verlinkt direkt ins Install-Tool)
 - ein neues Template erstellen (Kurzlink)
 - Syncronisation der Dateiverwaltung (Kurzlink)
+- Contao-Manager (dieser Link verlinkt direkt zum Contao-Manager 'contao-manager.phar.php')
 
 Für jedes vorhandene Theme werden folgende 4 Buttons bereitgestellt:
 
@@ -118,8 +119,21 @@ Andererseits kürzen wir Wege im Backend ab. In der Vielzahl der Fälle führen 
 
 ### 1.10 User-Redirects
 
-Ermöglicht das Weiterleiten von Backendbenutzern beim Login. Die entsprechende URL kann bei den Benutzern- bzw. den Benutzergruppen-Einstellungen angegeben werden. Dabei wird auch der jeweilige Entrypoint berücksichtigt. Zum Beispiel leitet 'do=news&table=tl_news&id=1' direkt in die Nachrichten des Archivs mit der ID 1 weiter. 
+Ermöglicht das Weiterleiten von Backendbenutzern beim Login. Die entsprechende URL kann bei den Benutzern- bzw. den Benutzergruppen-Einstellungen angegeben werden. Dabei wird auch der jeweilige Entrypoint berücksichtigt. Zum Beispiel leitet 'do=news&table=tl_news&id=1' direkt in die Nachrichten des Archivs mit der ID 1 weiter.
+ 
+ 
+### 1.11 Layout-Button in Seitenstruktur
 
+Ergänzt in der Seitenstruktur einen Button, um direkt in die Bearbeitung des zugehörigen Layouts zu springen. Die Vererbung der Layouts wird beachtet.
+ 
+![Layout-Buttons](handbook/images/feature_layout_button.png)
+
+### 1.12 Speichern- und Mehrere bearbeiten-Buttons ohne Untermenü
+
+Dieses Features löst die Untermenüs der Speicher- und Mehrere bearbeiten-Buttons per CSS wieder auf. Dies gilt derzeit nur für einen Viewport breiter als 1200px.
+
+![Save-Buttons](handbook/images/feature_save_buttons_1.png)
+![Save-Buttons](handbook/images/feature_save_buttons_2.png)
 
 ## 2. Nachwort
 

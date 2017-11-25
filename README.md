@@ -24,6 +24,8 @@ You can install the module through composer.
 - __Backend-Tabs:__ Reiter-Ansicht für eigenen Backend-Module
 - __Backend-Links:__ Backend-Modul zur Erstellung für Kurzlinks im Backend (Haupt-Navigation und Top-Navigation)
 - __User-Redirect:__ Backendbenutzer bei Login innerhalb des Backends weiterleiten
+- __Layout-Buttons:__ Layout-Button in Seitenstruktur (inkl. Vererbung)
+- __Speichern-Buttons:__ die Untermenüs werden wieder aufgelöst
 
 For more informations read FEATURES.md.
 
