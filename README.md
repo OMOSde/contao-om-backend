@@ -26,6 +26,7 @@ You can install the module through composer.
 - __User-Redirect:__ Backendbenutzer bei Login innerhalb des Backends weiterleiten
 - __Layout-Buttons:__ Layout-Button in Seitenstruktur (inkl. Vererbung)
 - __Speichern-Buttons:__ die Untermenüs werden wieder aufgelöst
+- __Full-Width_Backend:__ Backend wieder auf volle Breite bringen
 
 For more informations read FEATURES.md.
 

@@ -5,6 +5,7 @@
  * Added: a toolbar button for the contao-manager (only if manager exists)
  * Added: a new feature that dissolve the save- and edit multiple-buttons
  * Added: a new feature that shows an edit layout button in site structure
+ * Added: a new feature that make a full width backend possible
 
 ### 1.1.1 (2017-09-23)
 

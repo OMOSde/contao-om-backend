@@ -135,6 +135,10 @@ Dieses Features löst die Untermenüs der Speicher- und Mehrere bearbeiten-Butto
 ![Save-Buttons](handbook/images/feature_save_buttons_1.png)
 ![Save-Buttons](handbook/images/feature_save_buttons_2.png)
 
+### 1.13 Backend - Full width
+
+Kann die Breite des Backends wieder auf die gesamte verfügbare Breite ausweiten.
+
 ## 2. Nachwort
 
 Das vorliegende Modul ist bei mir quasi in allen Contao-Projekte als Standard mit dabei. Es entstand aus Ideen und 
