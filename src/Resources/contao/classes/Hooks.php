@@ -17,6 +17,13 @@ namespace OMOSde\ContaoOmBackendBundle;
 
 
 /**
+ * Use
+ */
+use Contao\Config;
+use Contao\FilesModel;
+
+
+/**
  * Class Toolbar
  *
  * @copyright OMOS.de 2017 <http://www.omos.de>
@@ -35,7 +42,7 @@ class Hooks extends \Backend
 
 
     /**
-     * Adds a class for id view
+     * Adds body classes for backend features
      *
      * @param $strContent
      * @param $strTemplate
@@ -44,32 +51,30 @@ class Hooks extends \Backend
      */
     public function addBodyClasses($strContent, $strTemplate)
     {
-
+        // only backend template
         if ($strTemplate == 'be_main')
         {
-            // add id-view class to body
-            if (is_array($this->User->om_backend_features) && in_array('addIdView', $this->User->om_backend_features))
+            $strClasses = '';
+
+            foreach ($this->User->om_backend_features as $feature)
             {
-                $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_backend_id_view ', $strContent);
+                switch ($feature)
+                {
+                    case 'addIdView':
+                        $strClasses .= 'om_backend_id_view ';
+                        break;
+
+                    case 'addCounterView':
+                        $strClasses .= 'om_backend_counter_view ';
+                        break;
+
+                    case 'addSaveButtons':
+                        $strClasses .= 'om_backend_save_buttons ';
+                        break;
+                }
             }
 
-            // id charcounter class to body
-            if (is_array($this->User->om_backend_features) && in_array('addCounterView', $this->User->om_backend_features))
-            {
-                $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_backend_counter_view ', $strContent);
-            }
-        }
-
-        if ($strTemplate == 'be_main' && is_array($this->User->om_backend_features) && in_array('addIdView', $this->User->om_backend_features))
-        {
-            // add new css class to body
-            $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_backend_id_view ', $strContent);
-        }
-
-        if ($strTemplate == 'be_main' && is_array($this->User->om_backend_features) && in_array('addSaveButtons', $this->User->om_backend_features))
-        {
-            // add new css class to body
-            $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_backend_save_buttons ', $strContent);
+            $strContent = str_replace('<body id="top" class="', '<body id="top" class="'.$strClasses, $strContent);
         }
 
         return $strContent;
@@ -107,7 +112,7 @@ class Hooks extends \Backend
         if (strlen($strUrl))
         {
             $strBaseUrl = \System::getContainer()->get('request_stack')->getCurrentRequest()->getBaseUrl();
-            \Controller::redirect($strBaseUrl.'/contao?'.html_entity_decode($strUrl));
+            \Controller::redirect($strBaseUrl . '/contao?' . html_entity_decode($strUrl));
         }
     }
 
@@ -122,14 +127,11 @@ class Hooks extends \Backend
      */
     public function addBackendContact($strContent, $strTemplate)
     {
-        if (\Config::get('addBackendContact') && $strTemplate == 'be_main')
+        if (Config::get('addBackendContact') && $strTemplate == 'be_main')
         {
-            $strUrl = sprintf('<a href="%s" style="background: url(%s) left 17px no-repeat;">%s</a>',
-                \Config::get('om_contact_url'),
-                \FilesModel::findByUuid(\Config::get('om_contact_icon'))->path,
-                \Config::get('om_contact_title'));
+            $strUrl = sprintf('<a href="%s" style="background: url(%s) left 17px no-repeat;">%s</a>', Config::get('om_contact_url'), FilesModel::findByUuid(Config::get('om_contact_icon'))->path, Config::get('om_contact_title'));
 
-            $strContent = str_replace('<ul id="tmenu">', '<ul id="tmenu">'.$strUrl, $strContent);
+            $strContent = str_replace('<ul id="tmenu">', '<ul id="tmenu">' . $strUrl, $strContent);
         }
 
         return $strContent;
