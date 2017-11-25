@@ -66,6 +66,12 @@ class Hooks extends \Backend
             $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_backend_id_view ', $strContent);
         }
 
+        if ($strTemplate == 'be_main' && is_array($this->User->om_backend_features) && in_array('addSaveButtons', $this->User->om_backend_features))
+        {
+            // add new css class to body
+            $strContent = str_replace('<body id="top" class="', '<body id="top" class="om_backend_save_buttons ', $strContent);
+        }
+
         return $strContent;
     }
 

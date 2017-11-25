@@ -42,6 +42,10 @@
                 <source>Add backend links in main navigation</source>
                 <target>Backend-Links anzeigen</target>
             </trans-unit>
+            <trans-unit id="tl_user.om_backend_features.addSaveButtons">
+                <source>Show save buttons without submenu (viewport 1200px+)</source>
+                <target>Zeige Speichern-Buttons ohne Untermenü an (Viewport 1200px+)</target>
+            </trans-unit>
             <trans-unit id="tl_user.redirect_legend">
                 <source>Redirect settings</source>
                 <target>Weiterleitung</target>

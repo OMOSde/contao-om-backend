@@ -258,7 +258,7 @@ class Toolbar extends \Backend
     protected function contaoManagerExists()
     {
         $strManagerUrl = TL_ROOT.'/contao-manager.phar.php';
-        dump($strManagerUrl);
+
         return file_exists($strManagerUrl);
     }
 

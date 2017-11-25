@@ -147,3 +147,38 @@ body:not(.popup).lw.om_backend_toolbar #container #main {
         width: calc(100% - 30px);
     }
 }
+
+
+/***** save buttons *****/
+
+@media (min-width: 1200px)
+{
+    .om_backend_save_buttons .tl_submit_container .split-button #sbtog {
+        display: none;
+    }
+    .om_backend_save_buttons .tl_submit_container .split-button ul {
+        display: flex;
+        top: -1px;
+        right: auto;
+        bottom: auto;
+        left: 100%;
+    }
+    .om_backend_save_buttons .tl_submit_container .split-button ul.invisible {
+        height: auto;
+        width: auto;
+        margin: 0;
+        clip: auto;
+        border: none;
+        background: none;
+    }
+    .om_backend_save_buttons .tl_submit_container .split-button ul:before {
+        display: none;
+    }
+    .om_backend_save_buttons .tl_submit_container .split-button li {
+        margin-left: 5px;
+    }
+    .om_backend_save_buttons .tl_submit_container .split-button li button {
+        padding: 7px 12px;
+        border: 1px solid #aaa;
+    }
+}
