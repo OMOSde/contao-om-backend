@@ -43,8 +43,8 @@
                 <target>Backend-Links anzeigen</target>
             </trans-unit>
             <trans-unit id="tl_user.om_backend_features.addSaveButtons">
-                <source>Show save buttons without submenu (viewport 1200px+)</source>
-                <target>Zeige Speichern-Buttons ohne Untermenü an (Viewport 1200px+)</target>
+                <source>Show save buttons/edit multiple buttons without submenu (viewport 1200px+)</source>
+                <target>Zeige Speichern-Buttons/Mehrere bearbeiten-Buttons ohne Untermenü an (Viewport 1200px+)</target>
             </trans-unit>
             <trans-unit id="tl_user.om_backend_features.addFullWidth">
                 <source>Full width backend</source>

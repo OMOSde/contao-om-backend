@@ -181,6 +181,13 @@ body:not(.popup).lw.om_backend_toolbar #container #main {
         padding: 7px 12px;
         border: 1px solid #aaa;
     }
+    .om_backend_save_buttons .tl_submit_container .split-button > button[name=delete] {
+        margin-left: 5px;
+    }
+    .om_backend_save_buttons .tl_submit_container .split-button > button[name=delete] + button + ul {
+        right: 100%;
+        left: auto;
+    }
 }
 
 
