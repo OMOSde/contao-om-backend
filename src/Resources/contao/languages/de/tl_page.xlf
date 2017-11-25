@@ -3,12 +3,12 @@
     <file datatype="php" original="src/Resources/contao/languages/en/tl_page.php" source-language="en" target-language="de">
         <body>
             <trans-unit id="tl_page.layout.0">
-                <source>Edit layout ID %s</source>
-                <target>Layout ID %s bearbeiten</target>
+                <source>Edit layout</source>
+                <target>Layout bearbeiten</target>
             </trans-unit>
             <trans-unit id="tl_page.layout.1">
-                <source>Edit layout ID %s</source>
-                <target>Layout ID %s bearbeiten</target>
+                <source>Edit layout</source>
+                <target>Layout bearbeiten</target>
             </trans-unit>
         </body>
     </file>
