@@ -11,6 +11,12 @@
 
 
 /**
+ * Use
+ */
+use Contao\BackendUser;
+
+
+/**
  * Add stylesheets and javascript
  */
 if (TL_MODE == 'BE')

@@ -17,18 +17,26 @@ namespace OMOSde\ContaoOmBackendBundle;
 
 
 /**
+ * Use
+ */
+use Backend;
+
+
+/**
  * Class BackendLinks
  *
  * @copyright OMOS.de 2017 <http://www.omos.de>
  * @author    René Fehrmann <rene.fehrmann@omos.de>
  */
-class BackendLinks extends \Backend
+class BackendLinks extends Backend
 {
     /**
      * Hooks constructor.
      */
     public function __construct()
     {
+        parent::__construct();
+
         $this->import('BackendUser', 'User');
     }
 
@@ -59,9 +67,10 @@ class BackendLinks extends \Backend
      * Add a backend contact link in top navigation
      *
      * @param $strContent
-     * @param $strTemplate
      *
      * @return mixed
+     * @internal param $strTemplate
+     *
      */
     protected function addBackendLinksTop($strContent)
     {
@@ -89,7 +98,9 @@ class BackendLinks extends \Backend
     /**
      * Generate backend links
      *
-     * @return string;
+     * @param $strContent
+     *
+     * @return string ;
      */
     protected function addBackendLinksMain($strContent)
     {
@@ -117,9 +128,9 @@ class BackendLinks extends \Backend
                 if (strpos($link, 'contao/main.php') !== false)
                 {
                     $link .= (strpos($link, '?') !== false) ? '&' : '?';
-                    $strReturn .= '<li><a href="'.$link.'rt=' . $_SESSION['REQUEST_TOKEN'] . '" class="navigation themes" title="">'.$linkTitle.'</a></li>';
+                    $strReturn .= sprintf('<li><a href="%srt=%s" class="navigation themes" title="">%s</a></li>', $link, $_SESSION['REQUEST_TOKEN'], $linkTitle);
                 } else {
-                    $strReturn .= '<li><a href="'.$link.'" target="_blank" class="navigation themes" title="">'.$linkTitle.'</a></li>';
+                    $strReturn .= sprintf('<li><a href="%s" target="_blank" class="navigation themes" title="">%s</a></li>', $link, $linkTitle);
                 }
             }
             $strReturn .= '</ul></li>';

@@ -54,7 +54,7 @@ function onDomReady()
  */
 function setToolbarPosition()
 {
-    marginRight = ($$('html').getSize()[0].x - $$('#container').getSize()[0].x) / 2;
+    var marginRight = ($$('html').getSize()[0].x - $$('#container').getSize()[0].x) / 2;
     $$('#om_backend_toolbar').setStyle('right', marginRight + 'px');
 }
 
@@ -125,7 +125,7 @@ function generateCounter()
 {
     $$('.om_backend_counter_view input[type=text],.om_backend_counter_view textarea').some(function(elem)
     {
-        strMax = (elem.get('maxlength') != null) ? ' / '+elem.get('maxlength') : '';
+        var strMax = (elem.get('maxlength') != null) ? ' / '+elem.get('maxlength') : '';
         if (elem.getPrevious() != null)
         {
             elem.getPrevious().getChildren('.length').set('text', '['+elem.value.length+strMax+']')

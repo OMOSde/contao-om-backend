@@ -169,8 +169,8 @@ class ModuleBackendTabs extends \BackendModule
         $xpath = new \DOMXpath($doc);
         foreach ($arrModules as $module)
         {
-            $link = $xpath->query('//a[contains(@class,"'.$module['module'].'")]');
-            foreach ($link as $link)
+            $arrLinks = $xpath->query('//a[contains(@class,"'.$module['module'].'")]');
+            foreach ($arrLinks as $link)
             {
                 $link->setAttribute('href', $link->getAttribute('href').'&table='.$GLOBALS['BE_MOD'][$module['group']][$module['module']]['tables'][0]);
             }

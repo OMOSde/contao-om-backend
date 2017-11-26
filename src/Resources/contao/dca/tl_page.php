@@ -79,7 +79,9 @@ class  tl_page_om_backend extends Backend
 
 
     /**
-     * @param $row
+     * Generate the layout button
+     *
+     * @param $arrRow
      * @param $href
      * @param $label
      * @param $title
@@ -88,7 +90,7 @@ class  tl_page_om_backend extends Backend
      *
      * @return string
      */
-    public function generateButtonLayout($row, $href, $label, $title, $icon, $attributes)
+    public function generateButtonLayout($arrRow, $href, $label, $title, $icon, $attributes)
     {
         // check for pages
         if (self::$arrPages === null)
@@ -101,7 +103,7 @@ class  tl_page_om_backend extends Backend
         }
 
         // get layout by traversing through pages
-        $arrPage = self::$arrPages[$row['id']];
+        $arrPage = self::$arrPages[$arrRow['id']];
         while ($arrPage['layout'] == 0)
         {
             if ($arrPage['type'] == 'root' && $arrPage['layout'] == 0)

@@ -158,8 +158,8 @@ class tl_om_backend_sysinfo extends Backend
      * @param array
      * @return string
      */
-    public function label_callback($row, $label, DataContainer $dc, $args)
+    public function label_callback($arrRow)
     {
-        return '<div class="'.$row['priority'].'">'.$row['title'].'</div>';
+        return sprintf('<div class="%s">%s</div>', $arrRow['priority'], $arrRow['title']);
     }
 }
