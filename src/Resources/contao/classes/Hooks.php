@@ -56,7 +56,7 @@ class Hooks extends \Backend
         {
             $strClasses = '';
 
-            foreach ($this->User->om_backend_features as $feature)
+            foreach ((array) $this->User->om_backend_features as $feature)
             {
                 switch ($feature)
                 {
