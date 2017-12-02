@@ -223,7 +223,7 @@ class Toolbar extends \Backend
                 {
                     $strToolbar .= sprintf('<a class="button" onclick="document.getElementById(\'%s\').click(); return false;" title="%s">%s</a>',
                         $button,
-                        $GLOBALS['TL_LANG']['om_backend']['button_'.$button],
+                        $GLOBALS['TL_LANG']['MSC']['om_backend']['button_'.$button],
                         $this->getIcon('multiple'.$button)
                     );
                 }

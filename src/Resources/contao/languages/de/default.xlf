@@ -38,6 +38,30 @@
                 <source>Image sizes</source>
                 <target>Bildgrößen</target>
             </trans-unit>
+            <trans-unit id="MSC.om_backend.button_delete">
+                <source>Delete</source>
+                <target>Löschen</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.button_cut">
+                <source>Cut</source>
+                <target>Verschieben</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.button_copy">
+                <source>Copy</source>
+                <target>Kopieren</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.button_override">
+                <source>Override</source>
+                <target>Überschreiben</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.button_edit">
+                <source>Edit</source>
+                <target>Bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="MSC.om_backend.button_alias">
+                <source>Generate aliases</source>
+                <target>Aliase generieren</target>
+            </trans-unit>
             <trans-unit id="MSC.id_search.headline">
                 <source>ID/Alias</source>
                 <target>ID/Alias eingeben</target>
