@@ -18,7 +18,7 @@ if (TL_MODE == 'BE')
     $objUser = BackendUser::getInstance();
     $objUser->authenticate();
 
-    if (in_array('addLayoutButton', $objUser->om_backend_features))
+    if (in_array('addLayoutButton', (array) $objUser->om_backend_features))
     {
 
         $GLOBALS['TL_DCA']['tl_page']['list']['operations']['layout'] = [
