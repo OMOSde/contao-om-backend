@@ -1,6 +1,18 @@
 # Contao bundle change log
 
-### 1.1.2 (2017-11-25)
+### 1.2.2 (2017-12-02)
+
+ * Fixed: Wrong paddings of top links
+ * Fixed: Missing tooltips for edit multiple buttons in the toolbar
+ * Fixed: Edit button not visible, with option 'save buttons'
+
+### 1.2.1 (2017-11-28)
+
+ * Fixed: Array errors (Thanks to Tastaturberuf)
+ * Fixed: Some stuff find by phpstorm inspections
+ * Fixed: Missing feature in docs
+ 
+### 1.2.0 (2017-11-25)
 
  * Added: a toolbar button for the contao-manager (only if manager exists)
  * Added: a new feature that dissolve the save- and edit multiple-buttons
