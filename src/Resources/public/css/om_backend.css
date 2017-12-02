@@ -184,6 +184,11 @@ body:not(.popup).lw.om_backend_toolbar #container #main {
     .om_backend_save_buttons .tl_submit_container .split-button > button[name=delete] {
         margin-left: 5px;
     }
+    .om_backend_save_buttons .tl_submit_container > button[name=edit] {
+        display: block;
+        float: right;
+        margin-left: 5px;
+    }
     .om_backend_save_buttons .tl_submit_container .split-button > button[name=delete] + button + ul {
         right: 100%;
         left: auto;
