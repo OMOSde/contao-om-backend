@@ -133,7 +133,7 @@ class Hooks extends \Backend
     {
         if (Config::get('addBackendContact') && $strTemplate == 'be_main')
         {
-            $strUrl = sprintf('<a href="%s" style="background: url("%s") left 17px no-repeat;">%s</a>', Config::get('om_contact_url'), FilesModel::findByUuid(Config::get('om_contact_icon'))->path, Config::get('om_contact_title'));
+            $strUrl = sprintf('<a href="%s" style="background: url("%s") left 13px no-repeat;">%s</a>', Config::get('om_contact_url'), FilesModel::findByUuid(Config::get('om_contact_icon'))->path, Config::get('om_contact_title'));
 
             $strContent = str_replace('<ul id="tmenu">', '<ul id="tmenu">' . $strUrl, $strContent);
         }
