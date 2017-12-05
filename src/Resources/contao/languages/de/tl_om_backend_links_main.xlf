@@ -16,7 +16,7 @@
             </trans-unit>
             <trans-unit id="tl_om_backend_links_main.be_group.1">
                 <source>Please enter the group.</source>
-                <target>Bitte geben Sie die Gruppe ein.</target> 
+                <target>Bitte geben Sie die Gruppe ein.</target>
             </trans-unit>
             <trans-unit id="tl_om_backend_links_main.url.0">
                 <source>Url</source>
@@ -52,9 +52,7 @@
             </trans-unit>
             <trans-unit id="tl_om_backend_links_main.deleteConfirm">
                 <source>Deleting category ID %s will also delete all its FAQs! Continue?</source>
-                <target>Wenn Sie die Kategorie %s löschen, werden auch alle darin enthaltenen FAQs gelöscht!
-                    Fortfahren?
-                </target>
+                <target>Wenn Sie die Kategorie %s löschen, werden auch alle darin enthaltenen FAQs gelöscht! Fortfahren?</target>
             </trans-unit>
             <trans-unit id="tl_om_backend_links_main.new.0">
                 <source>New link</source>

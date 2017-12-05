@@ -19,133 +19,116 @@ use Psr\Log\LogLevel;
 /**
  * Table tl_om_backend_links_top
  */
-$GLOBALS['TL_DCA']['tl_om_backend_links_top'] = array
-(
+$GLOBALS['TL_DCA']['tl_om_backend_links_top'] = [
     // Config
-    'config' => array
-    (
+    'config'   => [
         'dataContainer' => 'Table',
-        'sql' => array
-        (
-            'keys' => array
-            (
+        'sql'           => [
+            'keys' => [
                 'id' => 'primary'
-            )
-        )
-    ),
+            ]
+        ]
+    ],
 
     // List
-    'list' => array
-    (
-        'sorting' => array
-        (
+    'list'     => [
+        'sorting'           => [
             'mode'        => 1,
-            'fields'      => array('title'),
+            'fields'      => ['title'],
             'flag'        => 1,
             'panelLayout' => 'search,limit'
-        ),
-        'label' => array
-        (
-            'fields'         => array('title'),
+        ],
+        'label'             => [
+            'fields'         => ['title'],
             'format'         => '%s',
-            'label_callback' => array('tl_om_backend_links_top', 'labelCallback'),
-        ),
-        'global_operations' => array
-        (
-            'all' => array
-            (
+            'label_callback' => ['tl_om_backend_links_top', 'labelCallback'],
+        ],
+        'global_operations' => [
+            'all' => [
                 'label'      => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'       => 'act=select',
                 'class'      => 'header_edit_all',
                 'attributes' => 'onclick="Backend.getScrollOffset()" accesskey="e"'
-            )
-        ),
-        'operations' => array
-        (
-            'edit' => array
-            (
+            ]
+        ],
+        'operations'        => [
+            'edit'   => [
                 'label' => &$GLOBALS['TL_LANG']['tl_om_backend_links_top']['edit'],
                 'href'  => 'act=edit',
                 'icon'  => 'edit.gif'
-            ),
-            'copy' => array
-            (
+            ],
+            'copy'   => [
                 'label' => &$GLOBALS['TL_LANG']['tl_om_backend_links_top']['copy'],
                 'href'  => 'act=copy',
                 'icon'  => 'copy.gif',
-            ),
-            'delete' => array
-            (
+            ],
+            'delete' => [
                 'label'      => &$GLOBALS['TL_LANG']['tl_om_backend_links_top']['delete'],
                 'href'       => 'act=delete',
                 'icon'       => 'delete.gif',
                 'attributes' => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['tl_om_backend_links_top']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
-            ),
-            'toggle' => array
-            (
+            ],
+            'toggle' => [
                 'label'           => &$GLOBALS['TL_LANG']['tl_om_backend_links_top']['toggle'],
                 'icon'            => 'visible.gif',
                 'attributes'      => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-                'button_callback' => array('tl_om_backend_links_top', 'toggleIcon')
-            ),
-            'show' => array
-            (
+                'button_callback' => ['tl_om_backend_links_top', 'toggleIcon']
+            ],
+            'show'   => [
                 'label' => &$GLOBALS['TL_LANG']['tl_om_backend_links_top']['show'],
                 'href'  => 'act=show',
                 'icon'  => 'show.gif'
-            )
-        )
-    ),
+            ]
+        ]
+    ],
 
     // Palettes
-    'palettes' => array
-    (
-        'default' => '{title_legend},title,url,icon;{publish_legend},published'
-    ),
+    'palettes' => [
+        'default' => '{title_legend},title,url,icon;{target_legend},target;{publish_legend},published'
+    ],
 
     // Fields
-    'fields' => array
-    (
-        'id' => array
-        (
+    'fields'   => [
+        'id'        => [
             'sql' => "int(10) unsigned NOT NULL auto_increment"
-        ),
-        'tstamp' => array
-        (
+        ],
+        'tstamp'    => [
             'sql' => "int(10) unsigned NOT NULL default '0'"
-        ),
-        'title' => array
-        (
+        ],
+        'title'     => [
             'label'     => &$GLOBALS['TL_LANG']['tl_om_backend_links_top']['title'],
             'inputType' => 'text',
-            'eval'      => array('mandatory'=>true, 'maxlength'=>50, 'tl_class'=>'w50'),
+            'eval'      => ['mandatory' => true, 'maxlength' => 50, 'tl_class' => 'w50'],
             'sql'       => "varchar(50) NOT NULL default ''"
-        ),
-        'url' => array
-        (
+        ],
+        'url'       => [
             'label'     => &$GLOBALS['TL_LANG']['tl_om_backend_links_top']['url'],
             'inputType' => 'text',
-            'eval'      => array('rgxp'=>'url', 'maxlength'=>255, 'tl_class'=>'w50'),
+            'eval'      => ['rgxp' => 'url', 'maxlength' => 255, 'tl_class' => 'w50'],
             'sql'       => "varchar(255) NOT NULL default ''"
-        ),
-        'icon' => array
-        (
+        ],
+        'icon'      => [
             'label'     => &$GLOBALS['TL_LANG']['tl_om_backend_links_top']['icon'],
             'exclude'   => true,
             'inputType' => 'fileTree',
-            'eval'      => array('files'=>true, 'filesOnly'=>true, 'extensions'=>\Config::get('validImageTypes'), 'fieldType'=>'radio', 'tl_class'=>'clr'),
+            'eval'      => ['files' => true, 'filesOnly' => true, 'extensions' => \Config::get('validImageTypes'), 'fieldType' => 'radio', 'tl_class' => 'clr'],
             'sql'       => "binary(16) NULL"
-        ),
-        'published' => array
-        (
+        ],
+        'target'    => [
+            'label'     => &$GLOBALS['TL_LANG']['tl_om_backend_links_top']['target'],
+            'inputType' => 'checkbox',
+            'eval'      => [],
+            'sql'       => "char(1) NOT NULL default ''"
+        ],
+        'published' => [
             'label'     => &$GLOBALS['TL_LANG']['tl_om_backend_links_top']['published'],
             'exclude'   => true,
             'inputType' => 'checkbox',
-            'eval'      => array(),
+            'eval'      => [],
             'sql'       => "char(1) NOT NULL default ''"
-        )
-    )
-);
+        ]
+    ]
+];
 
 
 /**
@@ -208,19 +191,20 @@ class tl_om_backend_links_top extends Backend
             return '';
         }
 
-        $href .= '&amp;tid='.$row['id'].'&amp;state='.($row['published'] ? '' : 1);
+        $href .= '&amp;tid=' . $row['id'] . '&amp;state=' . ($row['published'] ? '' : 1);
 
         if (!$row['published'])
         {
             $icon = 'invisible.gif';
         }
 
-        return '<a href="'.$this->addToUrl($href).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label, 'data-state="' . ($row['published'] ? 1 : 0) . '"').'</a> ';
+        return '<a href="' . $this->addToUrl($href) . '" title="' . StringUtil::specialchars($title) . '"' . $attributes . '>' . Image::getHtml($icon, $label, 'data-state="' . ($row['published'] ? 1 : 0) . '"') . '</a> ';
     }
 
 
     /**
      * Disable/enable an backend link
+     *
      * @param integer
      * @param boolean
      */
@@ -230,9 +214,7 @@ class tl_om_backend_links_top extends Backend
         if (!$this->User->isAdmin && !$this->User->hasAccess('tl_om_backend_links_top::published', 'alexf'))
         {
             // logging & redirect
-            \System::getContainer()
-                ->get('monolog.logger.contao')
-                ->log(LogLevel::ERROR, sprintf('Not enough permissions to publish/unpublish backend link ID "%s"', $intId));
+            \System::getContainer()->get('monolog.logger.contao')->log(LogLevel::ERROR, sprintf('Not enough permissions to publish/unpublish backend link ID "%s"', $intId));
 
             $this->redirect('contao/main.php?act=error');
         }
@@ -258,14 +240,12 @@ class tl_om_backend_links_top extends Backend
         }
 
         // Update the database
-        $this->Database->prepare("UPDATE tl_om_backend_links_top SET tstamp=". time() .", published='" . ($blnVisible ? 1 : '') . "' WHERE id=?")->execute($intId);
+        $this->Database->prepare("UPDATE tl_om_backend_links_top SET tstamp=" . time() . ", published='" . ($blnVisible ? 1 : '') . "' WHERE id=?")->execute($intId);
 
         // create a new version
         $objVersions->create();
 
         // logging
-        \System::getContainer()
-            ->get('monolog.logger.contao')
-            ->log(LogLevel::INFO, sprintf('A new version of record "tl_om_backend_links_top.id=%s" has been created %s', $intId, $this->getParentEntries('tl_om_backend_links_top', $intId)));
+        \System::getContainer()->get('monolog.logger.contao')->log(LogLevel::INFO, sprintf('A new version of record "tl_om_backend_links_top.id=%s" has been created %s', $intId, $this->getParentEntries('tl_om_backend_links_top', $intId)));
     }
 }

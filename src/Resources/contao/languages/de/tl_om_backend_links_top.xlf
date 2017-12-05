@@ -26,6 +26,14 @@
                 <source>Please select an icon.</source>
                 <target>Bitte wählen Sie ein Icon aus.</target>
             </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.target.0">
+                <source>Open in new window</source>
+                <target>In neuem Fenster öffnen</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.target.1">
+                <source>If selected, the link opens in a new window.</source>
+                <target>Wenn ausgewählt, wird der Link in einem neuen Fenster geöffnet.</target>
+            </trans-unit>
             <trans-unit id="tl_om_backend_links_top.published.0">
                 <source>Publish</source>
                 <target>Veröffentlichen</target>
@@ -37,6 +45,10 @@
             <trans-unit id="tl_om_backend_links_top.title_legend">
                 <source>Title</source>
                 <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.target_legend">
+                <source>Target window</source>
+                <target>Zielfenster</target>
             </trans-unit>
             <trans-unit id="tl_om_backend_links_top.publish_legend">
                 <source>Publish</source>

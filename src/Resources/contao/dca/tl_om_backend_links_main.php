@@ -230,7 +230,8 @@ class tl_om_backend_links_main extends Backend
                 {
                     $this->import($callback[0]);
                     $blnVisible = $this->$callback[0]->$callback[1]($blnVisible, $this);
-                } elseif (is_callable($callback))
+                }
+                elseif (is_callable($callback))
                 {
                     $blnVisible = $callback($blnVisible, $this);
                 }
@@ -245,6 +246,6 @@ class tl_om_backend_links_main extends Backend
 
         // logging
         \System::getContainer()->get('monolog.logger.contao')->log(LogLevel::INFO,
-                sprintf('A new version of record "tl_om_backend_links_main.id=%s" has been created %s', $intId, $this->getParentEntries('tl_om_backend_links_main', $intId)));
+            sprintf('A new version of record "tl_om_backend_links_main.id=%s" has been created %s', $intId, $this->getParentEntries('tl_om_backend_links_main', $intId)));
     }
 }

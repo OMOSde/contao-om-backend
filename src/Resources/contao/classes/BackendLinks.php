@@ -84,12 +84,12 @@ class BackendLinks extends Backend
         foreach ($objLinks as $link)
         {
             $strStyle = ($link->icon) ? sprintf('background:url(%s) left 13px no-repeat;', \FilesModel::findByUuid($link->icon)->path) : sprintf('display:inline-block;margin-left:18px;padding: 13px 10px;');
-            $strLink  = ($link->url) ? sprintf('<li><a href="%s" style="%s">%s</a></li>', $link->url, $strStyle, $link->title) : sprintf('<li><span style="%s">%s</span></li>', $strStyle, $link->title);
+            $strLink = ($link->url) ? sprintf('<li><a href="%s"%s style="%s">%s</a></li>', $link->url, ($link->target) ? ' target="_blank"' : '' ,$strStyle, $link->title) : sprintf('<li><span style="%s">%s</span></li>', $strStyle, $link->title);
 
             $strLinks .= $strLink;
         }
 
-        $strContent = str_replace('<ul id="tmenu">', '<ul id="tmenu">'.$strLinks, $strContent);
+        $strContent = str_replace('<ul id="tmenu">', '<ul id="tmenu">' . $strLinks, $strContent);
 
         return $strContent;
     }
@@ -105,9 +105,7 @@ class BackendLinks extends Backend
     protected function addBackendLinksMain($strContent)
     {
         // get all links
-        //$objLinks = $this->Database->prepare("SELECT * FROM tl_om_backend_links WHERE language=? AND published=1")->execute($this->User->language);
-
-        $objLinks = OmBackendLinksMainModel::findBy(array('language=?', 'published=1'), array($this->User->language));
+        $objLinks = OmBackendLinksMainModel::findBy(['language=?', 'published=1'], [$this->User->language]);
         if (!$objLinks)
         {
             return $strContent;
@@ -119,24 +117,28 @@ class BackendLinks extends Backend
         }
 
         $strReturn = '';
-        foreach ($arrGroups as $groupName=>$group)
+        foreach ($arrGroups as $groupName => $group)
         {
-            $strReturn .= '<li class="tl_level_1_group"><a href="contao/main.php?do=repository_manager&amp;mtg='.$groupName.'" title="" onclick="return AjaxRequest.toggleNavigation(this,\''.$groupName.'\')">'.$groupName.'</a></li>';
-            $strReturn .= '<li class="tl_parent" id="'.$groupName.'" style="display: inline;"><ul class="tl_level_2">';
-            foreach ($group as $linkTitle=>$link)
+            $strReturn .= '<li class="tl_level_1_group"><a href="contao/main.php?do=repository_manager&amp;mtg=' . $groupName . '" title="" onclick="return AjaxRequest.toggleNavigation(this,\'' . $groupName . '\')">' . $groupName . '</a></li>';
+            $strReturn .= '<li class="tl_parent" id="' . $groupName . '" style="display: inline;"><ul class="tl_level_2">';
+            foreach ($group as $linkTitle => $link)
             {
-                if (strpos($link, 'contao/main.php') !== false)
+                if (strpos($link, 'contao?do') !== false)
                 {
-                    $link .= (strpos($link, '?') !== false) ? '&' : '?';
-                    $strReturn .= sprintf('<li><a href="%srt=%s" class="navigation themes" title="">%s</a></li>', $link, $_SESSION['REQUEST_TOKEN'], $linkTitle);
-                } else {
+                    $container = \System::getContainer();
+                    $strToken = $container->get('security.csrf.token_manager')->getToken($container->getParameter('contao.csrf_token_name'))->getValue();
+
+                    $strReturn .= sprintf('<li><a href="%s&rt=%s" class="navigation themes" title="">%s</a></li>', $link, $strToken, $linkTitle);
+                }
+                else
+                {
                     $strReturn .= sprintf('<li><a href="%s" target="_blank" class="navigation themes" title="">%s</a></li>', $link, $linkTitle);
                 }
             }
             $strReturn .= '</ul></li>';
         }
 
-        $strContent = str_replace('<ul class="tl_level_1">', '<ul class="tl_level_1">'.$strReturn, $strContent);
+        $strContent = str_replace('<ul class="tl_level_1">', '<ul class="tl_level_1">' . $strReturn, $strContent);
 
         return $strContent;
     }
