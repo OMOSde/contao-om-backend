@@ -1,5 +1,10 @@
 # Contao bundle change log
 
+### 1.2.3 (2017-12-11)
+
+ * Added: Option '_blank' for backend links 
+ * Fixed: A problem with BackendUser->authenticate() and the install tool on fresh installations
+
 ### 1.2.2 (2017-12-02)
 
  * Fixed: Wrong paddings of top links
