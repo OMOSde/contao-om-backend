@@ -47,7 +47,7 @@ $GLOBALS['BE_MOD']['om_backend'] = array
 /**
  * Add selected backend modules
  */
-if (TL_MODE == 'BE')
+if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') === false)
 {
     $objUser = BackendUser::getInstance();
     $objUser->authenticate();
