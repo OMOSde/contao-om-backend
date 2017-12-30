@@ -87,7 +87,7 @@ class Toolbar extends \Backend
             $GLOBALS['TL_LANG']['MSC']['om_backend']['id_search'],
             $this->getIcon('idSearch')
         );
-        $strToolbar .= sprintf('<a class="button" href="%scontao/install" target="_blank" title="%s">%s</a>',
+        $strToolbar .= sprintf('<a class="button" href="%scontao/install" target="_blank" rel="noopener" title="%s">%s</a>',
             $strEntryPoint,
             $GLOBALS['TL_LANG']['MSC']['om_backend']['install_tool'],
             $this->getIcon('installTool')
@@ -108,7 +108,7 @@ class Toolbar extends \Backend
         // add contao manager icon
         if ($this->contaoManagerExists())
         {
-            $strToolbar .= sprintf('<a class="button" href="contao-manager.phar.php" title="%s" target="_blank">%s</a>',
+            $strToolbar .= sprintf('<a class="button" href="contao-manager.phar.php" title="%s" target="_blank" rel="noopener">%s</a>',
                 $GLOBALS['TL_LANG']['MSC']['om_backend']['contao_manager'],
                 $this->getIcon('contaoManager')
             );

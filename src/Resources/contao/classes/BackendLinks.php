@@ -84,7 +84,7 @@ class BackendLinks extends Backend
         foreach ($objLinks as $link)
         {
             $strStyle = ($link->icon) ? sprintf('background:url(%s) left 13px no-repeat;', \FilesModel::findByUuid($link->icon)->path) : sprintf('display:inline-block;margin-left:18px;padding: 13px 10px;');
-            $strLink = ($link->url) ? sprintf('<li><a href="%s"%s style="%s">%s</a></li>', $link->url, ($link->target) ? ' target="_blank"' : '' ,$strStyle, $link->title) : sprintf('<li><span style="%s">%s</span></li>', $strStyle, $link->title);
+            $strLink = ($link->url) ? sprintf('<li><a href="%s"%s style="%s">%s</a></li>', $link->url, ($link->target) ? ' target="_blank" rel="noopener"' : '' ,$strStyle, $link->title) : sprintf('<li><span style="%s">%s</span></li>', $strStyle, $link->title);
 
             $strLinks .= $strLink;
         }
@@ -132,7 +132,7 @@ class BackendLinks extends Backend
                 }
                 else
                 {
-                    $strReturn .= sprintf('<li><a href="%s" target="_blank" class="navigation themes" title="">%s</a></li>', $link, $linkTitle);
+                    $strReturn .= sprintf('<li><a href="%s" target="_blank" rel="noopener" class="navigation themes" title="">%s</a></li>', $link, $linkTitle);
                 }
             }
             $strReturn .= '</ul></li>';
