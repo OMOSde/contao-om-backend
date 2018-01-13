@@ -12,7 +12,8 @@
     "require": {
         "php": ">=5.6.0",
         "contao/core-bundle": "^4.4",
-        "erusev/parsedown": "~1.6"
+        "erusev/parsedown": "~1.6",
+        "menatwork/contao-multicolumnwizard": "^3.3"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0",

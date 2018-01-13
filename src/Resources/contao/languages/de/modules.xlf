@@ -55,6 +55,14 @@
                 <source>Top navigation</source>
                 <target>Top-Navigation</target>
             </trans-unit>
+            <trans-unit id="MOD.element_classes.0">
+                <source>Element classes</source>
+                <target>Element-Klassen</target>
+            </trans-unit>
+            <trans-unit id="MOD.element_classes.1">
+                <source>Manage element classes</source>
+                <target>Element-Klassen verwalten</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

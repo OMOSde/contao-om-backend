@@ -31,17 +31,18 @@ if (TL_MODE == 'BE')
 /**
  * Backend modules
  */
-$GLOBALS['BE_MOD']['om_backend'] = array
-(
-    'id_search' => array
-    (
+$GLOBALS['BE_MOD']['om_backend'] = [
+    'id_search'       => [
         'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleIdSearch',
-    ),
+    ],
+    'element_classes' => [
+        'tables' => ['tl_om_backend_element_classes']
+    ],
     /*'sysinfo' => array
     (
         'tables'   => array('tl_om_backend_sysinfo'),
     ),*/
-);
+];
 
 
 /**
@@ -58,42 +59,38 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
     }
     if ($objUser->om_backend_features !== null && in_array('addBackendLinks', $objUser->om_backend_features))
     {
-        $GLOBALS['BE_MOD']['om_backend']['backend_links'] = array
-        (
+        $GLOBALS['BE_MOD']['om_backend']['backend_links'] = [
             'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
-            'tabs'     => array
-            (
+            'tabs'     => [
                 'backend_links_main',
                 'backend_links_top'
-            )
-        );
-        $GLOBALS['BE_MOD']['om_backend']['backend_links_main'] = array
-        (
-            'tables' => array('tl_om_backend_links_main')
-        );
-        $GLOBALS['BE_MOD']['om_backend']['backend_links_top'] = array
-        (
-            'tables' => array('tl_om_backend_links_top')
-        );
+            ]
+        ];
+        $GLOBALS['BE_MOD']['om_backend']['backend_links_main'] = [
+            'tables' => ['tl_om_backend_links_main']
+        ];
+        $GLOBALS['BE_MOD']['om_backend']['backend_links_top'] = [
+            'tables' => ['tl_om_backend_links_top']
+        ];
     }
 
     // get tables from all backend modules
     foreach ($GLOBALS['BE_MOD'] as $arrModules)
     {
-        foreach ($arrModules as $keyModule=>$module)
+        foreach ($arrModules as $keyModule => $module)
         {
             $arrTables[$keyModule] = $module['tables'];
         }
     }
 
     // add tables
-    foreach ($GLOBALS['BE_MOD'] as $keyGroup=>$arrModules)
+    foreach ($GLOBALS['BE_MOD'] as $keyGroup => $arrModules)
     {
-        foreach ($arrModules as $keyModule=>$module)
+        foreach ($arrModules as $keyModule => $module)
         {
             if (isset($module['tabs']) && count($module['tabs']))
             {
-                $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = array();
+                $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = [];
                 foreach ($module['tabs'] as $tab)
                 {
                     $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = array_merge($GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'], $arrTables[$tab]);
@@ -113,11 +110,12 @@ $GLOBALS['BE_FFL']['usageWizard'] = 'OMOSde\ContaoOmBackendBundle\UsageWizard';
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\Toolbar', 'addToolbarToBackendTemplate');
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\ModuleBackendTabs', 'changeNavigation');
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\Hooks', 'addBodyClasses');
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinks');
-$GLOBALS['TL_HOOKS']['postLogin'][]             = array('OMOSde\ContaoOmBackendBundle\Hooks', 'redirectUser');
+$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\Toolbar', 'addToolbarToBackendTemplate'];
+$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\ModuleBackendTabs', 'changeNavigation'];
+$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\Hooks', 'addBodyClasses'];
+$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinks'];
+//$GLOBALS['TL_HOOKS']['postLogin'][] = ['OMOSde\ContaoOmBackendBundle\Hooks', 'redirectUser'];
+$GLOBALS['TL_HOOKS']['parseTemplate'][] = ['OMOSde\ContaoOmBackendBundle\ElementClasses', 'addElementClassesToTemplate'];
 //$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinksMain');
 
 
@@ -125,4 +123,5 @@ $GLOBALS['TL_HOOKS']['postLogin'][]             = array('OMOSde\ContaoOmBackendB
  * Models
  */
 $GLOBALS['TL_MODELS']['tl_om_backend_links_main'] = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksMainModel';
-$GLOBALS['TL_MODELS']['tl_om_backend_links_top']  = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksTopModel';
+$GLOBALS['TL_MODELS']['tl_om_backend_links_top'] = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksTopModel';
+$GLOBALS['TL_MODELS']['tl_om_backend_element_classes'] = 'OMOSde\ContaoOmBackendBundle\OmBackendElementClassesModel';

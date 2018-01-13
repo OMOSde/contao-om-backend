@@ -27,6 +27,7 @@ You can install the module through composer.
 - __Layout-Buttons:__ Layout-Button in Seitenstruktur (inkl. Vererbung)
 - __Speichern-Buttons:__ die Untermenüs werden wieder aufgelöst
 - __Full-Width_Backend:__ Backend wieder auf volle Breite bringen
+- __Element-Klassen:__ Einzelnen Inhaltselementen oder Artikeln CSS-Klassen zuweisen
 
 For more informations read FEATURES.md.
 

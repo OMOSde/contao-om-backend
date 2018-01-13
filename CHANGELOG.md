@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.3.0 (2018-01-13)
+
+ * Added: New feature 'Element classes'
+
 ### 1.2.3 (2017-12-11)
 
  * Added: Option '_blank' for backend links 

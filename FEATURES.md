@@ -139,9 +139,15 @@ Dieses Features löst die Untermenüs der Speicher- und Mehrere bearbeiten-Butto
 
 Kann die Breite des Backends wieder auf die gesamte verfügbare Breite ausweiten.
 
+### 1.14 Element-Klassen
+
+Einzelnen Inhaltselementen oder Artikeln CSS-Klassen zuweisen. [Details][2]
+
 ## 2. Nachwort
 
 Das vorliegende Modul ist bei mir quasi in allen Contao-Projekte als Standard mit dabei. Es entstand aus Ideen und 
 Anforderungen, die immer mal wieder aus den Projekten selbst hervorgingen.
 
 Gerne nehme ich Ideen für Features entgegen.
+
+[2]: handbook/features/element_classes.md
