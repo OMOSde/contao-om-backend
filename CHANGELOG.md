@@ -3,6 +3,8 @@
 ### 1.3.0 (2018-01-13)
 
  * Added: New feature 'Element classes'
+ * Fixed: 'Call to a member function hasAccess() on null' on site structure page
+ * Fixed: Add 'rel="noopener"' to links with 'target="_blank"'
 
 ### 1.2.3 (2017-12-11)
 
