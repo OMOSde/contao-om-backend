@@ -114,6 +114,9 @@ class  tl_page_om_backend extends Backend
             $arrPage = self::$arrPages[$arrPage['pid']];
         }
 
+        // import backend user
+        $this->import('BackendUser', 'User');
+
         // return link or image only
         return ($this->User->hasAccess('layout', 'themes') && $arrPage['layout'] > 0) ? '<a href="' . $this->addToUrl('do=themes&table=tl_layout&act=edit&id=' . $arrPage['layout'], true,
                 ['do']) . '" title="' . StringUtil::specialchars($title) . '"' . $attributes . '>' . Image::getHtml($icon, $label) . '</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '.svg', $icon)) . ' ';
