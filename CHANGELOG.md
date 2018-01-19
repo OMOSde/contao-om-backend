@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.3.1 (2018-01-19)
+
+ * Fixed: Theme buttons with wrong id´s (then multiple themes exists)
+
 ### 1.3.0 (2018-01-13)
 
  * Added: New feature 'Element classes'
