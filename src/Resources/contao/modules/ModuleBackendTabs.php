@@ -17,6 +17,12 @@ namespace OMOSde\ContaoOmBackendBundle;
 
 
 /**
+ * Use
+ */
+use \Wa72\HtmlPageDom\HtmlPageCrawler;
+
+
+/**
  * Class ModuleBackendTabs
  *
  * @copyright René Fehrmann
@@ -26,6 +32,7 @@ class ModuleBackendTabs extends \BackendModule
 {
     /**
      * Template
+     *
      * @var string
      */
     protected $strTemplate = 'mod_backend_tabs';
@@ -38,8 +45,8 @@ class ModuleBackendTabs extends \BackendModule
     {
         // variable
         $strManager = '';
-        $arrModule  = array();
-        $strModule  = \Input::get('do');
+        $arrModule = [];
+        $strModule = \Input::get('do');
 
         // handle all backend modules
         foreach ($GLOBALS['BE_MOD'] as &$arrGroup)
@@ -55,12 +62,12 @@ class ModuleBackendTabs extends \BackendModule
         if (isset($arrModule['tabs']) && count($arrModule['tabs']) > 0)
         {
             $strManager = '<div id="manager"><ul>';
-            foreach ($arrModule['tabs'] as $intKey=>$strTab)
+            foreach ($arrModule['tabs'] as $intKey => $strTab)
             {
                 // get group
-                foreach ($GLOBALS['BE_MOD'] as $keyGroup=>$arrModules)
+                foreach ($GLOBALS['BE_MOD'] as $keyGroup => $arrModules)
                 {
-                    foreach ($arrModules as $keyModule=>$module)
+                    foreach ($arrModules as $keyModule => $module)
                     {
                         if ($strTab == $keyModule)
                         {
@@ -72,12 +79,7 @@ class ModuleBackendTabs extends \BackendModule
 
                 // generate link
                 $strTable = sprintf('%s', $GLOBALS['BE_MOD'][$strGroup][$strTab]['tables'][0]);
-                $strHref = sprintf('%scontao?do=%s&tab=%s&table=%s',
-                    (strpos(\Environment::get('request'), 'app_dev.php') !== false) ? 'app_dev.php/' : '',
-                    $strModule,
-                    $strTab,
-                    $strTable
-                );
+                $strHref = sprintf('%scontao?do=%s&tab=%s&table=%s', (strpos(\Environment::get('request'), 'app_dev.php') !== false) ? 'app_dev.php/' : '', $strModule, $strTab, $strTable);
 
                 // add class
                 if (!\Input::get('tab'))
@@ -90,19 +92,14 @@ class ModuleBackendTabs extends \BackendModule
                 }
 
                 // list item
-                $strManager .= sprintf('<li%s style="margin-right:4px;"><a href="%s" title="%s">%s</a></li>',
-                    $strClass,
-                    $strHref,
-                    $GLOBALS['TL_LANG']['MOD'][$strTab][1],
-                    $GLOBALS['TL_LANG']['MOD'][$strTab][0]
-                );
+                $strManager .= sprintf('<li%s style="margin-right:4px;"><a href="%s" title="%s">%s</a></li>', $strClass, $strHref, $GLOBALS['TL_LANG']['MOD'][$strTab][1], $GLOBALS['TL_LANG']['MOD'][$strTab][0]);
             }
             $strManager .= '</ul></div>';
         }
 
         // set template vars
         $this->Template->manager = $strManager;
-        $this->Template->html    = $this->getBackendModule((\Input::get('tab')) ?: $arrModule['tabs'][0]);
+        $this->Template->html = $this->getBackendModule((\Input::get('tab')) ?: $arrModule['tabs'][0]);
     }
 
 
@@ -122,13 +119,13 @@ class ModuleBackendTabs extends \BackendModule
         }
 
         // variables
-        $arrTabs    = [];
+        $arrTabs = [];
         $arrModules = [];
 
         // determine tabs to remove
-        foreach ($GLOBALS['BE_MOD'] as $keyGroup=>&$arrGroup)
+        foreach ($GLOBALS['BE_MOD'] as $keyGroup => &$arrGroup)
         {
-            foreach ($arrGroup as $keyModule=>$module)
+            foreach ($arrGroup as $keyModule => $module)
             {
                 if (isset($module['tabs']) && count($module['tabs']) > 0)
                 {
@@ -137,45 +134,34 @@ class ModuleBackendTabs extends \BackendModule
                         $arrTabs[] = $tab;
                     }
 
-                    $arrModules[] = array
-                    (
+                    $arrModules[] = [
                         'group'  => $keyGroup,
                         'module' => $keyModule
-                    );
+                    ];
                 }
             }
         }
         $arrTabs = array_unique($arrTabs);
 
-        // load dom
-        $doc = new \DOMDocument();
-        libxml_use_internal_errors(true);
-        $doc->loadHTML($strContent, LIBXML_HTML_NODEFDTD);
-        libxml_use_internal_errors(false);
+        // get dom
+        $objCrawler = HtmlPageCrawler::create($strContent);
 
         // remove tabs from dom
-        $xpath = new \DOMXpath($doc);
         foreach ($arrTabs as $tab)
         {
-            $elements = $xpath->query('//a[contains(@class,"navigation") and contains(@class, " '.$tab.'")]');
-            foreach ($elements as $elemLink)
-            {
-                $elemListItem = $elemLink->parentNode;
-                $elemListItem->parentNode->removeChild($elemListItem);
-            }
+            $objCrawler->filter('#tl_navigation .navigation.' . $tab)->remove();
         }
 
-        // add table to backend link
-        $xpath = new \DOMXpath($doc);
+        // add table to backend links
         foreach ($arrModules as $module)
         {
-            $arrLinks = $xpath->query('//a[contains(@class,"'.$module['module'].'")]');
+            $arrLinks = $objCrawler->filter('#tl_navigation .navigation.' . $module['module']);
             foreach ($arrLinks as $link)
             {
-                $link->setAttribute('href', $link->getAttribute('href').'&table='.$GLOBALS['BE_MOD'][$module['group']][$module['module']]['tables'][0]);
+                $link->setAttribute('href', $link->getAttribute('href') . '&table=' . $GLOBALS['BE_MOD'][$module['group']][$module['module']]['tables'][0]);
             }
         }
 
-        return $doc->saveHTML();
+        return $objCrawler->saveHTML();
     }
 }
