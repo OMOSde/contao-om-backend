@@ -176,6 +176,6 @@ class ModuleBackendTabs extends \BackendModule
             }
         }
 
-        return html_entity_decode($doc->saveHTML());
+        return $doc->saveHTML();
     }
 }
