@@ -111,12 +111,13 @@ $GLOBALS['BE_FFL']['usageWizard'] = 'OMOSde\ContaoOmBackendBundle\UsageWizard';
  * Hooks
  */
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\Toolbar', 'addToolbarToBackendTemplate'];
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\ModuleBackendTabs', 'changeNavigation'];
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\Hooks', 'addBodyClasses'];
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinks'];
 //$GLOBALS['TL_HOOKS']['postLogin'][] = ['OMOSde\ContaoOmBackendBundle\Hooks', 'redirectUser'];
 $GLOBALS['TL_HOOKS']['parseTemplate'][] = ['OMOSde\ContaoOmBackendBundle\ElementClasses', 'addElementClassesToTemplate'];
 //$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinksMain');
+$GLOBALS['TL_HOOKS']['getUserNavigation'][] = array('OMOSde\ContaoOmBackendBundle\ModuleBackendTabs', 'changeNavigation');
+
 
 
 /**

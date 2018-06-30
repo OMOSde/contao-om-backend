@@ -17,12 +17,6 @@ namespace OMOSde\ContaoOmBackendBundle;
 
 
 /**
- * Use
- */
-use \Wa72\HtmlPageDom\HtmlPageCrawler;
-
-
-/**
  * Class ModuleBackendTabs
  *
  * @copyright René Fehrmann
@@ -106,62 +100,56 @@ class ModuleBackendTabs extends \BackendModule
     /**
      * Removes modules in the navigation, which are used in tabs
      *
-     * @param $strContent
-     * @param $strTemplate
+     * @param $arrModules
      *
-     * @return mixed
+     * @return array
      */
-    public function changeNavigation($strContent, $strTemplate)
+    public function changeNavigation($arrModules)
     {
-        if ($strTemplate != 'be_main')
-        {
-            return $strContent;
-        }
-
         // variables
-        $arrTabs = [];
-        $arrModules = [];
+        $arrHandle = [];
+        $arrModulesNew = [];
 
-        // determine tabs to remove
-        foreach ($GLOBALS['BE_MOD'] as $keyGroup => &$arrGroup)
+        // determine tabs to remove and navigation links to add table in href
+        foreach ($arrModules as $keyGroup => &$arrGroup)
         {
-            foreach ($arrGroup as $keyModule => $module)
+            foreach ($arrGroup['modules'] as $keyModule => $module)
             {
                 if (isset($module['tabs']) && count($module['tabs']) > 0)
                 {
+                    // modules to remove from navigation
                     foreach ($module['tabs'] as $tab)
                     {
-                        $arrTabs[] = $tab;
+                        $arrHandle['remove'][] = [
+                            'group'  => $keyGroup,
+                            'module' => $tab
+                        ];
                     }
 
-                    $arrModules[] = [
+                    // module to add table in href
+                    $arrHandle['add'][] = [
                         'group'  => $keyGroup,
                         'module' => $keyModule
                     ];
                 }
             }
         }
-        $arrTabs = array_unique($arrTabs);
 
-        // get dom
-        $objCrawler = HtmlPageCrawler::create($strContent);
-
-        // remove tabs from dom
-        foreach ($arrTabs as $tab)
+        // remove modules from navigation
+        foreach ($arrHandle['remove'] as $module)
         {
-            $objCrawler->filter('#tl_navigation .navigation.' . $tab)->remove();
+            unset($arrModules[$module['group']]['modules'][$module['module']]);
         }
 
-        // add table to backend links
-        foreach ($arrModules as $module)
+        // add default table to navigation link
+        foreach ($arrHandle['add'] as $module)
         {
-            $arrLinks = $objCrawler->filter('#tl_navigation .navigation.' . $module['module']);
-            foreach ($arrLinks as $link)
+            if (is_array($arrModules[$module['group']]['modules'][$module['module']]['tables']))
             {
-                $link->setAttribute('href', $link->getAttribute('href') . '&table=' . $GLOBALS['BE_MOD'][$module['group']][$module['module']]['tables'][0]);
+                $arrModules[$module['group']]['modules'][$module['module']]['href'] .= '&table=' . $arrModules[$module['group']]['modules'][$module['module']]['tables'][0];
             }
         }
 
-        return $objCrawler->saveHTML();
+        return $arrModules;
     }
 }
