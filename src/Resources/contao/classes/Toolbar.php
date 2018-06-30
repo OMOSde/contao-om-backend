@@ -251,15 +251,13 @@ class Toolbar extends \Backend
 
 
     /**
-     * Check contao-manager.phar.php in root path
+     * Check contao-manager.phar.php in document root
      *
      * @return bool
      */
     protected function contaoManagerExists()
     {
-        $strManagerUrl = TL_ROOT.'/contao-manager.phar.php';
-
-        return file_exists($strManagerUrl);
+        return file_exists(\System::getContainer()->getParameter('kernel.project_dir') .'/web/contao-manager.phar.php');
     }
 
 
