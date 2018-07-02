@@ -2,75 +2,75 @@
 <xliff version="1.1">
     <file datatype="php" original="src/Resources/contao/languages/en/default.php" source-language="en" target-language="de">
         <body>
-            <trans-unit id="MSC.om_backend.id_search">
+            <trans-unit id="om_backend.id_search">
                 <source>ID/Alias search</source>
                 <target>ID/Alias-Suche</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.install_tool">
+            <trans-unit id="om_backend.install_tool">
                 <source>Install tool</source>
                 <target>Installtool</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.new_template">
+            <trans-unit id="om_backend.new_template">
                 <source>New template</source>
                 <target>Neues Template erstellen</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.sync_files">
+            <trans-unit id="om_backend.sync_files">
                 <source>Sync files</source>
                 <target>Dateien/Verzeichnisse syncronisieren</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.contao_manager">
+            <trans-unit id="om_backend.contao_manager">
                 <source>Open Contao-Manager</source>
                 <target>Contao-Manager öffnen</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.stylesheets">
+            <trans-unit id="om_backend.stylesheets">
                 <source>Stylesheets</source>
                 <target>Stylesheets</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.modules">
+            <trans-unit id="om_backend.modules">
                 <source>Modules</source>
                 <target>Module</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.layouts">
+            <trans-unit id="om_backend.layouts">
                 <source>Layouts</source>
                 <target>Seitenlayouts</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.image_size">
+            <trans-unit id="om_backend.image_size">
                 <source>Image sizes</source>
                 <target>Bildgrößen</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.button_delete">
+            <trans-unit id="om_backend.button_delete">
                 <source>Delete</source>
                 <target>Löschen</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.button_cut">
+            <trans-unit id="om_backend.button_cut">
                 <source>Cut</source>
                 <target>Verschieben</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.button_copy">
+            <trans-unit id="om_backend.button_copy">
                 <source>Copy</source>
                 <target>Kopieren</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.button_override">
+            <trans-unit id="om_backend.button_override">
                 <source>Override</source>
                 <target>Überschreiben</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.button_edit">
+            <trans-unit id="om_backend.button_edit">
                 <source>Edit</source>
                 <target>Bearbeiten</target>
             </trans-unit>
-            <trans-unit id="MSC.om_backend.button_alias">
+            <trans-unit id="om_backend.button_alias">
                 <source>Generate aliases</source>
                 <target>Aliase generieren</target>
             </trans-unit>
-            <trans-unit id="MSC.id_search.headline">
+            <trans-unit id="id_search.headline">
                 <source>ID/Alias</source>
                 <target>ID/Alias eingeben</target>
             </trans-unit>
-            <trans-unit id="MSC.id_search.submit">
+            <trans-unit id="id_search.submit">
                 <source>Search</source>
                 <target>Suchen</target>
             </trans-unit>
-            <trans-unit id="MSC.id_search.help">
+            <trans-unit id="id_search.help">
                 <source>Please enter an ID / alias and select a table.</source>
                 <target>Bitte geben Sie eine ID/Alias ein und wählen eine Tabelle.</target>
             </trans-unit>

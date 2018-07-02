@@ -84,24 +84,24 @@ class Toolbar extends \Backend
         // add buttons id-search, install-tool, new template, sync files
         $strToolbar .= sprintf('<a class="button" href="%scontao?do=id_search" title="%s">%s</a>',
             $strEntryPoint,
-            $GLOBALS['TL_LANG']['MSC']['om_backend']['id_search'],
+            $GLOBALS['TL_LANG']['om_backend']['id_search'],
             $this->getIcon('idSearch')
         );
         $strToolbar .= sprintf('<a class="button" href="%scontao/install" target="_blank" rel="noopener" title="%s">%s</a>',
             $strEntryPoint,
-            $GLOBALS['TL_LANG']['MSC']['om_backend']['install_tool'],
+            $GLOBALS['TL_LANG']['om_backend']['install_tool'],
             $this->getIcon('installTool')
         );
         $strToolbar .= sprintf('<a class="button" href="%scontao?do=tpl_editor&key=new_tpl&rt=%s" title="%s">%s</a>',
             $strEntryPoint,
             $strToken,
-            $GLOBALS['TL_LANG']['MSC']['om_backend']['new_template'],
+            $GLOBALS['TL_LANG']['om_backend']['new_template'],
             $this->getIcon('newTemplate')
         );
         $strToolbar .= sprintf('<a class="button" href="%scontao?do=files&act=sync&rt=%s" title="%s">%s</a>',
             $strEntryPoint,
             $strToken,
-            $GLOBALS['TL_LANG']['MSC']['om_backend']['sync_files'],
+            $GLOBALS['TL_LANG']['om_backend']['sync_files'],
             $this->getIcon('syncFiles')
         );
 
@@ -109,7 +109,7 @@ class Toolbar extends \Backend
         if ($this->contaoManagerExists())
         {
             $strToolbar .= sprintf('<a class="button" href="contao-manager.phar.php" title="%s" target="_blank" rel="noopener">%s</a>',
-                $GLOBALS['TL_LANG']['MSC']['om_backend']['contao_manager'],
+                $GLOBALS['TL_LANG']['om_backend']['contao_manager'],
                 $this->getIcon('contaoManager')
             );
         }
@@ -128,28 +128,28 @@ class Toolbar extends \Backend
                     $strEntryPoint,
                     $theme->id,
                     $strToken,
-                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['stylesheets'], $theme->name),
+                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['om_backend']['stylesheets'], $theme->name),
                     $this->getIcon('themeStylesheet')
                 );
                 $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_module&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
                     $strEntryPoint,
                     $theme->id,
                     $strToken,
-                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['modules'], $theme->name),
+                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['om_backend']['modules'], $theme->name),
                     $this->getIcon('themeModule')
                 );
                 $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_layout&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
                     $strEntryPoint,
                     $theme->id,
                     $strToken,
-                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['layouts'], $theme->name),
+                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['om_backend']['layouts'], $theme->name),
                     $this->getIcon('themeLayout')
                 );
                 $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_image_size&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
                     $strEntryPoint,
                     $theme->id,
                     $strToken,
-                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['MSC']['om_backend']['image_size'], $theme->name),
+                    sprintf('%s (%s)', $GLOBALS['TL_LANG']['om_backend']['image_size'], $theme->name),
                     $this->getIcon('themeImageSize')
                 );
             }
@@ -223,7 +223,7 @@ class Toolbar extends \Backend
                 {
                     $strToolbar .= sprintf('<a class="button" onclick="document.getElementById(\'%s\').click(); return false;" title="%s">%s</a>',
                         $button,
-                        $GLOBALS['TL_LANG']['MSC']['om_backend']['button_'.$button],
+                        $GLOBALS['TL_LANG']['om_backend']['button_'.$button],
                         $this->getIcon('multiple'.$button)
                     );
                 }
