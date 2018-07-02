@@ -1,8 +1,13 @@
 # Contao bundle change log
 
-### 1.3.1 (2018-01-19)
+### 1.3.1 (2018-07-02)
 
  * Fixed: Theme buttons with wrong id´s (then multiple themes exists)
+ * Fixed: Illegal string warning on rocksolid custom elements
+ * Fixed: Search contao-manager.phar.php in wrong directory
+ * Fixed: Dom manipulation has a problem with the markup from the mediamanager from isotope.
+ * Fixed: Problem with script tag in allowed HTML tags / settings
+ * Fixed: HTML-Entitäten werden in den Übersetzungen wieder dekodiert
 
 ### 1.3.0 (2018-01-13)
 
