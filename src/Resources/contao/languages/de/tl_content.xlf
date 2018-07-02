@@ -1,0 +1,14 @@
+<?xml version="1.0" ?><xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_content.php" source-language="en" target-language="de">
+        <body>
+            <trans-unit id="tl_content.cssClasses.0">
+                <source>Predefined styles</source>
+                <target>Vordefinierte Stile</target>
+            </trans-unit>
+            <trans-unit id="tl_content.cssClasses.1">
+                <source>Please select one or more predefined styles.</source>
+                <target>Bitte wählen Sie einen oder mehrere vordefinierte Stile.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

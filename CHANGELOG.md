@@ -8,6 +8,7 @@
  * Fixed: Dom manipulation has a problem with the markup from the mediamanager from isotope.
  * Fixed: Problem with script tag in allowed HTML tags / settings
  * Fixed: HTML-Entitäten werden in den Übersetzungen wieder dekodiert
+ * Fixed: Add missing language labels
 
 ### 1.3.0 (2018-01-13)
 
