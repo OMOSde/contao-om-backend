@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.3.2 (2018-??-??)
+
+ * Changed: Remove the feature fullwidth from 4.5, since it is no longer necessary
+
 ### 1.3.1 (2018-07-02)
 
  * Fixed: Theme buttons with wrong id´s (then multiple themes exists)
