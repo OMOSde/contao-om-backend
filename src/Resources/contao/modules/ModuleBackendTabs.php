@@ -108,7 +108,6 @@ class ModuleBackendTabs extends \BackendModule
     {
         // variables
         $arrHandle = [];
-        $arrModulesNew = [];
 
         // determine tabs to remove and navigation links to add table in href
         foreach ($arrModules as $keyGroup => &$arrGroup)
