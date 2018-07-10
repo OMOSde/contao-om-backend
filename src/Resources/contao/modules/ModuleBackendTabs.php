@@ -135,17 +135,23 @@ class ModuleBackendTabs extends \BackendModule
         }
 
         // remove modules from navigation
-        foreach ($arrHandle['remove'] as $module)
+        if (is_array($arrHandle['remove']) && !empty($arrHandle['remove']))
         {
-            unset($arrModules[$module['group']]['modules'][$module['module']]);
+            foreach ($arrHandle['remove'] as $module)
+            {
+                unset($arrModules[$module['group']]['modules'][$module['module']]);
+            }
         }
 
         // add default table to navigation link
-        foreach ($arrHandle['add'] as $module)
+        if (is_array($arrHandle['add']) && !empty($arrHandle['add']))
         {
-            if (is_array($arrModules[$module['group']]['modules'][$module['module']]['tables']))
+            foreach ($arrHandle['add'] as $module)
             {
-                $arrModules[$module['group']]['modules'][$module['module']]['href'] .= '&table=' . $arrModules[$module['group']]['modules'][$module['module']]['tables'][0];
+                if (is_array($arrModules[$module['group']]['modules'][$module['module']]['tables']))
+                {
+                    $arrModules[$module['group']]['modules'][$module['module']]['href'] .= '&table=' . $arrModules[$module['group']]['modules'][$module['module']]['tables'][0];
+                }
             }
         }
 
