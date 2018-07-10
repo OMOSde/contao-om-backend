@@ -1,7 +1,8 @@
 # Contao bundle change log
 
-### 1.3.2 (2018-??-??)
+### 1.3.2 (2018-07-10)
 
+ * Fixed: A foreach problem with module-tabs 
  * Changed: Remove the feature fullwidth from 4.5, since it is no longer necessary
 
 ### 1.3.1 (2018-07-02)
