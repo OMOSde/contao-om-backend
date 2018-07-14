@@ -93,7 +93,10 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
                 $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = [];
                 foreach ($module['tabs'] as $tab)
                 {
-                    $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = array_merge($GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'], $arrTables[$tab]);
+                    if (is_array($arrTables['tab'] && !empty($arrTables['tab'])))
+                    {
+                        $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = array_merge($GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'], $arrTables[$tab]);
+                    }
                 }
             }
         }
