@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.3.3 (2018-07-14)
+
+ * Fixed: Error feature module-tabs is used without own tables in backend module
+
 ### 1.3.2 (2018-07-10)
 
  * Fixed: A foreach problem with module-tabs 
