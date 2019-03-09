@@ -1,8 +1,8 @@
 # Contao bundle change log
 
-### 1.4.0 (???)
+### 1.3.3 (2018-07-14)
 
- * Added: new feature 'system-information'
+ * Fixed: Error feature module-tabs is used without own tables in backend module
 
 ### 1.3.2 (2018-07-10)
 
