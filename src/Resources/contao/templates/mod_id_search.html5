@@ -22,7 +22,7 @@
                     <?php foreach ($this->groups as $group): ?>
                         <optgroup label="<?php echo $group['title']; ?>">
                             <?php foreach ($group['tables'] as $table): ?>
-                                <option value="<?php echo $table[2].'::'.$table[0]; ?>"<?php if ($this->selected == $table[0]) echo ' selected'; ?>><?php echo $table[1]; ?> (<?php echo $table[0]; ?>)</option>
+                                <option value="<?php echo $table[2].'::'.$table[0]; ?>"<?php if ($this->selected == $table[0]): ?> selected<?php endif; ?>><?php echo $table[1]; ?> (<?php echo $table[0]; ?>)</option>
                             <?php endforeach; ?>
                         </optgroup>
                     <?php endforeach; ?>

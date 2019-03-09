@@ -19,7 +19,7 @@ namespace OMOSde\ContaoOmBackendBundle;
 /**
  * Use
  */
-use Backend;
+use Contao\Backend;
 
 
 /**
@@ -84,7 +84,8 @@ class BackendLinks extends Backend
         foreach ($objLinks as $link)
         {
             $strStyle = ($link->icon) ? sprintf('background:url(%s) left 13px no-repeat;', \FilesModel::findByUuid($link->icon)->path) : sprintf('display:inline-block;margin-left:18px;padding: 13px 10px;');
-            $strLink = ($link->url) ? sprintf('<li><a href="%s"%s style="%s">%s</a></li>', $link->url, ($link->target) ? ' target="_blank" rel="noopener"' : '' ,$strStyle, $link->title) : sprintf('<li><span style="%s">%s</span></li>', $strStyle, $link->title);
+            $strLink = ($link->url) ? sprintf('<li><a href="%s"%s style="%s">%s</a></li>', $link->url, ($link->target) ? ' target="_blank" rel="noopener"' : '', $strStyle, $link->title) : sprintf('<li><span style="%s">%s</span></li>',
+                $strStyle, $link->title);
 
             $strLinks .= $strLink;
         }

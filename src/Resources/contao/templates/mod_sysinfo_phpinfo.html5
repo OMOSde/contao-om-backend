@@ -1,0 +1,3 @@
+<div class="mod_sysinfo_phpinfo">
+    <?php phpinfo();?>
+</div>
