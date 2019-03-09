@@ -23,6 +23,30 @@
                 <source>System informations</source>
                 <target>System-Informationen</target>
             </trans-unit>
+            <trans-unit id="MOD.sysinfo_packages.0">
+                <source>Installed packages</source>
+                <target>Installierte Pakete</target>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_packages.1">
+                <source>Installed packages</source>
+                <target>Installierte Pakete</target>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_database.0">
+                <source>Database</source>
+                <target>Datenbank</target>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_database.1">
+                <source>Database</source>
+                <target>Datenbank</target>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_phpinfo.0">
+                <source>PHP-Info</source>
+                <target>PHP-Info</target>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_phpinfo.1">
+                <source>Output of phpinfo();</source>
+                <target>Ausgabe von phpinfo();</target>
+            </trans-unit>
             <trans-unit id="MOD.markdown_view.0">
                 <source>Markdown viewer</source>
                 <target>Markdown-Dateien</target>

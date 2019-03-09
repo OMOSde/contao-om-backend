@@ -15,7 +15,6 @@
  */
 use Contao\BackendUser;
 
-
 /**
  * Add stylesheets and javascript
  */
@@ -23,6 +22,7 @@ if (TL_MODE == 'BE')
 {
     $GLOBALS['TL_CSS'][] = 'bundles/omosdecontaoombackend/css/om_backend.css|static';
     $GLOBALS['TL_CSS'][] = 'bundles/omosdecontaoombackend/css/markdown.css|static';
+    $GLOBALS['TL_CSS'][] = 'bundles/omosdecontaoombackend/plugins/tablesort/css/tablesort.css|static';
 
     $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/omosdecontaoombackend/js/om_backend.js';
 }
@@ -37,11 +37,7 @@ $GLOBALS['BE_MOD']['om_backend'] = [
     ],
     'element_classes' => [
         'tables' => ['tl_om_backend_element_classes']
-    ],
-    /*'sysinfo' => array
-    (
-        'tables'   => array('tl_om_backend_sysinfo'),
-    ),*/
+    ]
 ];
 
 
@@ -53,10 +49,27 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
     $objUser = BackendUser::getInstance();
     $objUser->authenticate();
 
+    if ($objUser->om_backend_features !== null && in_array('addSysInfo', $objUser->om_backend_features))
+    {
+        $GLOBALS['BE_MOD']['om_backend']['sysinfo'] = [
+            'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
+            'tabs'     => [
+                'sysinfo_database',
+                'sysinfo_phpinfo',
+                'sysinfo_packages'
+            ]
+        ];
+        $GLOBALS['BE_MOD']['om_backend']['sysinfo_database']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleSysinfoDatabase';
+        $GLOBALS['BE_MOD']['om_backend']['sysinfo_phpinfo']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleSysinfoPhpInfo';
+        $GLOBALS['BE_MOD']['om_backend']['sysinfo_packages']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleSysinfoPackages';
+
+    }
+
     if ($objUser->om_backend_features !== null && in_array('addMarkdownView', $objUser->om_backend_features))
     {
         $GLOBALS['BE_MOD']['om_backend']['markdown_view']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleMarkdownViewer';
     }
+
     if ($objUser->om_backend_features !== null && in_array('addBackendLinks', $objUser->om_backend_features))
     {
         $GLOBALS['BE_MOD']['om_backend']['backend_links'] = [
@@ -93,7 +106,10 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
                 $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = [];
                 foreach ($module['tabs'] as $tab)
                 {
-                    $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = array_merge($GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'], $arrTables[$tab]);
+                    if (is_array($arrTables['tab']) && !empty($arrTables['tab']))
+                    {
+                        $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = array_merge($GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'], $arrTables[$tab]);
+                    }
                 }
             }
         }

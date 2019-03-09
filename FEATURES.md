@@ -143,6 +143,10 @@ Kann die Breite des Backends wieder auf die gesamte verfügbare Breite ausweiten
 
 Einzelnen Inhaltselementen oder Artikeln CSS-Klassen zuweisen. [Details][2]
 
+### 1.15 Systeminformationen
+
+Mehr über das grundlegende System erfahren. [Details][3]
+
 ## 2. Nachwort
 
 Das vorliegende Modul ist bei mir quasi in allen Contao-Projekte als Standard mit dabei. Es entstand aus Ideen und 
@@ -151,3 +155,4 @@ Anforderungen, die immer mal wieder aus den Projekten selbst hervorgingen.
 Gerne nehme ich Ideen für Features entgegen.
 
 [2]: handbook/features/element_classes.md
+[2]: handbook/features/system_information.md

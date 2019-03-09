@@ -1,0 +1,25 @@
+<div class="mod_sysinfo_packages">
+    <?php if ($this->packages): ?>
+    <div class="packages">
+        <div class="info">
+            <?= $this->info; ?>
+        </div>
+        <ul>
+            <?php foreach ($this->packages as $strPackageName => $strPackageVersion): ?>
+            <li>
+                <div class="package">
+                    <div class="name"><a href="https://packagist.org/packages/<?= $strPackageName; ?>" target="_blank" rel="nofollow"><?= $strPackageName; ?></a></div>
+                    <div class="version"><?= $strPackageVersion; ?></div>
+                </div>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php endif; ?>
+
+    <?php if ($this->empty): ?>
+    <div class="empty">
+        <p><?= $this->empty; ?></p>
+    </div>
+    <?php endif; ?>
+</div>

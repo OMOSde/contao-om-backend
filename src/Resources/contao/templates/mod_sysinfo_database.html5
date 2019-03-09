@@ -1,0 +1,40 @@
+<div class="mod_sysinfo_database">
+    <?php if ($this->tables): ?>
+    <table id="tablesort" class="tl_listing showColumns">
+        <tbody>
+        <tr data-sort-method='none'>
+            <th class="tl_folder_tlist">Tabelle</th>
+            <th data-sort-method="number" class="tl_folder_tlist">Auto-Inkrement</th>
+            <th class="tl_folder_tlist">Engine</th>
+            <th data-sort-method="number" class="tl_folder_tlist">Datensätze</th>
+            <th data-sort-method="number" class="tl_folder_tlist">Größe</th>
+        </tr>
+        <?php foreach ($this->tables as $table): ?>
+        <tr>
+            <td class="tl_file_list"><?= $table['name']; ?></td>
+            <td class="tl_file_list"><?= $table['increment']; ?></td>
+            <td class="tl_file_list"><?= $table['engine']; ?></td>
+            <td class="tl_file_list"><?= $table['rows']; ?></td>
+            <td class="tl_file_list"><?= $table['size']; ?></td>
+        </tr>
+        <?php endforeach; ?>
+        <tr data-sort-method='none'>
+            <td class="tl_folder_tlist"></td>
+            <td class="tl_folder_tlist"></td>
+            <td class="tl_folder_tlist"></td>
+            <td class="tl_folder_tlist"><?= $this->overall['rows']; ?></td>
+            <td class="tl_folder_tlist"><?= $this->overall['size']; ?></td>
+        </tr>
+        </tbody>
+    </table>
+    <?php endif; ?>
+
+    <?php if ($this->empty): ?>
+    <div class="empty">
+        <p><?= $this->empty; ?></p>
+    </div>
+    <?php endif; ?>
+</div>
+<script src="bundles/omosdecontaoombackend/plugins/tablesort/tablesort.min.js"></script>
+<script src='bundles/omosdecontaoombackend/plugins/tablesort/sorts/tablesort.number.min.js'></script>
+<script> new Tablesort(document.getElementById('tablesort')); </script>

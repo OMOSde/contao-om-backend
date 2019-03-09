@@ -204,3 +204,71 @@ body:not(.popup).lw.om_backend_toolbar #container #main {
 .om_backend_full_width #container {
     max-width: none;
 }
+
+
+/***** sysinfo *****/
+
+.mod_sysinfo_packages {
+    margin: 10px 15px 16px;
+    padding: 2px 0;
+}
+.mod_sysinfo_packages .info {
+    margin: 0 0 16px;
+    padding: 7px 6px;
+    background: #f6f6f6;
+}
+.mod_sysinfo_packages ul {
+    columns: 3;
+}
+.mod_sysinfo_packages li {
+    display: inline-block;
+    width: 100%;
+}
+.mod_sysinfo_packages li:nth-child(even) {
+    background: #e6e6e6;
+}
+.mod_sysinfo_packages li .package {
+    display: flex;
+    justify-content: space-between;
+}
+.mod_sysinfo_packages li .package div {
+    padding: 7px 6px;
+}
+.mod_sysinfo_packages li .package .version {
+    text-align: right;
+}
+
+.mod_sysinfo_database {
+    margin: 10px 15px 16px;
+    padding: 2px 0;
+}
+.mod_sysinfo_database th:nth-child(2),
+.mod_sysinfo_database th:nth-child(3),
+.mod_sysinfo_database td:nth-child(2),
+.mod_sysinfo_database td:nth-child(3) {
+    text-align: center;
+}
+.mod_sysinfo_database th:nth-child(4),
+.mod_sysinfo_database th:nth-child(5),
+.mod_sysinfo_database td:nth-child(4),
+.mod_sysinfo_database td:nth-child(5) {
+    text-align: right;
+}
+
+@media (max-width: 1399px) {
+    .mod_sysinfo_packages ul {
+        columns: 2;
+    }
+}
+@media (max-width: 899px) {
+    .mod_sysinfo_packages ul {
+        columns: 1;
+    }
+}
+
+
+/***** overwrite *****/
+
+a:link {
+    background-color: inherit !important;
+}

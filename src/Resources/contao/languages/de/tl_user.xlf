@@ -54,6 +54,10 @@
                 <source>Add layout button in pages view</source>
                 <target>Layout-Button in Seitenstruktur ergänzen</target>
             </trans-unit>
+            <trans-unit id="tl_user.om_backend_features.addSysInfo">
+                <source>Add module system-information to backend</source>
+                <target>Modul 'System-Informationen' anzeigen</target>
+            </trans-unit>
             <trans-unit id="tl_user.redirect_legend">
                 <source>Redirect settings</source>
                 <target>Weiterleitung</target>

@@ -56,7 +56,7 @@ class tl_user_om_backend extends Backend
     public function getFeatureOptions()
     {
         // feature list
-        $arrFeatures = ['addToolbar', 'addLanguage', 'addIdView', 'addCounterView', 'addMarkdownView', 'addBackendLinks', 'addSaveButtons', 'addLayoutButton'];
+        $arrFeatures = ['addToolbar', 'addLanguage', 'addIdView', 'addCounterView', 'addMarkdownView', 'addBackendLinks', 'addSaveButtons', 'addLayoutButton', 'addSysInfo'];
 
         // version handling
         $arrPackages = System::getContainer()->getParameter('kernel.packages');

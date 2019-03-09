@@ -78,6 +78,14 @@
                 <source>ID/Alias not found.</source>
                 <target>ID/Alias nicht gefunden.</target>
             </trans-unit>
+            <trans-unit id="om_backend.sysinfo.no_packages">
+                <source>There are no packages installed. (Really?)</source>
+                <target>Es sind keine Pakete installiert. (Echt jetzt?)</target>
+            </trans-unit>
+            <trans-unit id="om_backend.sysinfo.packages">
+                <source>Packages</source>
+                <target>Pakete</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

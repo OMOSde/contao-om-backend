@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.4.0 (???)
+
+ * Added: new feature 'system-information'
+
 ### 1.3.2 (2018-07-10)
 
  * Fixed: A foreach problem with module-tabs 
