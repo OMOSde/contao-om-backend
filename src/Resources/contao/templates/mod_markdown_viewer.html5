@@ -1,12 +1,40 @@
-
 <div class="mdv">
+    <?php if ($this->editor): ?>
+    <div id="tl_buttons">
+        <a href="app_dev.php/contao?do=files&amp;ref=akZwOghC" class="header_back" title="" accesskey="b" onclick="Backend.getScrollOffset()">Zurück</a>
+    </div>
+    <form action="<?= $this->action; ?>" method="post" enctype="multipart/form-data" class="tl_form tl_edit_form">
+        <div class="tl_formbody_edit">
+            <input type="hidden" name="FORM_SUBMIT" value="tl_markdown_edit">
+            <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN ?>">
+            <div class="tl_box">
+                <div class="widget">
+                    <h3><label for="markdown"><?= $this->filename; ?></label></h3>
+                    <textarea id="markdown" name="markdown" class="tl_textarea monospace"><?= $this->markdown; ?></textarea>
+                    <?= $this->editor; ?>
+                </div>
+            </div>
+        </div>
+        <div class="tl_formbody_submit">
+            <div class="tl_submit_container">
+                <button type="submit" name="save" id="save" class="tl_submit" accesskey="s">Speichern</button>
+            </div>
+        </div>
+    </form>
+    <?php endif; ?>
+
+    <?php if (!$this->editor): ?>
     <?php if ($this->manager): ?>
-        <?= $this->manager; ?>
+    <?= $this->manager; ?>
     <?php endif; ?>
 
     <div class="content">
-        <?php if ($this->html): ?>
-            <?= $this->html; ?>
-        <?php endif; ?>
+        <div class="operations">
+            <a href="http://c44m.omos.de/app_dev.php/contao?do=markdown_view&act=source&id=<?= $this->filename; ?>&rt=yhx1eKSFQcrcPE2CzRePLpxSXkGA4sqQv-ZMUa5N4RM&ref=D0tGaqSl" title="" class="edit">
+                <img src="system/themes/flexible/icons/edit.svg" width="16" height="16" alt="Artikel bearbeiten">
+            </a>
+        </div>
+        <?php if ($this->html): ?><?= $this->html; ?><?php endif; ?>
     </div>
+    <?php endif; ?>
 </div>

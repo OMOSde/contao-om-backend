@@ -26,6 +26,7 @@ class ModuleMarkdownViewer extends \BackendModule
 {
     /**
      * Template
+     *
      * @var string
      */
     protected $strTemplate = 'mod_markdown_viewer';
@@ -36,11 +37,13 @@ class ModuleMarkdownViewer extends \BackendModule
      */
     protected function compile()
     {
+        $arrMarkdownFiles = [];
+
         // get markdown files in root dir
         $arrFiles = scandir(TL_ROOT);
         foreach ($arrFiles as $file)
         {
-            $strFile = TL_ROOT.'/'.$file;
+            $strFile = TL_ROOT . '/' . $file;
             if (is_file($strFile))
             {
                 $arrPathinfo = pathinfo($strFile);
@@ -55,18 +58,40 @@ class ModuleMarkdownViewer extends \BackendModule
         if (!is_array($arrMarkdownFiles))
         {
             $this->Template->error = 'Keine Markdown-Dateien gefunden!';
+
+            return;
+        }
+
+        // save edited file
+        if (\Input::post('FORM_SUBMIT') == 'tl_markdown_edit')
+        {
+            \File::putContent(\Input::get('id'), html_entity_decode(\Input::post('markdown')));
+            \Controller::redirect(str_replace(['&act=source', 'id='], ['', 'tab='], \Environment::get('request')));
+        }
+
+        // show editor
+        if (\Input::get('act') === 'source' && substr(\Input::get('id'), -3, 3) === '.md')
+        {
+            $objTemplate = new \BackendTemplate('be_ace');
+            $objTemplate->selector = 'markdown';
+            $objTemplate->type = 'md';
+
+            $this->Template->markdown = file_get_contents(TL_ROOT . '/' . \Input::get('id'));
+            $this->Template->editor = $objTemplate->parse();
+            $this->Template->filename = \Input::get('id');
+            $this->Template->action = ampersand(\Environment::get('request'));
+
             return;
         }
 
         // generate tabs from found .md files
         $strManager = '<div id="manager"><ul>';
-        foreach ($arrMarkdownFiles as $intKey=>$strMarkdownFile)
+        foreach ($arrMarkdownFiles as $intKey => $strMarkdownFile)
         {
             // link
             $strHref = sprintf('%scontao?do=markdown_view&tab=%s',
                 (strpos(\Environment::get('request'), 'app_dev.php') !== false) ? 'app_dev.php/' : '',
-                $strMarkdownFile
-            );
+                $strMarkdownFile);
 
             // add class
             if (!\Input::get('tab'))
@@ -83,18 +108,20 @@ class ModuleMarkdownViewer extends \BackendModule
                 $strClass,
                 $strHref,
                 $strMarkdownFile,
-                $strMarkdownFile
-            );
+                $strMarkdownFile);
         }
         $strManager .= '</ul></div>';
 
         // parse markdown to html
         $objParsedown = new \Parsedown();
         $strFile = (\Input::get('tab')) ?: $arrMarkdownFiles[0];
-        $strHtml = $objParsedown->text(file_get_contents(TL_ROOT.'/'.$strFile));
+        $strHtml = $objParsedown->text(file_get_contents(TL_ROOT . '/' . $strFile));
+
 
         // set template vars
         $this->Template->manager = $strManager;
-        $this->Template->html    = $strHtml;
+        $this->Template->html = $strHtml;
+        $this->Template->filename = $strFile;
+        $this->Template->edit = (\Input::get('act') === 'source');
     }
 }
