@@ -1,5 +1,11 @@
 # Contao bundle change log
 
+### 1.4.0 (2019-03-16)
+
+ * Added: Make markdown file editable
+ * Added: New feature sysinfo
+ * Fixed: Correct language array for id-search
+
 ### 1.3.3 (2018-07-14)
 
  * Fixed: Error feature module-tabs is used without own tables in backend module
