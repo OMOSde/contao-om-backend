@@ -107,6 +107,6 @@ class ModuleIdSearch extends \BackendModule
         $this->Template->button = $GLOBALS['TL_LANG']['MSC']['backBT'];
         $this->Template->title  = \StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['backBT']);
         $this->Template->groups = $arrGroups;
-        $this->Template->lang   = $GLOBALS['TL_LANG']['MSC']['id_search'];
+        $this->Template->lang   = $GLOBALS['TL_LANG']['id_search'];
     }
 }
