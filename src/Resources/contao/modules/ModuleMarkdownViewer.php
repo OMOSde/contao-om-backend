@@ -80,6 +80,7 @@ class ModuleMarkdownViewer extends \BackendModule
             $this->Template->editor = $objTemplate->parse();
             $this->Template->filename = \Input::get('id');
             $this->Template->action = ampersand(\Environment::get('request'));
+            $this->Template->back = $this->getReferer(true);
 
             return;
         }
@@ -89,9 +90,7 @@ class ModuleMarkdownViewer extends \BackendModule
         foreach ($arrMarkdownFiles as $intKey => $strMarkdownFile)
         {
             // link
-            $strHref = sprintf('%scontao?do=markdown_view&tab=%s',
-                (strpos(\Environment::get('request'), 'app_dev.php') !== false) ? 'app_dev.php/' : '',
-                $strMarkdownFile);
+            $strHref = sprintf('contao/main.php?do=markdown_view&amp;tab=%s&amp;rt=%s"', $strMarkdownFile, REQUEST_TOKEN);
 
             // add class
             if (!\Input::get('tab'))
@@ -123,5 +122,6 @@ class ModuleMarkdownViewer extends \BackendModule
         $this->Template->html = $strHtml;
         $this->Template->filename = $strFile;
         $this->Template->edit = (\Input::get('act') === 'source');
+        $this->Template->link = sprintf('contao?do=markdown_view&amp;act=source&amp;id=%s&amp;rt=%s', $strFile, REQUEST_TOKEN);
     }
 }

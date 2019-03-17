@@ -1,5 +1,10 @@
 # Contao bundle change log
 
+
+### 1.4.1 (2019-03-17)
+
+ * Fixed: Backend link problems
+
 ### 1.4.0 (2019-03-16)
 
  * Added: Make markdown file editable

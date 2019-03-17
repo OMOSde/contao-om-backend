@@ -176,7 +176,7 @@ class UsageWizard extends \Widget
         $strReturn = '<table class="tl_listing"><tbody><tr><td class="tl_folder_tlist">Tabelle</td><td class="tl_folder_tlist">Feld</td><td class="tl_folder_tlist">ID</td><td class="tl_folder_tlist"></td>';
         foreach ($arrReferences as $reference)
         {
-            $strReturn .= sprintf('</tr><tr class="even click2edit toggle_select hover-row"><td class="tl_file_list">%s</td><td class="tl_file_list">%s</td><td class="tl_file_list">%s</td><td class="tl_file_list tl_right_nowrap"><a href="app_dev.php/contao?do=%s&amp;table=%s&amp;act=edit&amp;id=%s&amp;rt=Qx-t-7MRptSkoUv3wmOJ0bMYKMoSyo7bpXhrRTZ5VkI&amp;ref=dFHbuxqy" title="" class="edit"><img src="system/themes/flexible/icons/edit.svg" width="16" height="16" alt="edit"></a></td></tr>',
+            $strReturn .= sprintf('</tr><tr class="even click2edit toggle_select hover-row"><td class="tl_file_list">%s</td><td class="tl_file_list">%s</td><td class="tl_file_list">%s</td><td class="tl_file_list tl_right_nowrap"><a href="contao?do=%s&amp;table=%s&amp;act=edit&amp;id=%s&amp;rt=Qx-t-7MRptSkoUv3wmOJ0bMYKMoSyo7bpXhrRTZ5VkI&amp;ref=dFHbuxqy" title="" class="edit"><img src="system/themes/flexible/icons/edit.svg" width="16" height="16" alt="edit"></a></td></tr>',
                 $reference['table'],
                 $reference['field'],
                 $reference['id'],

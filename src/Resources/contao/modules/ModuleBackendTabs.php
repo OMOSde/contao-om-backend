@@ -73,7 +73,7 @@ class ModuleBackendTabs extends \BackendModule
 
                 // generate link
                 $strTable = sprintf('%s', $GLOBALS['BE_MOD'][$strGroup][$strTab]['tables'][0]);
-                $strHref = sprintf('%scontao?do=%s&tab=%s&table=%s', (strpos(\Environment::get('request'), 'app_dev.php') !== false) ? 'app_dev.php/' : '', $strModule, $strTab, $strTable);
+                $strHref = sprintf('contao?do=%s&amp;tab=%s&amp;table=%s&amp;rt=%s', $strModule, $strTab, $strTable, REQUEST_TOKEN);
 
                 // add class
                 if (!\Input::get('tab'))
