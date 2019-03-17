@@ -122,6 +122,6 @@ class ModuleMarkdownViewer extends \BackendModule
         $this->Template->html = $strHtml;
         $this->Template->filename = $strFile;
         $this->Template->edit = (\Input::get('act') === 'source');
-        $this->Template->link = sprintf('contao?do=markdown_view&amp;act=source&amp;id=%s&amp;rt=%s', $strFile, REQUEST_TOKEN);
+        $this->Template->link = sprintf('contao/main.php?do=markdown_view&amp;act=source&amp;id=%s&amp;rt=%s', $strFile, REQUEST_TOKEN);
     }
 }

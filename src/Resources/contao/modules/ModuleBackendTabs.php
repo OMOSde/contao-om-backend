@@ -73,7 +73,7 @@ class ModuleBackendTabs extends \BackendModule
 
                 // generate link
                 $strTable = sprintf('%s', $GLOBALS['BE_MOD'][$strGroup][$strTab]['tables'][0]);
-                $strHref = sprintf('contao?do=%s&amp;tab=%s&amp;table=%s&amp;rt=%s', $strModule, $strTab, $strTable, REQUEST_TOKEN);
+                $strHref = sprintf('contao/main.php?do=%s&amp;tab=%s&amp;table=%s&amp;rt=%s', $strModule, $strTab, $strTable, REQUEST_TOKEN);
 
                 // add class
                 if (!\Input::get('tab'))

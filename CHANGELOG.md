@@ -5,6 +5,7 @@
 
  * Fixed: Backend link problems
  * Fixed: Tables are not correct added to backend modules when use backend tabs
+ * Fixed: Some backend link problems with app_dev.php
 
 ### 1.4.0 (2019-03-16)
 
