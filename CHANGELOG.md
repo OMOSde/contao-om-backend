@@ -4,6 +4,7 @@
 ### 1.4.1 (2019-03-17)
 
  * Fixed: Backend link problems
+ * Fixed: Tables are not correct added to backend modules when use backend tabs
 
 ### 1.4.0 (2019-03-16)
 
