@@ -40,7 +40,7 @@ class ElementClasses extends System
         // handle articles and content elements
         if ($objTemplate->getName() === 'mod_article' || strncmp($objTemplate->getName(), 'ce_', 3) === 0)
         {
-            $arrClasses = deserialize($objTemplate->cssClasses, true);
+            $arrClasses = \StringUtil::deserialize($objTemplate->cssClasses, true);
             foreach ($arrClasses as $class)
             {
                 $objTemplate->class .= ' ' . $class;

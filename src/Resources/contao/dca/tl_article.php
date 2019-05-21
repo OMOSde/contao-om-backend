@@ -56,7 +56,7 @@ class tl_article_om_backend
 
         foreach ($objElements as $element)
         {
-            $arrClasses = deserialize($element->classes, true);
+            $arrClasses = StringUtil::deserialize($element->classes, true);
             foreach ($arrClasses as $arrClass)
             {
                 $arrReturn[$arrClass['class']] = $arrClass['text'];

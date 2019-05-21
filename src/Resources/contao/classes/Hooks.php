@@ -95,7 +95,7 @@ class Hooks extends \Backend
         $strUrl = '';
 
         // user groups
-        $arrGroups = deserialize($objUser->groups, true);
+        $arrGroups = StringUtil::deserialize($objUser->groups, true);
         foreach ($arrGroups as $group)
         {
             $objGroup = \UserGroupModel::findByPk($group);

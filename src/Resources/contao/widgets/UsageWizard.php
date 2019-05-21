@@ -135,7 +135,7 @@ class UsageWizard extends \Widget
                     {
                         if ($GLOBALS['TL_DCA'][$table]['fields'][$field]['eval']['multiple'])
                         {
-                            $arrFiles = deserialize($objResult->$field, true);
+                            $arrFiles = StringUtil::deserialize($objResult->$field, true);
                             foreach ($arrFiles as $file)
                             {
                                 if (\StringUtil::binToUuid($file) == $strUuid)

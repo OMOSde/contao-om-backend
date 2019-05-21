@@ -70,7 +70,7 @@ class tl_content_om_backend
         // handle found elements
         foreach ($objElements as $element)
         {
-            $arrClasses = deserialize($element->classes, true);
+            $arrClasses = StringUtil::deserialize($element->classes, true);
             foreach ($arrClasses as $class)
             {
                 if (isset($arrReturn[$class['class']]))
