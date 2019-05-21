@@ -18,15 +18,9 @@ use OMOSde\ContaoOmBackendBundle\OmBackendElementClassesModel;
 
 
 /**
- * Palettes
+ * Config
  */
-foreach ($GLOBALS['TL_DCA']['tl_content']['palettes'] as $strPalette => $palette)
-{
-    if ($strPalette !== '__selector__')
-    {
-        $GLOBALS['TL_DCA']['tl_content']['palettes'][$strPalette] = str_replace('cssID', 'cssID,cssClasses', $GLOBALS['TL_DCA']['tl_content']['palettes'][$strPalette]);
-    }
-}
+$GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] = ['tl_content_om_backend', 'checkForCssClasses'];
 
 
 /**
@@ -50,6 +44,28 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cssClasses'] = [
  */
 class tl_content_om_backend
 {
+    /**
+     * Check for cssClasses
+     *
+     * @param DataContainer $dc
+     */
+    public function checkForCssClasses(DataContainer $dc)
+    {
+        $objElement = \ContentModel::findByPk($dc->id);
+        $objCssClasses = OmBackendElementClassesModel::findBy(['type=?', 'element=?'], ['element', $objElement->type]);
+        if ($objCssClasses)
+        {
+            foreach ($GLOBALS['TL_DCA']['tl_content']['palettes'] as $strPalette => $palette)
+            {
+                if ($strPalette !== '__selector__')
+                {
+                    $GLOBALS['TL_DCA']['tl_content']['palettes'][$strPalette] = str_replace('cssID', 'cssID,cssClasses', $GLOBALS['TL_DCA']['tl_content']['palettes'][$strPalette]);
+                }
+            }
+        }
+    }
+
+
     /**
      * @param DataContainer $dc
      *

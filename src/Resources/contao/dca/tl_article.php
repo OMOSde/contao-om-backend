@@ -17,9 +17,9 @@ use OMOSde\ContaoOmBackendBundle\OmBackendElementClassesModel;
 
 
 /**
- * Palettes
+ * Config
  */
-$GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = str_replace('cssID', 'cssID,cssClasses', $GLOBALS['TL_DCA']['tl_article']['palettes']['default']);
+$GLOBALS['TL_DCA']['tl_article']['config']['onload_callback'][] = ['tl_article_om_backend', 'checkForCssClasses'];
 
 
 /**
@@ -43,6 +43,21 @@ $GLOBALS['TL_DCA']['tl_article']['fields']['cssClasses'] = [
  */
 class tl_article_om_backend
 {
+    /**
+     * Check for cssClasses
+     *
+     * @param DataContainer $dc
+     */
+    public function checkForCssClasses(DataContainer $dc)
+    {
+        $objCssClasses = OmBackendElementClassesModel::findBy(['type=?'], ['article']);
+        if ($objCssClasses)
+        {
+            $GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = str_replace('cssID', 'cssID,cssClasses', $GLOBALS['TL_DCA']['tl_article']['palettes']['default']);
+        }
+    }
+
+
     /**
      * Determine css classes
      */
