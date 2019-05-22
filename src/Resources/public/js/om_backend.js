@@ -7,29 +7,25 @@ var isKeyDown = false;
 /**
  * Events
  */
-window.addEvent('domready', function() {
+window.addEvent('domready', function () {
     onDomReady();
 });
-window.addEvent('resize', function(){
+window.addEvent('resize', function () {
     setToolbarPosition();
 });
-window.addEvent('keydown', function(event) {
-    keyDown(event);
-});
-window.addEvent('keyup', function(event) {
-    keyUp(event);
+window.addEvent('keyup', function (event) {
+    keyPressed(event);
 });
 
 
 /**
  * Execute at domready
  */
-function onDomReady()
-{
+function onDomReady() {
     // handle element buttons
-    $$('.om_elements .button').each(function(item) {
-        item.addEvent('click', function() {
-            $$('#ctrl_type option[value='+item.get('data-value')+']').set("selected", "selected");
+    $$('.om_elements .button').each(function (item) {
+        item.addEvent('click', function () {
+            $$('#ctrl_type option[value=' + item.get('data-value') + ']').set("selected", "selected");
             $$('#ctrl_type').fireEvent('liszt:updated').fireEvent('change');
 
             document.getElementById("ctrl_type").onchange();
@@ -37,7 +33,7 @@ function onDomReady()
     });
 
     // add events
-    $$('input[type=text]').addEvent('keyup',function() {
+    $$('input[type=text]').addEvent('keyup', function () {
         generateCounter();
     });
 
@@ -52,68 +48,59 @@ function onDomReady()
 /**
  * Set toolbar position
  */
-function setToolbarPosition()
-{
+function setToolbarPosition() {
     var marginRight = ($$('html').getSize()[0].x - $$('#container').getSize()[0].x) / 2;
     $$('#om_backend_toolbar').setStyle('right', marginRight + 'px');
 }
 
 
 /**
+ * Event keypress
  *
  * @param event
  */
-function keyDown(event)
-{
-    if (event.code == 16 && !isKeyDown)
-    {
-        isKeyDown = true;
-        $$('.om_backend_id_view .tl_listing .tl_right, .om_backend_id_view .tl_listing .tl_right_nowrap, .om_backend_id_view .tl_content .tl_content_right').each(function(elem) {
-            var id = 0;
-            elem.getElements('a').some(function(link) {
-                var pos = link.get('href').indexOf('&id=');
-                if (pos > 0)
-                {
-                    var part = link.get('href').substr(pos + 4);
-                    id = part.substr(0, part.indexOf('&'));
-
-                    return true;
+function keyPressed(event) {
+    // handle shift
+    if (event.code == 16) {
+        if ($$('body.om_backend_id_view').hasClass('om_backend_id_view_active')[0])
+        {
+            // remove
+            $$('body.om_backend_id_view').removeClass('om_backend_id_view_active');
+            $$('.om_backend_id_view .tl_listing .tl_left, .om_backend_id_view .tl_listing .tl_file_list, .om_backend_id_view .tl_content .tl_content_left, .om_backend_id_view .tl_content .cte_type').each(function (elem) {
+                var pos = elem.get('html').indexOf('<span class="id-view">#');
+                if (pos > 0) {
+                    elem.set('html', elem.get('html').substr(0, pos));
                 }
             });
 
-            if (!elem.hasClass('tl_content_right'))
-            {
-                if (id > 0 && elem.getPrevious().get('html').indexOf('[ID:') <= 0)
-                {
-                    elem.getPrevious().appendHTML('<span style="color:#b3b3b3;padding-left:3px">[ID: '+id+']</span>');
-                }
-            } else {
-                if (id > 0 && elem.getNext().get('html').indexOf('[ID:') <= 0)
-                {
-                    elem.getNext().appendHTML('<span style="color:#b3b3b3;padding-left:3px">[ID: '+id+']</span>');
-                }
-            }
-        });
-    }
-}
+        }
+        else {
+            // add
+            $$('body.om_backend_id_view').addClass('om_backend_id_view_active');
+            $$('.om_backend_id_view .tl_listing .tl_right, .om_backend_id_view .tl_listing .tl_right_nowrap, .om_backend_id_view .tl_content .tl_content_right').each(function (elem) {
+                var id = 0;
+                elem.getElements('a').some(function (link) {
+                    var pos = link.get('href').indexOf('&id=');
+                    if (pos > 0) {
+                        var part = link.get('href').substr(pos + 4);
+                        id = part.substr(0, part.indexOf('&'));
 
+                        return true;
+                    }
+                });
 
-/**
- *
- * @param event
- */
-function keyUp(event)
-{
-    if (event.code == 16)
-    {
-        isKeyDown = false;
-        $$('.om_backend_id_view .tl_listing .tl_left, .om_backend_id_view .tl_listing .tl_file_list, .om_backend_id_view .tl_content .tl_content_left, .om_backend_id_view .tl_content .cte_type').each(function(elem) {
-            var pos = elem.get('html').indexOf('<span style="color:#b3b3b3;padding-left:3px">[ID:');
-            if (pos > 0)
-            {
-                elem.set('html', elem.get('html').substr(0, pos));
-            }
-        });
+                if (!elem.hasClass('tl_content_right')) {
+                    if (id > 0 && elem.getPrevious().get('html').indexOf('[ID:') <= 0) {
+                        elem.getPrevious().appendHTML('<span class="id-view">#' + id + '</span>');
+                    }
+                } else {
+                    if (id > 0 && elem.getNext().get('html').indexOf('[ID:') <= 0) {
+                        elem.getNext().appendHTML('<span class="id-view">#' + id + '</span>');
+                    }
+                }
+            });
+
+        }
     }
 }
 
@@ -121,14 +108,11 @@ function keyUp(event)
 /**
  * Generate counter
  */
-function generateCounter()
-{
-    $$('.om_backend_counter_view input[type=text],.om_backend_counter_view textarea').some(function(elem)
-    {
-        var strMax = (elem.get('maxlength') != null) ? ' / '+elem.get('maxlength') : '';
-        if (elem.getPrevious() != null)
-        {
-            elem.getPrevious().getChildren('.length').set('text', '['+elem.value.length+strMax+']')
+function generateCounter() {
+    $$('.om_backend_counter_view input[type=text],.om_backend_counter_view textarea').some(function (elem) {
+        var strMax = (elem.get('maxlength') != null) ? ' / ' + elem.get('maxlength') : '';
+        if (elem.getPrevious() != null) {
+            elem.getPrevious().getChildren('.length').set('text', '[' + elem.value.length + strMax + ']')
         }
     });
 }

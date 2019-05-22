@@ -1,4 +1,12 @@
 
+/***** id view *****/
+
+span.id-view {
+    padding-left: 10px;
+    font-weight: bold;
+    color: #c00;
+}
+
 /***** toolbar *****/
 
 body.popup #om_backend_toolbar {
