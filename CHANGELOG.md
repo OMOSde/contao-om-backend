@@ -1,6 +1,12 @@
 # Contao bundle change log
 
 
+### 1.4.2 (2019-05-22)
+
+ + Changed: Function id-view now searchable and colored, click again shift to remove
+ + Changed: Remove dca field 'cssClasses' if no classes assigned
+ + Fixed: Replace some used deprecated functions
+
 ### 1.4.1 (2019-03-17)
 
  * Fixed: Backend link problems
