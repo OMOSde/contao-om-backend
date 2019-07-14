@@ -78,7 +78,7 @@ class Hooks extends \Backend
                 }
             }
 
-            $strContent = str_replace('<body id="top" class="', '<body id="top" class="'.$strClasses, $strContent);
+            $strContent = str_replace('<body id="top" class="', '<body id="top" class="' . $strClasses, $strContent);
         }
 
         return $strContent;
@@ -139,5 +139,18 @@ class Hooks extends \Backend
         }
 
         return $strContent;
+    }
+
+
+    /**
+     * Handle order of backend modules
+     *
+     * @param $arrModules
+     *
+     * @return array
+     */
+    public function handleModuleOrder($arrModules)
+    {
+        return array_merge(array_flip(\StringUtil::deserialize(\Config::get('moduleOrder'))), $arrModules);
     }
 }

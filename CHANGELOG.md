@@ -1,5 +1,8 @@
 # Contao bundle change log
 
+### 1.5.0 (2019-07-14)
+
+ + Added: New option to set the order of the backend modules in the system settings
 
 ### 1.4.2 (2019-05-22)
 

@@ -147,6 +147,10 @@ Einzelnen Inhaltselementen oder Artikeln CSS-Klassen zuweisen. [Details][2]
 
 Mehr über das grundlegende System erfahren. [Details][3]
 
+### 1.16 Reihenfolge der Backendmodule
+
+In den Systemeinstellungen lässt sich nun die Reihenfolge der Backendmodule einstellen.
+
 ## 2. Nachwort
 
 Das vorliegende Modul ist bei mir quasi in allen Contao-Projekte als Standard mit dabei. Es entstand aus Ideen und 

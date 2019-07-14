@@ -1,0 +1,18 @@
+<?xml version="1.0" ?><xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_settings.php" source-language="en" target-language="de">
+        <body>
+            <trans-unit id="tl_settings.moduleOrder.0">
+                <source>Order of backend modules</source>
+                <target>Reihenfolge der Backendmodule</target>
+            </trans-unit>
+            <trans-unit id="tl_settings.moduleOrder.1">
+                <source>Please select the order of the backend modules.</source>
+                <target>Bitte wählen Sie die Reihenfolge der Backendmodule aus.</target>
+            </trans-unit>
+            <trans-unit id="tl_settings.beorder_legend">
+                <source>Order of backend modules</source>
+                <target>Reihenfolge der Backendmodule</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
