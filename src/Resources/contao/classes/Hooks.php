@@ -151,6 +151,12 @@ class Hooks extends \Backend
      */
     public function handleModuleOrder($arrModules)
     {
-        return array_merge(array_flip(\StringUtil::deserialize(\Config::get('moduleOrder'))), $arrModules);
+        $arrOrder = \StringUtil::deserialize(\Config::get('moduleOrder'));
+        if (!is_array($arrOrder) || empty($arrOrder))
+        {
+            return $arrModules;
+        }
+
+        return array_merge(array_flip($arrOrder), $arrModules);
     }
 }

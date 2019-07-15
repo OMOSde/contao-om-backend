@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.5.1 (2019-07-15)
+
+ +  Fixed: Solve an array problem with feature 'Order of backend modules'
+
 ### 1.5.0 (2019-07-14)
 
  + Added: New option to set the order of the backend modules in the system settings

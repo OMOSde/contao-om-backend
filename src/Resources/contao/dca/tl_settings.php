@@ -44,9 +44,10 @@ class tl_settings_om_backend
      */
     public function getBackendModules(DataContainer $dc)
     {
-        foreach ($GLOBALS['BE_MOD'] as $strKey => $beMod)
+        foreach ($GLOBALS['BE_MOD'] as $strKey => $group)
         {
-            $arrModules[$strKey] = $GLOBALS['TL_LANG']['MOD'][$strKey];
+            $mxdName = $GLOBALS['TL_LANG']['MOD'][$strKey];
+            $arrModules[$strKey] = (is_array($mxdName)) ? $mxdName[0] : $mxdName;
         }
 
         return $arrModules;
