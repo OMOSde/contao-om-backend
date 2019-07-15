@@ -2,7 +2,8 @@
 
 ### 1.5.1 (2019-07-15)
 
- +  Fixed: Solve an array problem with feature 'Order of backend modules'
+ + Fixed: Solve an array problem with feature 'Order of backend modules'
+ + Fixed: Add missing feature to README.md
 
 ### 1.5.0 (2019-07-14)
 

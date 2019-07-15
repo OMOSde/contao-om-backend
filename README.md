@@ -28,6 +28,7 @@ You can install the module through composer.
 - __Speichern-Buttons:__ die Untermenüs werden wieder aufgelöst
 - __Full-Width_Backend:__ Backend wieder auf volle Breite bringen
 - __Element-Klassen:__ Einzelnen Inhaltselementen oder Artikeln CSS-Klassen zuweisen
+- __Reihenfolge der Backend-Module:__ Einstellbar in den Systemeinstellungen
 
 For more informations read FEATURES.md.
 
