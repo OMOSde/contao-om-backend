@@ -157,6 +157,15 @@ class Hooks extends \Backend
             return $arrModules;
         }
 
-        return array_merge(array_flip($arrOrder), $arrModules);
+        $arrModules = array_merge(array_flip($arrOrder), $arrModules);
+        foreach ($arrModules as $strKey => $arrGroup)
+        {
+            if (!is_array($arrModules[$strKey]))
+            {
+                unset($arrModules[$strKey]);
+            }
+        }
+
+        return $arrModules;
     }
 }

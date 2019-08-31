@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.5.2 (2019-08-31)
+
+ + Fixed: Consider the rights management on create backend module order
+
 ### 1.5.1 (2019-07-15)
 
  + Fixed: Solve an array problem with feature 'Order of backend modules'
