@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.1 (2019-10-18)
+
+ + Fixed: Some issues with version feature
+
 ### 1.6.0 (2019-10-18)
 
  + Added: Show newest Contao version in backend (System settings)

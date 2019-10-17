@@ -86,7 +86,7 @@ class Versions extends \Backend
         // check config
         if (!\Config::get('latestVersion') || !\Config::get('latestLtsVersion'))
         {
-            return $strContent;
+            self::getContaoVersions();
         }
 
         // get current version

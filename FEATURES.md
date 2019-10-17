@@ -153,7 +153,7 @@ In den Systemeinstellungen lässt sich nun die Reihenfolge der Backendmodule ein
 
 ### 1.17 Contao-Version anzeigen
 
-Im Backend links unten wird die neueste Contao-Version angezeigt.
+Im Backend links unten wird die neueste Contao-Version angezeigt. [Details][4]
 
 ## 2. Nachwort
 
@@ -163,4 +163,5 @@ Anforderungen, die immer mal wieder aus den Projekten selbst hervorgingen.
 Gerne nehme ich Ideen für Features entgegen.
 
 [2]: handbook/features/element_classes.md
-[2]: handbook/features/system_information.md
+[3]: handbook/features/system_information.md
+[4]: handbook/features/contao_versions.md
