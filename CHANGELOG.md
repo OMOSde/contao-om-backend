@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.0 (2019-10-18)
+
+ + Added: Show newest Contao version in backend (System settings)
+
 ### 1.5.2 (2019-08-31)
 
  + Fixed: Consider the rights management on create backend module order

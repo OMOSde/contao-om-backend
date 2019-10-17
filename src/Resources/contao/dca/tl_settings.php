@@ -13,7 +13,7 @@
 /**
  * Config
  */
-$GLOBALS['TL_DCA']['tl_settings']['palettes']['default'] .= ';{beorder_legend},moduleOrder';
+$GLOBALS['TL_DCA']['tl_settings']['palettes']['default'] .= ';{beorder_legend},moduleOrder;{version_legend},checkContaoVersion';
 
 
 /**
@@ -26,6 +26,13 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['moduleOrder'] = [
     'options_callback' => ['tl_settings_om_backend', 'getBackendModules'],
     'eval'             => ['multiple' => true, 'csv' => ',', 'tl_class' => 'clr'],
     'sql'              => "varchar(255) NOT NULL default ''"
+];
+$GLOBALS['TL_DCA']['tl_settings']['fields']['checkContaoVersion'] = [
+    'label'            => &$GLOBALS['TL_LANG']['tl_settings']['checkContaoVersion'],
+    'exclude'          => true,
+    'inputType'        => 'checkbox',
+    'eval'             => ['tl_class' => 'clr w50'],
+    'sql'              => "char(1) NOT NULL default ''"
 ];
 
 

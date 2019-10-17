@@ -29,6 +29,7 @@ You can install the module through composer.
 - __Full-Width_Backend:__ Backend wieder auf volle Breite bringen
 - __Element-Klassen:__ Einzelnen Inhaltselementen oder Artikeln CSS-Klassen zuweisen
 - __Reihenfolge der Backend-Module:__ Einstellbar in den Systemeinstellungen
+- __Neueste Contao-Version anzeigen:__ Systemeinstellungen
 
 For more informations read FEATURES.md.
 

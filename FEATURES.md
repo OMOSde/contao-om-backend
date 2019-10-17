@@ -151,6 +151,10 @@ Mehr über das grundlegende System erfahren. [Details][3]
 
 In den Systemeinstellungen lässt sich nun die Reihenfolge der Backendmodule einstellen.
 
+### 1.17 Contao-Version anzeigen
+
+Im Backend links unten wird die neueste Contao-Version angezeigt.
+
 ## 2. Nachwort
 
 Das vorliegende Modul ist bei mir quasi in allen Contao-Projekte als Standard mit dabei. Es entstand aus Ideen und 

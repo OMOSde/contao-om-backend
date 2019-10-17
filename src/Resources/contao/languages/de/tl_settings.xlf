@@ -9,9 +9,21 @@
                 <source>Please select the order of the backend modules.</source>
                 <target>Bitte wählen Sie die Reihenfolge der Backendmodule aus.</target>
             </trans-unit>
+            <trans-unit id="tl_settings.checkContaoVersion.0">
+                <source>Check contao version</source>
+                <target>Prüfe Contao-Version</target>
+            </trans-unit>
+            <trans-unit id="tl_settings.checkContaoVersion.1">
+                <source>Please select, if the Contao version should be checked for actuality.</source>
+                <target>Bitte auswählen, wenn die Contao-Version auf Aktualität geprüft werden soll.</target>
+            </trans-unit>
             <trans-unit id="tl_settings.beorder_legend">
                 <source>Order of backend modules</source>
                 <target>Reihenfolge der Backendmodule</target>
+            </trans-unit>
+            <trans-unit id="tl_settings.version_legend">
+                <source>Version settings</source>
+                <target>Versionseinstellungen</target>
             </trans-unit>
         </body>
     </file>
