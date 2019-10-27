@@ -69,6 +69,10 @@ class Versions extends \Backend
         // save latest versions to config
         \Config::persist('latestLtsVersion', $strLatestLtsVersion);
         \Config::persist('latestVersion', end($arrVersions));
+
+        // Add a log entry
+        $objLogger = \System::getContainer()->get('monolog.logger.contao');
+        $objLogger->log('Get Contao version from github (contao-om-backend)', __METHOD__, TL_CRON);
     }
 
 
