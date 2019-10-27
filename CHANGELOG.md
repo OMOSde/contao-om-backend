@@ -1,5 +1,10 @@
 # Contao bundle change log
 
+### 1.6.2 (2019-10-27)
+
+ + Changed: Show latest versions only if different to current version
+ + Added: Log entry for getting contao versions from github
+
 ### 1.6.1 (2019-10-18)
 
  + Fixed: Some issues with version feature
