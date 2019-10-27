@@ -108,8 +108,14 @@ class Versions extends \Backend
             }
         }
 
+        // get latest version
+        $strLatestVersion = ($isLts) ? \Config::get('latestLtsVersion') : \Config::get('latestVersion');
+
+        // create additional string
+        $strAdditional = ($strCurrentVersion !== $strLatestVersion) ? sprintf(' | <span style="color:white;">%s</span>', $strLatestVersion) : '';
+
         // create version string
-        $strVersion = sprintf('%s %s | <span style="color:white;">%s</span>', $GLOBALS['TL_LANG']['MSC']['version'], $strCurrentVersion, ($isLts) ? \Config::get('latestLtsVersion') : \Config::get('latestVersion'));
+        $strVersion = sprintf('%s %s%s', $GLOBALS['TL_LANG']['MSC']['version'], $strCurrentVersion, $strAdditional);
         $strLearnMore = sprintf($GLOBALS['TL_LANG']['MSC']['learnMore'], '<a href="https://contao.org" target="_blank">contao.org</a>');
 
         // write version into dom
