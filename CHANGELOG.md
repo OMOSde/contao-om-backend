@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.3 
+
+ + Fixed: Some issues with the monolog.logger
+
 ### 1.6.2 (2019-10-27)
 
  + Changed: Show latest versions only if different to current version

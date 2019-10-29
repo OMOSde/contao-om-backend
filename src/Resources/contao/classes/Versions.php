@@ -17,6 +17,13 @@ namespace OMOSde\ContaoOmBackendBundle;
 
 
 /**
+ * Use
+ */
+use Contao\CoreBundle\Monolog\ContaoContext;
+use Psr\Log\LogLevel;
+
+
+/**
  * Class Versions
  *
  * @copyright OMOS.de 2019 <http://www.omos.de>
@@ -72,7 +79,7 @@ class Versions extends \Backend
 
         // Add a log entry
         $objLogger = \System::getContainer()->get('monolog.logger.contao');
-        $objLogger->log('Get Contao version from github (contao-om-backend)', __METHOD__, TL_CRON);
+        $objLogger->log(LogLevel::INFO, 'Get Contao version from github (contao-om-backend)', ['contao' => new ContaoContext(__METHOD__, TL_CRON)]);
     }
 
 
