@@ -1,7 +1,8 @@
 # Contao bundle change log
 
-### 1.6.3 
+### 1.6.3 (2019-10-29)
 
+ + Fixed: Do not add features when on install tool
  + Fixed: Some issues with the monolog.logger
 
 ### 1.6.2 (2019-10-27)

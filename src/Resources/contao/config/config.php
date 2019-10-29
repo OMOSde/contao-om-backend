@@ -15,6 +15,16 @@
  */
 use Contao\BackendUser;
 
+
+/**
+ * Not in install tool
+ */
+if (strpos(TL_SCRIPT, 'contao/install') !== false)
+{
+    return;
+}
+
+
 /**
  * Add stylesheets and javascript
  */
