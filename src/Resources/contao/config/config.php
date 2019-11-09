@@ -17,15 +17,6 @@ use Contao\BackendUser;
 
 
 /**
- * Not in install tool
- */
-if (strpos(TL_SCRIPT, 'contao/install') !== false)
-{
-    return;
-}
-
-
-/**
  * Add stylesheets and javascript
  */
 if (TL_MODE == 'BE')
@@ -124,39 +115,38 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
             }
         }
     }
-}
+
+    /**
+     * Backend form fields
+     */
+    $GLOBALS['BE_FFL']['usageWizard'] = 'OMOSde\ContaoOmBackendBundle\UsageWizard';
 
 
-/**
- * Backend form fields
- */
-$GLOBALS['BE_FFL']['usageWizard'] = 'OMOSde\ContaoOmBackendBundle\UsageWizard';
+    /**
+     * Hooks
+     */
+    $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\Toolbar', 'addToolbarToBackendTemplate'];
+    $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\Hooks', 'addBodyClasses'];
+    $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinks'];
+    $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\Versions', 'checkContaoVersions'];
+    //$GLOBALS['TL_HOOKS']['postLogin'][] = ['OMOSde\ContaoOmBackendBundle\Hooks', 'redirectUser'];
+    $GLOBALS['TL_HOOKS']['parseTemplate'][] = ['OMOSde\ContaoOmBackendBundle\ElementClasses', 'addElementClassesToTemplate'];
+    $GLOBALS['TL_HOOKS']['getUserNavigation'][] = ['OMOSde\ContaoOmBackendBundle\Hooks', 'handleModuleOrder'];
+    //$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinksMain');
+    $GLOBALS['TL_HOOKS']['getUserNavigation'][] = ['OMOSde\ContaoOmBackendBundle\ModuleBackendTabs', 'changeNavigation'];
 
 
-/**
- * Hooks
- */
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\Toolbar', 'addToolbarToBackendTemplate'];
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\Hooks', 'addBodyClasses'];
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinks'];
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = ['OMOSde\ContaoOmBackendBundle\Versions', 'checkContaoVersions'];
-//$GLOBALS['TL_HOOKS']['postLogin'][] = ['OMOSde\ContaoOmBackendBundle\Hooks', 'redirectUser'];
-$GLOBALS['TL_HOOKS']['parseTemplate'][] = ['OMOSde\ContaoOmBackendBundle\ElementClasses', 'addElementClassesToTemplate'];
-$GLOBALS['TL_HOOKS']['getUserNavigation'][] = ['OMOSde\ContaoOmBackendBundle\Hooks', 'handleModuleOrder'];
-//$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('OMOSde\ContaoOmBackendBundle\BackendLinks', 'addBackendLinksMain');
-$GLOBALS['TL_HOOKS']['getUserNavigation'][] = ['OMOSde\ContaoOmBackendBundle\ModuleBackendTabs', 'changeNavigation'];
+    /**
+     * Models
+     */
+    $GLOBALS['TL_MODELS']['tl_om_backend_links_main'] = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksMainModel';
+    $GLOBALS['TL_MODELS']['tl_om_backend_links_top'] = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksTopModel';
+    $GLOBALS['TL_MODELS']['tl_om_backend_element_classes'] = 'OMOSde\ContaoOmBackendBundle\OmBackendElementClassesModel';
 
 
-/**
- * Models
- */
-$GLOBALS['TL_MODELS']['tl_om_backend_links_main'] = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksMainModel';
-$GLOBALS['TL_MODELS']['tl_om_backend_links_top'] = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksTopModel';
-$GLOBALS['TL_MODELS']['tl_om_backend_element_classes'] = 'OMOSde\ContaoOmBackendBundle\OmBackendElementClassesModel';
-
-
-// add contao version cronjob
-if (\Config::get('checkContaoVersion'))
-{
-    $GLOBALS['TL_CRON']['daily']['checkContaoVersions'] = ['OMOSde\ContaoOmBackendBundle\Versions', 'getContaoVersions'];
+    // add contao version cronjob
+    if (\Config::get('checkContaoVersion'))
+    {
+        $GLOBALS['TL_CRON']['daily']['checkContaoVersions'] = ['OMOSde\ContaoOmBackendBundle\Versions', 'getContaoVersions'];
+    }
 }

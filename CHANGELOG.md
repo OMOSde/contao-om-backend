@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.4 (2019-11-09)
+
+ + Fixed: Use of 'return;' in config/config.php breaks other extension includes
+
 ### 1.6.3 (2019-10-29)
 
  + Fixed: Do not add features when on install tool
