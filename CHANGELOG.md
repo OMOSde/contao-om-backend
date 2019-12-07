@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.5 (2019-12-07)
+
+ + Fixed: Hook 'parseTemplate' for element classes not called in frontend (#41) 
+
 ### 1.6.4 (2019-11-09)
 
  + Fixed: Use of 'return;' in config/config.php breaks other extension includes
