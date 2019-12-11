@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.6 (2019-12-11)
+
+ + Added: Support rsce-Templates for feature 'Element classes' (see #41)
+
 ### 1.6.5 (2019-12-07)
 
  + Fixed: Hook 'parseTemplate' for element classes not called in frontend (#41) 

@@ -38,7 +38,7 @@ class ElementClasses extends System
     public function addElementClassesToTemplate($objTemplate)
     {
         // handle articles and content elements
-        if ($objTemplate->getName() === 'mod_article' || strncmp($objTemplate->getName(), 'ce_', 3) === 0)
+        if ($objTemplate->getName() === 'mod_article' || strncmp($objTemplate->getName(), 'ce_', 3) === 0  || strncmp($objTemplate->getName(), 'rsce_', 5) === 0)
         {
             $arrClasses = \StringUtil::deserialize($objTemplate->cssClasses, true);
             foreach ($arrClasses as $class)
