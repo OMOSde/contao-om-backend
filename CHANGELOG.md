@@ -2,7 +2,8 @@
 
 ### 1.6.7 (2020-01-14)
 
- + Fixed: Version feature breaks version info in sysinfo tab packages (see #46) 
+ + Fixed: Version feature breaks version info in sysinfo tab packages (see #46)
+ + Fixed: Version info shows lower version than current (see #47) 
 
 ### 1.6.6 (2019-12-11)
 
