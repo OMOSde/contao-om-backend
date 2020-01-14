@@ -4,6 +4,7 @@
 
  + Fixed: Version feature breaks version info in sysinfo tab packages (see #46)
  + Fixed: Version info shows lower version than current (see #47) 
+ + Fixed: Missing error message if no md-File found (see #43)
 
 ### 1.6.6 (2019-12-11)
 

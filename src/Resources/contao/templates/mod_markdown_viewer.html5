@@ -1,4 +1,5 @@
 <div class="mdv">
+    <?php if (!$this->error): ?>
     <?php if ($this->editor): ?>
     <div id="tl_buttons">
         <a href="<?= $this->back; ?>" class="header_back" title="" accesskey="b" onclick="Backend.getScrollOffset()">Zurück</a>
@@ -36,5 +37,10 @@
         </div>
         <?php if ($this->html): ?><?= $this->html; ?><?php endif; ?>
     </div>
+    <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if ($this->error): ?>
+    <div class="error" style="padding:10px;"><?= $this->error; ?></div>
     <?php endif; ?>
 </div>

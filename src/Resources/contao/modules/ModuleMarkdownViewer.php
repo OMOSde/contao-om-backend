@@ -55,7 +55,7 @@ class ModuleMarkdownViewer extends \BackendModule
         }
 
         // no files found
-        if (!is_array($arrMarkdownFiles))
+        if (!is_array($arrMarkdownFiles) || empty($arrMarkdownFiles))
         {
             $this->Template->error = 'Keine Markdown-Dateien gefunden!';
 
