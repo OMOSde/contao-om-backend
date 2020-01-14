@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.7 (2020-01-14)
+
+ + Fixed: Version feature breaks version info in sysinfo tab packages (see #46) 
+
 ### 1.6.6 (2019-12-11)
 
  + Added: Support rsce-Templates for feature 'Element classes' (see #41)

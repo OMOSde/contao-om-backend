@@ -127,7 +127,7 @@ class Versions extends \Backend
 
         // write version into dom
         $objCrawler = \Wa72\HtmlPageDom\HtmlPageCrawler::create($strContent);
-        $objCrawler->filter('div.version')->setInnerHtml($strVersion . '<br>' . $strLearnMore);
+        $objCrawler->filter('#left div.version')->setInnerHtml($strVersion . '<br>' . $strLearnMore);
 
         return $objCrawler->saveHTML();
     }
