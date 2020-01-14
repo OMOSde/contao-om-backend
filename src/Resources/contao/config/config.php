@@ -141,13 +141,13 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
     $GLOBALS['TL_MODELS']['tl_om_backend_links_main'] = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksMainModel';
     $GLOBALS['TL_MODELS']['tl_om_backend_links_top'] = 'OMOSde\ContaoOmBackendBundle\OmBackendLinksTopModel';
     $GLOBALS['TL_MODELS']['tl_om_backend_element_classes'] = 'OMOSde\ContaoOmBackendBundle\OmBackendElementClassesModel';
+}
 
 
-    // add contao version cronjob
-    if (\Config::get('checkContaoVersion'))
-    {
-        $GLOBALS['TL_CRON']['daily']['checkContaoVersions'] = ['OMOSde\ContaoOmBackendBundle\Versions', 'getContaoVersions'];
-    }
+// add contao version cronjob
+if (\Config::get('checkContaoVersion'))
+{
+    $GLOBALS['TL_CRON']['daily']['checkContaoVersions'] = ['OMOSde\ContaoOmBackendBundle\Versions', 'getContaoVersions'];
 }
 
 
