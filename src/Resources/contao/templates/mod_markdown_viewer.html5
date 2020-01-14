@@ -41,6 +41,6 @@
     <?php endif; ?>
 
     <?php if ($this->error): ?>
-    <div class="error" style="padding:10px;"><?= $this->error; ?></div>
+    <div class="tl_message"><p class="tl_error"><?= $this->error; ?></p></div>
     <?php endif; ?>
 </div>
