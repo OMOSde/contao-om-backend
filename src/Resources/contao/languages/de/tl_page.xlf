@@ -7,8 +7,8 @@
                 <target>Layout bearbeiten</target>
             </trans-unit>
             <trans-unit id="tl_page.layout.1">
-                <source>Edit layout</source>
-                <target>Layout bearbeiten</target>
+                <source>Edit %s layout</source>
+                <target>Layout %s bearbeiten</target>
             </trans-unit>
         </body>
     </file>
