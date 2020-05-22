@@ -1,5 +1,10 @@
 # Contao bundle change log
 
+### 1.6.8 (2020-05-22)
+
+ + Changed: Replace 'menatwork/contao-multicolumnwizard' with 'menatwork/contao-multicolumnwizard-bundle'
+ + Fixed: Can´t use install tool because redirect to login
+
 ### 1.6.7 (2020-01-14)
 
  + Added: Add name of layout to title on layout button (see #44)
