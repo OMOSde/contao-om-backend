@@ -13,7 +13,7 @@
 /**
  * Layout button
  */
-if (TL_MODE == 'BE')
+if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') === false)
 {
     $objUser = BackendUser::getInstance();
     $objUser->authenticate();
