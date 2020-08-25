@@ -275,8 +275,8 @@ body:not(.popup).lw.om_backend_toolbar #container #main {
 }
 
 
-/***** overwrite *****/
+/***** system informations *****/
 
-a:link {
+body.om_backend_sysinfo a:link {
     background-color: inherit !important;
 }

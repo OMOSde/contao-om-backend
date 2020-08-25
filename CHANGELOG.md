@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.8 (2020-08-25)
+
+ + Fixed: Overwrite CSS for all links only on backend module sysinfo phpinfo
+ 
 ### 1.6.7 (2020-05-22)
 
  + Added: Add name of layout to title on layout button (see #44)

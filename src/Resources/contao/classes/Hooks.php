@@ -56,6 +56,12 @@ class Hooks extends \Backend
         {
             $strClasses = '';
 
+            // add sysinfo body class
+            if (\Input::get('do') === 'sysinfo' && \Input::get('tab') === 'sysinfo_phpinfo')
+            {
+                $strClasses .= 'om_backend_sysinfo ';
+            }
+
             foreach ((array) $this->User->om_backend_features as $feature)
             {
                 switch ($feature)
