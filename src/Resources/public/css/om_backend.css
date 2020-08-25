@@ -280,3 +280,10 @@ body:not(.popup).lw.om_backend_toolbar #container #main {
 body.om_backend_sysinfo a:link {
     background-color: inherit !important;
 }
+
+/***** add language to root pages *****/
+
+.om_backend_language {
+    font-weight: bold;
+    vertical-align: middle;
+}

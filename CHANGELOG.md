@@ -3,6 +3,7 @@
 ### 1.6.8 (2020-08-25)
 
  + Fixed: Overwrite CSS for all links only on backend module sysinfo phpinfo
+ + Fixed: Wrong alignment for language on root pages
  
 ### 1.6.7 (2020-05-22)
 

@@ -71,7 +71,7 @@ class  tl_page_om_backend extends Backend
 
         if (is_array($this->User->om_backend_features) && in_array('addLanguage', $this->User->om_backend_features) && $row['type'] == 'root')
         {
-            $html .= sprintf('<strong> (%s)</strong>', strtoupper($row['language']));
+            $html .= sprintf('<span class="om_backend_language"> (%s)</span>', strtoupper($row['language']));
         }
 
         return $html;
