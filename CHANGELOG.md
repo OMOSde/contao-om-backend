@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.9 (2020-09-02)
+
+ + Fixed: Wrong version compare
+
 ### 1.6.8 (2020-08-25)
 
  + Fixed: Overwrite CSS for all links only on backend module sysinfo phpinfo

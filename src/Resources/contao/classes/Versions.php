@@ -119,7 +119,7 @@ class Versions extends \Backend
         $strLatestVersion = ($isLts) ? \Config::get('latestLtsVersion') : \Config::get('latestVersion');
 
         // create additional string
-        $strAdditional = ($strCurrentVersion < $strLatestVersion) ? sprintf(' | <span style="color:white;">%s</span>', $strLatestVersion) : '';
+        $strAdditional = (version_compare($strCurrentVersion, $strLatestVersion) == -1) ? sprintf(' | <span style="color:white;">%s</span>', $strLatestVersion) : '';
 
         // create version string
         $strVersion = sprintf('%s %s%s', $GLOBALS['TL_LANG']['MSC']['version'], $strCurrentVersion, $strAdditional);
