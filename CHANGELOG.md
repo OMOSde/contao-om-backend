@@ -4,6 +4,7 @@
 
  + Fixed: Backendlinks in Contao 4.9+ not working
  + Fixed: Problem with user rights in Contao 4.9+
+ + Fixed: Redirect token problem with id search
 
 ### 1.6.9 (2020-09-02)
 

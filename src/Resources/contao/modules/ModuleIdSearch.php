@@ -83,7 +83,15 @@ class ModuleIdSearch extends \BackendModule
 
                 // get a request token from csrf service
                 $container = \System::getContainer();
-                $strToken = $container->get('security.csrf.token_manager')->getToken($container->getParameter('contao.csrf_token_name'))->getValue();
+                $arrPackages = $container->getParameter('kernel.packages');
+                if ($arrPackages['contao/core-bundle'] >= '4.9.0')
+                {
+                    $objTokenManager = $container->get('contao.csrf.token_manager');
+                } else {
+                    $objTokenManager = $container->get('security.csrf.token_manager');
+                }
+
+                $strToken = $objTokenManager->getToken($container->getParameter('contao.csrf_token_name'))->getValue();
 
                 $strUrl = sprintf('%scontao?do=%s&table=%s&act=edit&id=%s&rt=%s',
                     $strEntryPoint,
