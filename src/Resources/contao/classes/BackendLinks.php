@@ -20,6 +20,7 @@ namespace OMOSde\ContaoOmBackendBundle;
  * Use
  */
 use Contao\Backend;
+use Contao\System;
 
 
 /**
@@ -85,7 +86,8 @@ class BackendLinks extends Backend
         {
             $strStyle = ($link->icon) ? sprintf('background:url(%s) left 13px no-repeat;', \FilesModel::findByUuid($link->icon)->path) : sprintf('display:inline-block;margin-left:18px;padding: 13px 10px;');
             $strLink = ($link->url) ? sprintf('<li><a href="%s"%s style="%s">%s</a></li>', $link->url, ($link->target) ? ' target="_blank" rel="noopener"' : '', $strStyle, $link->title) : sprintf('<li><span style="%s">%s</span></li>',
-                $strStyle, $link->title);
+                $strStyle,
+                $link->title);
 
             $strLinks .= $strLink;
         }
@@ -117,29 +119,61 @@ class BackendLinks extends Backend
             $arrGroups[$link->be_group][$link->title] = $link->url;
         }
 
-        $strReturn = '';
-        foreach ($arrGroups as $groupName => $group)
+        // create html
+        $arrPackages = System::getContainer()->getParameter('kernel.packages');
+        if (strcmp($arrPackages['contao/core-bundle'], '4.9') < 0)
         {
-            $strReturn .= '<li class="tl_level_1_group"><a href="contao/main.php?do=repository_manager&amp;mtg=' . $groupName . '" title="" onclick="return AjaxRequest.toggleNavigation(this,\'' . $groupName . '\')">' . $groupName . '</a></li>';
-            $strReturn .= '<li class="tl_parent" id="' . $groupName . '" style="display: inline;"><ul class="tl_level_2">';
-            foreach ($group as $linkTitle => $link)
+            $strReturn = '';
+            foreach ($arrGroups as $groupName => $group)
             {
-                if (strpos($link, 'contao?do') !== false)
+                $strReturn .= '<li class="tl_level_1_group"><a href="contao/main.php?do=repository_manager&amp;mtg=' . $groupName . '" title="" onclick="return AjaxRequest.toggleNavigation(this,\'' . $groupName . '\')">' . $groupName . '</a></li>';
+                $strReturn .= '<li class="tl_parent" id="' . $groupName . '" style="display: inline;"><ul class="tl_level_2">';
+                foreach ($group as $linkTitle => $link)
                 {
-                    $container = \System::getContainer();
-                    $strToken = $container->get('security.csrf.token_manager')->getToken($container->getParameter('contao.csrf_token_name'))->getValue();
+                    if (strpos($link, 'contao?do') !== false)
+                    {
+                        $container = \System::getContainer();
+                        $strToken = $container->get('security.csrf.token_manager')->getToken($container->getParameter('contao.csrf_token_name'))->getValue();
 
-                    $strReturn .= sprintf('<li><a href="%s&rt=%s" class="navigation themes" title="">%s</a></li>', $link, $strToken, $linkTitle);
+                        $strReturn .= sprintf('<li><a href="%s&rt=%s" class="navigation themes" title="">%s</a></li>', $link, $strToken, $linkTitle);
+                    }
+                    else
+                    {
+                        $strReturn .= sprintf('<li><a href="%s" target="_blank" rel="noopener" class="navigation themes" title="">%s</a></li>', $link, $linkTitle);
+                    }
                 }
-                else
-                {
-                    $strReturn .= sprintf('<li><a href="%s" target="_blank" rel="noopener" class="navigation themes" title="">%s</a></li>', $link, $linkTitle);
-                }
+                $strReturn .= '</ul></li>';
             }
-            $strReturn .= '</ul></li>';
+
+            $strContent = str_replace('<ul class="tl_level_1">', '<ul class="tl_level_1">' . $strReturn, $strContent);
+        }
+        else
+        {
+            $strReturn = '';
+            foreach ($arrGroups as $groupName => $group)
+            {
+                $strReturn .= '<li><a class="group-content" href="contao/main.php?do=repository_manager&amp;mtg=' . $groupName . '" title="" onclick="return AjaxRequest.toggleNavigation(this,\'content\',\'/contao\')">' . $groupName . '</a>';
+                $strReturn .= '<ul class="menu_level_1">';
+                foreach ($group as $linkTitle => $link)
+                {
+                    if (strpos($link, 'contao?do') !== false)
+                    {
+                        $container = \System::getContainer();
+                        $strToken = $container->get('security.csrf.token_manager')->getToken($container->getParameter('contao.csrf_token_name'))->getValue();
+
+                        $strReturn .= sprintf('<li><a href="%s&rt=%s" class="navigation themes" title="">%s</a></li>', $link, $strToken, $linkTitle);
+                    }
+                    else
+                    {
+                        $strReturn .= sprintf('<li><a href="%s" target="_blank" rel="noopener" class="navigation themes" title="">%s</a></li>', $link, $linkTitle);
+                    }
+                }
+                $strReturn .= '</ul></li>';
+            }
+
+            $strContent = str_replace('<ul class="menu_level_0">', '<ul class="menu_level_0">' . $strReturn, $strContent);
         }
 
-        $strContent = str_replace('<ul class="tl_level_1">', '<ul class="tl_level_1">' . $strReturn, $strContent);
 
         return $strContent;
     }
