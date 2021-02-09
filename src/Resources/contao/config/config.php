@@ -47,8 +47,20 @@ $GLOBALS['BE_MOD']['om_backend'] = [
  */
 if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') === false)
 {
-    $objUser = BackendUser::getInstance();
-    $objUser->authenticate();
+    $arrPackages = \System::getContainer()->getParameter('kernel.packages');
+    if ($arrPackages['contao/core-bundle'] >= '4.9.0')
+    {
+        $strUsername = Contao\System::getContainer()->get('contao.security.token_checker')->getBackendUsername();
+        if ($strUsername !== null)
+        {
+            $objUser = \Contao\BackendUser::loadUserByUsername($strUsername);
+        }
+    }
+    else
+    {
+        $objUser = BackendUser::getInstance();
+        $objUser->authenticate();
+    }
 
     if ($objUser->om_backend_features !== null && in_array('addSysInfo', $objUser->om_backend_features))
     {

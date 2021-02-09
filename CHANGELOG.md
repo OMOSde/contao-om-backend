@@ -3,6 +3,7 @@
 ### 1.6.10 (2021-02-09)
 
  + Fixed: Backendlinks in Contao 4.9+ not working
+ + Fixed: Problem with user rights in Contao 4.9+
 
 ### 1.6.9 (2020-09-02)
 
