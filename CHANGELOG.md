@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.11 (2021-02-12)
+
+ + Fixed: User redirect not working
+
 ### 1.6.10 (2021-02-09)
 
  + Fixed: Backendlinks in Contao 4.9+ not working

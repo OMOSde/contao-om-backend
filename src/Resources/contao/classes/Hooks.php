@@ -101,7 +101,7 @@ class Hooks extends \Backend
         $strUrl = '';
 
         // user groups
-        $arrGroups = StringUtil::deserialize($objUser->groups, true);
+        $arrGroups = \StringUtil::deserialize($objUser->groups, true);
         foreach ($arrGroups as $group)
         {
             $objGroup = \UserGroupModel::findByPk($group);
@@ -118,10 +118,17 @@ class Hooks extends \Backend
             $strUrl = $objUser->redirect;
         }
 
+        // get a request token from csrf service
+        $objContainer = \System::getContainer();
+        $arrPackages = $objContainer->getParameter('kernel.packages');
+        $strService = ($arrPackages['contao/core-bundle'] >= '4.9.0') ? 'contao.csrf.token_manager' : 'security.csrf.token_manager';
+        $strToken = $objContainer->get($strService)->getToken($objContainer->getParameter('contao.csrf_token_name'))->getValue();
+        $strUrl .= '&rt=' . $strToken;
+
         // redirect
         if (strlen($strUrl))
         {
-            $strBaseUrl = \System::getContainer()->get('request_stack')->getCurrentRequest()->getBaseUrl();
+            $strBaseUrl = $objContainer->get('request_stack')->getCurrentRequest()->getBaseUrl();
             \Controller::redirect($strBaseUrl . '/contao?' . html_entity_decode($strUrl));
         }
     }
