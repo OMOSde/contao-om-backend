@@ -13,7 +13,7 @@
         "php": ">=5.6.0",
         "contao/core-bundle": "^4.4",
         "erusev/parsedown": "~1.6",
-        "menatwork/contao-multicolumnwizard-bundle": "^3.4",
+        "menatwork/contao-multicolumnwizard": "^3.3"
         "wa72/htmlpagedom": "^2.0",
         "knplabs/github-api": "^2.11"
     },
