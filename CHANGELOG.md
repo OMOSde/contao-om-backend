@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.12 (2021-04-28)
+
+ + Fixed: Remove dependency for "wa72/htmlpagedom"
+
 ### 1.6.11 (2021-02-12)
 
  + Fixed: User redirect not working

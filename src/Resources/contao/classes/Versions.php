@@ -126,9 +126,27 @@ class Versions extends \Backend
         $strLearnMore = sprintf($GLOBALS['TL_LANG']['MSC']['learnMore'], '<a href="https://contao.org" target="_blank">contao.org</a>');
 
         // write version into dom
-        $objCrawler = \Wa72\HtmlPageDom\HtmlPageCrawler::create($strContent);
-        $objCrawler->filter('#left div.version')->setInnerHtml($strVersion . '<br>' . $strLearnMore);
+        $strContent = self::replaceVersionTag($strContent, $strVersion . '<br>' . $strLearnMore);
 
-        return $objCrawler->saveHTML();
+        return $strContent;
+    }
+
+
+    /**
+     * Replace version string in html content
+     *
+     * @param $strContent
+     * @param $strReplace
+     *
+     * @return array|string|string[]
+     */
+    protected function replaceVersionTag($strContent, $strReplace)
+    {
+        $strVersion = ['<div class="version">', '</div>'];
+
+        $intBegin = strpos($strContent, $strVersion[0]);
+        $intEnd = strpos($strContent, $strVersion[1], $intBegin);
+
+        return substr_replace($strContent, $strVersion[0] . $strReplace, $intBegin, $intEnd - $intBegin);
     }
 }
