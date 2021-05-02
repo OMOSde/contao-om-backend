@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.6.13 (2021-05-02)
+
+ + Fixed: Missing if condition on version check
+
 ### 1.6.12 (2021-04-28)
 
  + Fixed: Remove dependency for "wa72/htmlpagedom"

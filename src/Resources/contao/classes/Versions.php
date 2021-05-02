@@ -145,6 +145,10 @@ class Versions extends \Backend
         $strVersion = ['<div class="version">', '</div>'];
 
         $intBegin = strpos($strContent, $strVersion[0]);
+        if ($intBegin === false)
+        {
+            return $strContent;
+        }
         $intEnd = strpos($strContent, $strVersion[1], $intBegin);
 
         return substr_replace($strContent, $strVersion[0] . $strReplace, $intBegin, $intEnd - $intBegin);
