@@ -17,6 +17,12 @@ namespace OMOSde\ContaoOmBackendBundle;
 
 
 /**
+ * Use
+ */
+use Contao\Controller;
+
+
+/**
  * Class ModuleMarkdownViewer
  *
  * @copyright René Fehrmann
@@ -119,7 +125,7 @@ class ModuleMarkdownViewer extends \BackendModule
 
         // set template vars
         $this->Template->manager = $strManager;
-        $this->Template->html = $strHtml;
+        $this->Template->html = Controller::replaceInsertTags($strHtml, false);
         $this->Template->filename = $strFile;
         $this->Template->edit = (\Input::get('act') === 'source');
         $this->Template->link = sprintf('contao/main.php?do=markdown_view&amp;act=source&amp;id=%s&amp;rt=%s', $strFile, REQUEST_TOKEN);

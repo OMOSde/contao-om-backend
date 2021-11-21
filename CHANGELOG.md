@@ -3,6 +3,7 @@
 ### 1.6.14 (2021-11-21)
 
  + Added: Version 4.13 as known lts
+ + Added: Replace insert tags in markdown viewer 
 
 ### 1.6.13 (2021-05-02)
 
