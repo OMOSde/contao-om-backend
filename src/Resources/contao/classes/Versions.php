@@ -34,7 +34,7 @@ class Versions extends \Backend
     /**
      * LTS versions
      */
-    private static $arrLtsVersions = ['4.4', '4.9'];
+    private static $arrLtsVersions = ['4.4', '4.9', '4.13'];
 
 
     /**
