@@ -1,5 +1,10 @@
 # Contao bundle change log
 
+### 1.7.0 (2021-12-16)
+
+ + Improvements for PHP 8
+ + Increase system requirements
+
 ### 1.6.14 (2021-11-21)
 
  + Added: Version 4.13 as known lts

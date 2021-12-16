@@ -126,31 +126,15 @@ class Versions extends \Backend
         $strLearnMore = sprintf($GLOBALS['TL_LANG']['MSC']['learnMore'], '<a href="https://contao.org" target="_blank">contao.org</a>');
 
         // write version into dom
-        $strContent = self::replaceVersionTag($strContent, $strVersion . '<br>' . $strLearnMore);
+        $arrHtml = ['<div class="version">', '</div>'];
 
-        return $strContent;
-    }
-
-
-    /**
-     * Replace version string in html content
-     *
-     * @param $strContent
-     * @param $strReplace
-     *
-     * @return array|string|string[]
-     */
-    protected function replaceVersionTag($strContent, $strReplace)
-    {
-        $strVersion = ['<div class="version">', '</div>'];
-
-        $intBegin = strpos($strContent, $strVersion[0]);
+        $intBegin = strpos($strContent, $arrHtml[0]);
         if ($intBegin === false)
         {
             return $strContent;
         }
-        $intEnd = strpos($strContent, $strVersion[1], $intBegin);
+        $intEnd = strpos($strContent, $arrHtml[1], $intBegin);
 
-        return substr_replace($strContent, $strVersion[0] . $strReplace, $intBegin, $intEnd - $intBegin);
+        return substr_replace($strContent, $arrHtml[0] . $strVersion . '<br>' . $strLearnMore, $intBegin, $intEnd - $intBegin);
     }
 }
