@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.7.1 (2021-12-17)
+
+ + Fixed: Some PHP warnings
+
 ### 1.7.0 (2021-12-16)
 
  + Improvements for PHP 8

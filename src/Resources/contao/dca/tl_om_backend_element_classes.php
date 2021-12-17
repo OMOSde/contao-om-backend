@@ -90,7 +90,7 @@ $GLOBALS['TL_DCA']['tl_om_backend_element_classes'] = [
             'label'     => &$GLOBALS['TL_LANG']['tl_om_backend_element_classes']['type'],
             'inputType' => 'select',
             'options'   => ['element', 'article'],
-            'reference' => $GLOBALS['TL_LANG']['tl_om_backend_element_classes']['types'],
+            'reference' => &$GLOBALS['TL_LANG']['tl_om_backend_element_classes']['types'],
             'eval'      => ['mandatory' => true, 'submitOnChange' => true, 'tl_class' => 'w50'],
             'sql'       => "varchar(8) NOT NULL default ''"
         ],
