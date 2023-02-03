@@ -64,14 +64,14 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
 
     if ($objUser->om_backend_features !== null && in_array('addSysInfo', $objUser->om_backend_features))
     {
-        $GLOBALS['BE_MOD']['om_backend']['sysinfo'] = [
-            'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
-            'tabs'     => [
-                'sysinfo_database',
-                'sysinfo_phpinfo',
-                'sysinfo_packages'
-            ]
-        ];
+//        $GLOBALS['BE_MOD']['om_backend']['sysinfo'] = [
+//            'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
+//            'tabs'     => [
+//                'sysinfo_database',
+//                'sysinfo_phpinfo',
+//                'sysinfo_packages'
+//            ]
+//        ];
         $GLOBALS['BE_MOD']['om_backend']['sysinfo_database']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleSysinfoDatabase';
         $GLOBALS['BE_MOD']['om_backend']['sysinfo_phpinfo']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleSysinfoPhpInfo';
         $GLOBALS['BE_MOD']['om_backend']['sysinfo_packages']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleSysinfoPackages';
@@ -85,13 +85,13 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
 
     if ($objUser->om_backend_features !== null && in_array('addBackendLinks', $objUser->om_backend_features))
     {
-        $GLOBALS['BE_MOD']['om_backend']['backend_links'] = [
-            'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
-            'tabs'     => [
-                'backend_links_main',
-                'backend_links_top'
-            ]
-        ];
+//        $GLOBALS['BE_MOD']['om_backend']['backend_links'] = [
+//            'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
+//            'tabs'     => [
+//                'backend_links_main',
+//                'backend_links_top'
+//            ]
+//        ];
         $GLOBALS['BE_MOD']['om_backend']['backend_links_main'] = [
             'tables' => ['tl_om_backend_links_main']
         ];
@@ -105,7 +105,9 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
     {
         foreach ($arrModules as $keyModule => $module)
         {
-            $arrTables[$keyModule] = $module['tables'];
+            if (isset($module['tables'])) {
+                $arrTables[$keyModule] = $module['tables'];
+            }
         }
     }
 
@@ -119,7 +121,7 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
                 $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = [];
                 foreach ($module['tabs'] as $tab)
                 {
-                    if (is_array($arrTables[$tab]) && !empty($arrTables[$tab]))
+                    if (isset($arrTables[$tab]) && is_array($arrTables[$tab]) && !empty($arrTables[$tab]))
                     {
                         $GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'] = array_merge($GLOBALS['BE_MOD'][$keyGroup][$keyModule]['tables'], $arrTables[$tab]);
                     }

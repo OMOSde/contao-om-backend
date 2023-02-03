@@ -72,7 +72,7 @@ class ModuleBackendTabs extends \BackendModule
                 }
 
                 // generate link
-                $strTable = sprintf('%s', $GLOBALS['BE_MOD'][$strGroup][$strTab]['tables'][0]);
+                $strTable = sprintf('%s', ($GLOBALS['BE_MOD'][$strGroup][$strTab]['tables'][0] ?? ''));
                 $strHref = sprintf('contao/main.php?do=%s&amp;tab=%s&amp;table=%s&amp;rt=%s', $strModule, $strTab, $strTable, REQUEST_TOKEN);
 
                 // add class
@@ -135,7 +135,7 @@ class ModuleBackendTabs extends \BackendModule
         }
 
         // remove modules from navigation
-        if (is_array($arrHandle['remove']) && !empty($arrHandle['remove']))
+        if (isset($arrHandle['remove']) && is_array($arrHandle['remove']) && !empty($arrHandle['remove']))
         {
             foreach ($arrHandle['remove'] as $module)
             {
@@ -144,11 +144,11 @@ class ModuleBackendTabs extends \BackendModule
         }
 
         // add default table to navigation link
-        if (is_array($arrHandle['add']) && !empty($arrHandle['add']))
+        if (isset($arrHandle['add']) && is_array($arrHandle['add']) && !empty($arrHandle['add']))
         {
             foreach ($arrHandle['add'] as $module)
             {
-                if (is_array($arrModules[$module['group']]['modules'][$module['module']]['tables']))
+                if (!empty($arrModules[$module['group']]['modules'][$module['module']]['tables']))
                 {
                     $arrModules[$module['group']]['modules'][$module['module']]['href'] .= '&table=' . $arrModules[$module['group']]['modules'][$module['module']]['tables'][0];
                 }

@@ -53,6 +53,9 @@ class ModuleSysinfoDatabase extends \BackendModule
             return;
         }
 
+        $arrOverall['rows'] = 0;
+        $arrOverall['size'] = 0;
+
         // handle all tables
         while ($objTables->next())
         {

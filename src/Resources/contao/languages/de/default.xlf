@@ -6,6 +6,10 @@
                 <source>ID/Alias search</source>
                 <target>ID/Alias-Suche</target>
             </trans-unit>
+            <trans-unit id="om_backend.search_headline">
+                <source>Search by ID or alias</source>
+                <target>Nach ID oder Alias suchen</target>
+            </trans-unit>
             <trans-unit id="om_backend.install_tool">
                 <source>Install tool</source>
                 <target>Installtool</target>
@@ -37,6 +41,10 @@
             <trans-unit id="om_backend.image_size">
                 <source>Image sizes</source>
                 <target>Bildgrößen</target>
+            </trans-unit>
+            <trans-unit id="om_backend.button_save">
+                <source>Save</source>
+                <target>Speichern</target>
             </trans-unit>
             <trans-unit id="om_backend.button_delete">
                 <source>Delete</source>

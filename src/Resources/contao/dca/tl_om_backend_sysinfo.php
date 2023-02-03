@@ -73,7 +73,7 @@ $GLOBALS['TL_DCA']['tl_om_backend_sysinfo'] = array
                 'label'               => &$GLOBALS['TL_LANG']['tl_om_backend_sysinfo']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
-                'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['tl_om_backend_sysinfo']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
+                'attributes'          => 'onclick="if(!confirm(\'' . ($GLOBALS['TL_LANG']['tl_om_backend_sysinfo']['deleteConfirm'] ?? null) . '\'))return false;Backend.getScrollOffset()"',
             ),
             'show' => array
             (

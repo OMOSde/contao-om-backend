@@ -44,7 +44,7 @@ class ModuleIdSearch extends \BackendModule
         {
             foreach ($group as $moduleName => $modules)
             {
-                if (is_array($modules['tables']))
+                if (isset($modules['tables']) && is_array($modules['tables']))
                 {
                     foreach ($modules['tables'] as $table)
                     {

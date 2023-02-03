@@ -238,7 +238,7 @@ class Toolbar extends \Backend
 
             // add button
             $strToolbar .= sprintf('<a class="button" onclick="document.getElementById(\'create\').click(); return false;" title="%s">%s</a>',
-                $GLOBALS['TL_LANG']['om_backend']['button_'],
+                $GLOBALS['TL_LANG']['om_backend']['button_save'],
                 $this->getIcon('save')
             );
         }
