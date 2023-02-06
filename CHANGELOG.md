@@ -1,5 +1,10 @@
 # Contao bundle change log
 
+### 1.7.2 (2023-02-03)
+
+ + Fixed: Some PHP 8 errors
+ + Changed: Deactivate feature `Backend-Tabs` (please remove your this callback in your config.php)
+
 ### 1.7.1 (2021-12-17)
 
  + Fixed: Some PHP warnings
