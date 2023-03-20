@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_om_backend_element_classes.php" source-language="en">
+        <body>
+            <trans-unit id="tl_om_backend_element_classes.type.0">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.type.1">
+                <source>Please select a type.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.element.0">
+                <source>Content element</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.element.1">
+                <source>Please select a content element.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.classes.0">
+                <source>Settings</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.classes.1">
+                <source>Please fill the form.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.class.0">
+                <source>Class</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.language.0">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.text.0">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.type_legend">
+                <source>Type selection</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.element_legend">
+                <source>Element selection</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.class_legend">
+                <source>Classes</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.deleteConfirm">
+                <source>Deleting category ID %s will also delete all its FAQs! Continue?</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.types.article">
+                <source>Article</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.types.element">
+                <source>Content element</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.new.0">
+                <source>New element</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.new.1">
+                <source>Create a new element</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.show.0">
+                <source>Element details</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.show.1">
+                <source>Show the details of element ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.edit.0">
+                <source>Edit element</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.edit.1">
+                <source>Edit element ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.copy.0">
+                <source>Duplicate element</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.copy.1">
+                <source>Duplicate element ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.delete.0">
+                <source>Delete element</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_element_classes.delete.1">
+                <source>Delete element ID %s</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

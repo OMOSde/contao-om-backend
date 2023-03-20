@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_user_group.php" source-language="en">
+        <body>
+            <trans-unit id="tl_user_group.redirect.0">
+                <source>Redirect</source>
+            </trans-unit>
+            <trans-unit id="tl_user_group.redirect.1">
+                <source>Forward user to backend URL. e.g. do=news (A token is automatically added.)</source>
+            </trans-unit>
+            <trans-unit id="tl_user_group.redirect_legend">
+                <source>Redirect settings</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

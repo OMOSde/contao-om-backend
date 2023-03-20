@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/modules.php" source-language="en"
+         >
+        <body>
+            <trans-unit id="MOD.om_backend">
+                <source>OM-Backend</source>
+            </trans-unit>
+            <trans-unit id="MOD.id_search.0">
+                <source>ID/Alias search</source>
+            </trans-unit>
+            <trans-unit id="MOD.id_search.1">
+                <source>ID/Alias search</source>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo.0">
+                <source>System informations</source>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo.1">
+                <source>System informations</source>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_packages.0">
+                <source>Installed packages</source>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_packages.1">
+                <source>Installed packages</source>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_database.0">
+                <source>Database</source>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_database.1">
+                <source>Database</source>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_phpinfo.0">
+                <source>PHP-Info</source>
+            </trans-unit>
+            <trans-unit id="MOD.sysinfo_phpinfo.1">
+                <source>Output of phpinfo();</source>
+            </trans-unit>
+            <trans-unit id="MOD.markdown_view.0">
+                <source>Markdown viewer</source>
+            </trans-unit>
+            <trans-unit id="MOD.markdown_view.1">
+                <source>Markdown viewer</source>
+            </trans-unit>
+            <trans-unit id="MOD.backend_links.0">
+                <source>Backend links</source>
+            </trans-unit>
+            <trans-unit id="MOD.backend_links.1">
+                <source>Manage backend links</source>
+            </trans-unit>
+            <trans-unit id="MOD.backend_links_main.0">
+                <source>Main navigation</source>
+            </trans-unit>
+            <trans-unit id="MOD.backend_links_main.1">
+                <source>Main navigation</source>
+            </trans-unit>
+            <trans-unit id="MOD.backend_links_top.0">
+                <source>Top navigation</source>
+            </trans-unit>
+            <trans-unit id="MOD.backend_links_top.1">
+                <source>Top navigation</source>
+            </trans-unit>
+            <trans-unit id="MOD.element_classes.0">
+                <source>Element classes</source>
+            </trans-unit>
+            <trans-unit id="MOD.element_classes.1">
+                <source>Manage element classes</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

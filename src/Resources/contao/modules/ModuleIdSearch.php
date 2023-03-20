@@ -48,7 +48,7 @@ class ModuleIdSearch extends \BackendModule
                 {
                     foreach ($modules['tables'] as $table)
                     {
-                        if (in_array($table, $arrTables))
+                        if (in_array($table, $arrTables) && isset($GLOBALS['TL_LANG']['MOD'][$moduleName]))
                         {
                             $arrGroups[$groupName]['title']    = $GLOBALS['TL_LANG']['MOD'][$groupName];
                             $arrGroups[$groupName]['tables'][] = array($table, $GLOBALS['TL_LANG']['MOD'][$moduleName][0], $moduleName);

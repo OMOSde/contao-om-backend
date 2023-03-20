@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_om_backend_sysinfo.php" source-language="en">
+        <body>
+            <trans-unit id="tl_om_backend_sysinfo.title.0">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.title.1">
+                <source>Please enter the title.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.priority.0">
+                <source>Priority</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.priority.1">
+                <source>Please select a priority.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.info.0">
+                <source>Information</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.info.1">
+                <source>Please enter the information.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.title_legend">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.info_legend">
+                <source>Information</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.priority_legend">
+                <source>Priority</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.deleteConfirm">
+                <source>Deleting information ID %s! Continue?</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.new.0">
+                <source>New information</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.new.1">
+                <source>Create a new information</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.show.0">
+                <source>Information details</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.show.1">
+                <source>Show the details of information ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.edit.0">
+                <source>Edit information</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.edit.1">
+                <source>Edit information ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.copy.0">
+                <source>Duplicate information</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.copy.1">
+                <source>Duplicate information ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.delete.0">
+                <source>Delete information</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.delete.1">
+                <source>Delete information ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.low.0">
+                <source>Low</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.middle.0">
+                <source>Middle</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_sysinfo.high.0">
+                <source>High</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
