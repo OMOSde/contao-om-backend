@@ -13,6 +13,7 @@
 /**
  * Use
  */
+use Contao\ContentModel;
 use Contao\DataContainer;
 use OMOSde\ContaoOmBackendBundle\OmBackendElementClassesModel;
 
@@ -51,7 +52,13 @@ class tl_content_om_backend
      */
     public function checkForCssClasses(DataContainer $dc)
     {
-        $objElement = \ContentModel::findByPk($dc->id);
+        $objElement = ContentModel::findByPk($dc->id);
+
+        if (null === $objElement) 
+        {
+            return;
+        }
+
         $objCssClasses = OmBackendElementClassesModel::findBy(['type=?', 'element=?'], ['element', $objElement->type]);
         if ($objCssClasses)
         {
