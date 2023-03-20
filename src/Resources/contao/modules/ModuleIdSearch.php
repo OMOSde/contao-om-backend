@@ -50,7 +50,7 @@ class ModuleIdSearch extends \BackendModule
                     {
                         if (in_array($table, $arrTables))
                         {
-                            $arrGroups[$groupName]['title']    = $GLOBALS['TL_LANG']['MOD'][$groupName];
+                            $arrGroups[$groupName]['title']    = $GLOBALS['TL_LANG']['MOD'][$groupName] ?? $groupName;
                             $arrGroups[$groupName]['tables'][] = array($table, $GLOBALS['TL_LANG']['MOD'][$moduleName][0] ?? $moduleName, $moduleName);
                         }
                     }
