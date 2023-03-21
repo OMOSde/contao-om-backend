@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_om_backend_links_top.php" source-language="en">
+        <body>
+            <trans-unit id="tl_om_backend_links_top.title.0">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.title.1">
+                <source>Please enter the title.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.url.0">
+                <source>Url</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.url.1">
+                <source>Please enter the url.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.icon.0">
+                <source>Icon</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.icon.1">
+                <source>Please select an icon.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.target.0">
+                <source>Open in new window</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.target.1">
+                <source>If selected, the link opens in a new window.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.published.0">
+                <source>Publish</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.published.1">
+                <source>Publish.</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.title_legend">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.target_legend">
+                <source>Target window</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.publish_legend">
+                <source>Publish</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.deleteConfirm">
+                <source>Deleting category ID %s will also delete all its FAQs! Continue?</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.new.0">
+                <source>New link</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.new.1">
+                <source>Create a new link</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.show.0">
+                <source>Link details</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.show.1">
+                <source>Show the details of link ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.edit.0">
+                <source>Edit link</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.edit.1">
+                <source>Edit link ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.copy.0">
+                <source>Duplicate link</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.copy.1">
+                <source>Duplicate link ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.delete.0">
+                <source>Delete link</source>
+            </trans-unit>
+            <trans-unit id="tl_om_backend_links_top.delete.1">
+                <source>Delete category ID %s</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

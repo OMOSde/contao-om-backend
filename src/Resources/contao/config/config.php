@@ -14,7 +14,9 @@
  * Use
  */
 use Contao\BackendUser;
-
+use Contao\Config;
+use Contao\Environment;
+use Contao\System;
 
 /**
  * Add stylesheets and javascript
@@ -47,13 +49,14 @@ $GLOBALS['BE_MOD']['om_backend'] = [
  */
 if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') === false)
 {
-    $arrPackages = \System::getContainer()->getParameter('kernel.packages');
-    if ($arrPackages['contao/core-bundle'] >= '4.9.0')
+    $arrPackages = System::getContainer()->getParameter('kernel.packages');
+    if (version_compare($arrPackages['contao/core-bundle'] ?? $arrPackages['contao/contao'], '4.9.0', '>='))
     {
-        $strUsername = Contao\System::getContainer()->get('contao.security.token_checker')->getBackendUsername();
-        if ($strUsername !== null)
+        $objUser = System::getContainer()->get('security.helper')->getUser();
+
+        if (!$objUser instanceof BackendUser)
         {
-            $objUser = \Contao\BackendUser::loadUserByUsername($strUsername);
+            $objUser = null;
         }
     }
     else
@@ -62,7 +65,7 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
         $objUser->authenticate();
     }
 
-    if ($objUser->om_backend_features !== null && in_array('addSysInfo', $objUser->om_backend_features))
+    if ($objUser && $objUser->om_backend_features !== null && in_array('addSysInfo', $objUser->om_backend_features))
     {
 //        $GLOBALS['BE_MOD']['om_backend']['sysinfo'] = [
 //            'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
@@ -78,12 +81,12 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
 
     }
 
-    if ($objUser->om_backend_features !== null && in_array('addMarkdownView', $objUser->om_backend_features))
+    if ($objUser && $objUser->om_backend_features !== null && in_array('addMarkdownView', $objUser->om_backend_features))
     {
         $GLOBALS['BE_MOD']['om_backend']['markdown_view']['callback'] = 'OMOSde\ContaoOmBackendBundle\ModuleMarkdownViewer';
     }
 
-    if ($objUser->om_backend_features !== null && in_array('addBackendLinks', $objUser->om_backend_features))
+    if ($objUser && $objUser->om_backend_features !== null && in_array('addBackendLinks', $objUser->om_backend_features))
     {
 //        $GLOBALS['BE_MOD']['om_backend']['backend_links'] = [
 //            'callback' => 'OMOSde\ContaoOmBackendBundle\ModuleBackendTabs',
@@ -159,7 +162,7 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
 
 
 // add contao version cronjob
-if (\Config::get('checkContaoVersion'))
+if (Config::get('checkContaoVersion'))
 {
     $GLOBALS['TL_CRON']['daily']['checkContaoVersions'] = ['OMOSde\ContaoOmBackendBundle\Versions', 'getContaoVersions'];
 }

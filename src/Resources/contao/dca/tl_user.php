@@ -60,7 +60,7 @@ class tl_user_om_backend extends Backend
 
         // version handling
         $arrPackages = System::getContainer()->getParameter('kernel.packages');
-        if (strcmp($arrPackages['contao/core-bundle'], '4.5') < 0)
+        if (version_compare($arrPackages['contao/core-bundle'] ?? $arrPackages['contao/contao'], '4.5.0', '<'))
         {
             $arrFeatures[] = 'addFullWidth';
         }

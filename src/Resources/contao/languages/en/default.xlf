@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/default.php" source-language="en">
+        <body>
+            <trans-unit id="om_backend.id_search">
+                <source>ID/Alias search</source>
+            </trans-unit>
+            <trans-unit id="om_backend.search_headline">
+                <source>Search by ID or alias</source>
+            </trans-unit>
+            <trans-unit id="om_backend.install_tool">
+                <source>Install tool</source>
+            </trans-unit>
+            <trans-unit id="om_backend.new_template">
+                <source>New template</source>
+            </trans-unit>
+            <trans-unit id="om_backend.sync_files">
+                <source>Sync files</source>
+            </trans-unit>
+            <trans-unit id="om_backend.contao_manager">
+                <source>Open Contao-Manager</source>
+            </trans-unit>
+            <trans-unit id="om_backend.stylesheets">
+                <source>Stylesheets</source>
+            </trans-unit>
+            <trans-unit id="om_backend.modules">
+                <source>Modules</source>
+            </trans-unit>
+            <trans-unit id="om_backend.layouts">
+                <source>Layouts</source>
+            </trans-unit>
+            <trans-unit id="om_backend.image_size">
+                <source>Image sizes</source>
+            </trans-unit>
+            <trans-unit id="om_backend.button_save">
+                <source>Save</source>
+            </trans-unit>
+            <trans-unit id="om_backend.button_delete">
+                <source>Delete</source>
+            </trans-unit>
+            <trans-unit id="om_backend.button_cut">
+                <source>Cut</source>
+            </trans-unit>
+            <trans-unit id="om_backend.button_copy">
+                <source>Copy</source>
+            </trans-unit>
+            <trans-unit id="om_backend.button_override">
+                <source>Override</source>
+            </trans-unit>
+            <trans-unit id="om_backend.button_edit">
+                <source>Edit</source>
+            </trans-unit>
+            <trans-unit id="om_backend.button_alias">
+                <source>Generate aliases</source>
+            </trans-unit>
+            <trans-unit id="id_search.headline">
+                <source>ID/Alias</source>
+            </trans-unit>
+            <trans-unit id="id_search.submit">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="id_search.help">
+                <source>Please enter an ID / alias and select a table.</source>
+            </trans-unit>
+            <trans-unit id="ERR.id_search.id_or_alias_not_found">
+                <source>ID/Alias not found.</source>
+            </trans-unit>
+            <trans-unit id="om_backend.sysinfo.no_packages">
+                <source>There are no packages installed. (Really?)</source>
+            </trans-unit>
+            <trans-unit id="om_backend.sysinfo.packages">
+                <source>Packages</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

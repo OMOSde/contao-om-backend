@@ -121,7 +121,7 @@ class Hooks extends \Backend
         // get a request token from csrf service
         $objContainer = \System::getContainer();
         $arrPackages = $objContainer->getParameter('kernel.packages');
-        $strService = ($arrPackages['contao/core-bundle'] >= '4.9.0') ? 'contao.csrf.token_manager' : 'security.csrf.token_manager';
+        $strService = version_compare($arrPackages['contao/core-bundle'] ?? $arrPackages['contao/contao'], '4.9.0', '>=') ? 'contao.csrf.token_manager' : 'security.csrf.token_manager';
         $strToken = $objContainer->get($strService)->getToken($objContainer->getParameter('contao.csrf_token_name'))->getValue();
         $strUrl .= '&rt=' . $strToken;
 
