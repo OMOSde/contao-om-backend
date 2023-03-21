@@ -1,5 +1,11 @@
 # Contao bundle change log
 
+### 1.7.3 (2023-03-21)
+
+ + Fixed: Some PHP 8 errors (thx @fritzmg)
+ + Fixed: Add some missing parameter handling for `contao.backend.route_prefix`
+ + Fixed: Use parameter `contao_manager.manager_path` and `contao.web_dir` for manager detection
+
 ### 1.7.2 (2023-02-03)
 
  + Fixed: Some PHP 8 errors
