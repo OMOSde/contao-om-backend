@@ -114,7 +114,8 @@ class Toolbar extends \Backend
         // add contao manager icon
         if ($this->contaoManagerExists())
         {
-            $strToolbar .= sprintf('<a class="button" href="contao-manager.phar.php" title="%s" target="_blank" rel="noopener">%s</a>',
+            $strToolbar .= sprintf('<a class="button" href="%s" title="%s" target="_blank" rel="noopener">%s</a>',
+                System::getContainer()->getParameter('contao_manager.manager_path'),
                 $GLOBALS['TL_LANG']['om_backend']['contao_manager'],
                 $this->getIcon('contaoManager')
             );
@@ -263,7 +264,10 @@ class Toolbar extends \Backend
      */
     protected function contaoManagerExists()
     {
-        return file_exists(\System::getContainer()->getParameter('kernel.project_dir') .'/web/contao-manager.phar.php');
+        $managerPath = System::getContainer()->getParameter('contao_manager.manager_path') ?? 'contao-manager.phar.php';
+        $webDir = System::getContainer()->getParameter('contao.web_dir');
+
+        return file_exists($webDir.'/'.$managerPath);
     }
 
 
