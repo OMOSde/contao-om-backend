@@ -21,6 +21,8 @@ namespace OMOSde\ContaoOmBackendBundle;
  */
 use Contao\Config;
 use Contao\FilesModel;
+use Contao\System;
+use Contao\Controller;
 
 
 /**
@@ -31,6 +33,8 @@ use Contao\FilesModel;
  */
 class Hooks extends \Backend
 {
+    private string $routePrefix;
+
     /**
      * Hooks constructor.
      */
@@ -38,6 +42,8 @@ class Hooks extends \Backend
     {
         parent::__construct();
         $this->import('BackendUser', 'User');
+
+        $this->routePrefix = System::getContainer()->getParameter('contao.backend.route_prefix') ?? '/contao';
     }
 
 
@@ -129,7 +135,7 @@ class Hooks extends \Backend
         if (strlen($strUrl))
         {
             $strBaseUrl = $objContainer->get('request_stack')->getCurrentRequest()->getBaseUrl();
-            \Controller::redirect($strBaseUrl . '/contao?' . html_entity_decode($strUrl));
+            Controller::redirect($strBaseUrl . $this->routePrefix . '?' . html_entity_decode($strUrl));
         }
     }
 

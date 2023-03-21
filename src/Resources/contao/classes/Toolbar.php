@@ -19,6 +19,8 @@ namespace OMOSde\ContaoOmBackendBundle;
 /**
  * Usages
  */
+
+use Contao\System;
 use Contao\ThemeModel;
 
 
@@ -30,6 +32,8 @@ use Contao\ThemeModel;
  */
 class Toolbar extends \Backend
 {
+    private string $routePrefix;
+
     /**
      * Toolbar constructor.
      */
@@ -37,6 +41,8 @@ class Toolbar extends \Backend
     {
         parent::__construct();
         $this->import('BackendUser', 'User');
+
+        $this->routePrefix = System::getContainer()->getParameter('contao.backend.route_prefix') ?? '/contao';
     }
 
 
@@ -82,24 +88,24 @@ class Toolbar extends \Backend
         $strToolbar  = '<div id="om_backend_toolbar">';
 
         // add buttons id-search, install-tool, new template, sync files
-        $strToolbar .= sprintf('<a class="button" href="%scontao?do=id_search" title="%s">%s</a>',
-            $strEntryPoint,
+        $strToolbar .= sprintf('<a class="button" href="%s?do=id_search" title="%s">%s</a>',
+            $strEntryPoint.$this->routePrefix,
             $GLOBALS['TL_LANG']['om_backend']['id_search'],
             $this->getIcon('idSearch')
         );
-        $strToolbar .= sprintf('<a class="button" href="%scontao/install" target="_blank" rel="noopener" title="%s">%s</a>',
-            $strEntryPoint,
+        $strToolbar .= sprintf('<a class="button" href="%s/install" target="_blank" rel="noopener" title="%s">%s</a>',
+            $strEntryPoint.$this->routePrefix,
             $GLOBALS['TL_LANG']['om_backend']['install_tool'],
             $this->getIcon('installTool')
         );
-        $strToolbar .= sprintf('<a class="button" href="%scontao?do=tpl_editor&key=new_tpl&rt=%s" title="%s">%s</a>',
-            $strEntryPoint,
+        $strToolbar .= sprintf('<a class="button" href="%s?do=tpl_editor&key=new_tpl&rt=%s" title="%s">%s</a>',
+            $strEntryPoint.$this->routePrefix,
             $strToken,
             $GLOBALS['TL_LANG']['om_backend']['new_template'],
             $this->getIcon('newTemplate')
         );
-        $strToolbar .= sprintf('<a class="button" href="%scontao?do=files&act=sync&rt=%s" title="%s">%s</a>',
-            $strEntryPoint,
+        $strToolbar .= sprintf('<a class="button" href="%s?do=files&act=sync&rt=%s" title="%s">%s</a>',
+            $strEntryPoint.$this->routePrefix,
             $strToken,
             $GLOBALS['TL_LANG']['om_backend']['sync_files'],
             $this->getIcon('syncFiles')
@@ -124,29 +130,29 @@ class Toolbar extends \Backend
                 $strToolbar .= '<div class="separator"></div>';
 
                 // add buttons
-                $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_style_sheet&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
-                    $strEntryPoint,
+                $strToolbar .= sprintf('<a class="button" href="%s?do=themes&amp;table=tl_style_sheet&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
+                    $strEntryPoint.$this->routePrefix,
                     $theme->id,
                     $strToken,
                     sprintf('%s (%s)', $GLOBALS['TL_LANG']['om_backend']['stylesheets'], $theme->name),
                     $this->getIcon('themeStylesheet')
                 );
-                $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_module&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
-                    $strEntryPoint,
+                $strToolbar .= sprintf('<a class="button" href="%s?do=themes&amp;table=tl_module&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
+                    $strEntryPoint.$this->routePrefix,
                     $theme->id,
                     $strToken,
                     sprintf('%s (%s)', $GLOBALS['TL_LANG']['om_backend']['modules'], $theme->name),
                     $this->getIcon('themeModule')
                 );
-                $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_layout&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
-                    $strEntryPoint,
+                $strToolbar .= sprintf('<a class="button" href="%s?do=themes&amp;table=tl_layout&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
+                    $strEntryPoint.$this->routePrefix,
                     $theme->id,
                     $strToken,
                     sprintf('%s (%s)', $GLOBALS['TL_LANG']['om_backend']['layouts'], $theme->name),
                     $this->getIcon('themeLayout')
                 );
-                $strToolbar .= sprintf('<a class="button" href="%scontao?do=themes&amp;table=tl_image_size&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
-                    $strEntryPoint,
+                $strToolbar .= sprintf('<a class="button" href="%s?do=themes&amp;table=tl_image_size&amp;id=%s&amp;rt=%s" title="%s">%s</a>',
+                    $strEntryPoint.$this->routePrefix,
                     $theme->id,
                     $strToken,
                     sprintf('%s (%s)', $GLOBALS['TL_LANG']['om_backend']['image_size'], $theme->name),
@@ -184,8 +190,8 @@ class Toolbar extends \Backend
 
             // add separator and button
             $strToolbar .= '<div class="separator"></div>';
-            $strToolbar .= sprintf('<a class="button" href="%scontao?do=%s&amp;act=select&amp;rt=%s" title="%s">%s</a>',
-                $strEntryPoint,
+            $strToolbar .= sprintf('<a class="button" href="%s?do=%s&amp;act=select&amp;rt=%s" title="%s">%s</a>',
+                $strEntryPoint.$this->routePrefix,
                 \Input::get('do').$table.$id,
                 $strToken,
                 $GLOBALS['TL_LANG']['om_backend']['stylesheets'].$objThemes->name,
