@@ -119,7 +119,7 @@ class  tl_page_om_backend extends Backend
 
         // get layout
         $objLayout = \LayoutModel::findByPk($arrPage['layout']);
-        $strTitle = sprintf($GLOBALS['TL_LANG']['tl_page']['layout'][1], '"' . $objLayout->name . '"');
+        $strTitle = sprintf($GLOBALS['TL_LANG']['tl_page']['layout'][1], '"' . ($objLayout->name ?? '') . '"');
 
         // return link or image only
         return ($this->User->hasAccess('layout', 'themes') && $arrPage['layout'] > 0) ? '<a href="' . $this->addToUrl('do=themes&table=tl_layout&act=edit&id=' . $arrPage['layout'], true,

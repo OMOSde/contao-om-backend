@@ -3,6 +3,7 @@
 ### 1.7.4 (2023-03-28)
 
  + Fixed: Route prefix detection in Contao 4.9 defect
+ + Fixed: One more php 8 issue
 
 ### 1.7.3 (2023-03-21)
 
