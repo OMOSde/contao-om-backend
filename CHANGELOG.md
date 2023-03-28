@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.7.4 (2023-03-28)
+
+ + Fixed: Route prefix detection in Contao 4.9 defect
+
 ### 1.7.3 (2023-03-21)
 
  + Fixed: Some PHP 8 errors (thx @fritzmg)

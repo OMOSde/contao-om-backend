@@ -43,7 +43,8 @@ class Hooks extends \Backend
         parent::__construct();
         $this->import('BackendUser', 'User');
 
-        $this->routePrefix = System::getContainer()->getParameter('contao.backend.route_prefix') ?? '/contao';
+        $container = System::getContainer();
+        $this->routePrefix = $container->hasParameter('contao.backend.route_prefix') ? $container->getParameter('contao.backend.route_prefix') : '/contao';
     }
 
 
