@@ -59,7 +59,8 @@ if (TL_MODE == 'BE' && strpos(Environment::get('request'), 'contao/install') ===
             $objUser = null;
         }
     }
-    else
+
+    if (null === $objUser)
     {
         $objUser = BackendUser::getInstance();
         $objUser->authenticate();

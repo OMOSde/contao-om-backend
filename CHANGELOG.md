@@ -1,5 +1,9 @@
 # Contao bundle change log
 
+### 1.7.5 (2023-04-17)
+
+ + Fixed: Wrong backend user detection
+
 ### 1.7.4 (2023-03-28)
 
  + Fixed: Route prefix detection in Contao 4.9 defect
